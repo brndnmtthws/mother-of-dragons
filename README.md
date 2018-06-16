@@ -28,7 +28,7 @@ When you run mother-of-dragons, it will start 3 separate closed loops:
    which you define with the `--network` parameter.
 
    * When a new dragon is found, the dragon will be configured with the desired
-     pool and autotune.
+     pool and autotune. If you specify a pool configuration with a MAC address, mother will assign the pool config with the matching address.
 
    * If `--dragon-auto-upgrade` is set, dragons will be updated to the latest
      firmware version when added.
@@ -146,6 +146,7 @@ After=network.target
 
 [Service]
 ExecStart=/usr/local/bin/mother-of-dragons \
+  --network=10.1.0.0/22 \
   --statsd-host=127.0.0.1 \
   --statsd-port=9125 \
   --dragon-autotune-mode=balanced \
