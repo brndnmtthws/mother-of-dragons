@@ -14,8 +14,8 @@ def main():
     opts = Opts()
     gevent.signal(signal.SIGQUIT, gevent.kill)
     thread = gevent.spawn(run_forever)
-    from .manager import Manager
-    m = Manager(opts.args.network,
+    from .manager import Mother
+    m = Mother(opts.args.network,
                 scan_timeout=opts.args.scan_timeout,
                 scan_interval=opts.args.scan_interval,
                 dragon_timeout=opts.args.dragon_timeout,

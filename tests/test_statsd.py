@@ -1,6 +1,6 @@
 from pytest import fixture
 from mother_of_dragons.statsd_wrapper import StatsdWrapper
-from mother_of_dragons.manager import Manager
+from mother_of_dragons.mother import Mother
 from statsd import StatsClient
 
 

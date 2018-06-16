@@ -1,4 +1,4 @@
-"""Dragon Manager."""
+"""Dragon Mother."""
 from dragon_rest.dragons import DragonAPI
 import ipaddress
 import gevent
@@ -11,7 +11,7 @@ from .timer import Timer
 from .statsd_wrapper import StatsdWrapper
 
 
-class Manager:
+class Mother:
     """Interface for mother_of_dragons."""
 
     dragons = {}

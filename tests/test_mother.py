@@ -1,6 +1,6 @@
 import vcr
 from pytest import fixture
-from mother_of_dragons.manager import Manager
+from mother_of_dragons.mother import Mother
 from mother_of_dragons.dragons import Dragon
 from dragon_rest.dragons import DragonAPI
 import gevent
@@ -75,8 +75,8 @@ pool_json_alternate = """
 
 
 @fixture
-def manager():
-    return Manager(network='10.1.0.0/28',
+def mother():
+    return Mother(network='10.1.0.0/28',
                    scan_timeout=1,
                    scan_interval=2,
                    dragon_timeout=1,
@@ -100,32 +100,32 @@ def host():
 
 
 @vcr.use_cassette()
-def test_manager_scan(manager, host):
-    manager.scan(schedule=False)
+def test_mother_scan(mother, host):
+    mother.scan(schedule=False)
     gevent.sleep(2)
 
-    assert len(manager.dragons) == 1
-    assert manager.dragons[host].host == host
+    assert len(mother.dragons) == 1
+    assert mother.dragons[host].host == host
 
 @vcr.use_cassette()
-def test_manager_workers_started(manager, host, mocker):
-    mocker.patch.object(Manager, '_schedule_scanner', autospec=True)
-    mocker.patch.object(Manager, '_schedule_check_health', autospec=True)
-    mocker.patch.object(Manager, '_schedule_fetch_stats', autospec=True)
-    manager.start()
+def test_mother_workers_started(mother, host, mocker):
+    mocker.patch.object(Mother, '_schedule_scanner', autospec=True)
+    mocker.patch.object(Mother, '_schedule_check_health', autospec=True)
+    mocker.patch.object(Mother, '_schedule_fetch_stats', autospec=True)
+    mother.start()
     gevent.sleep(2)
 
-    assert len(manager.dragons) == 1
-    assert manager.dragons[host].host == host
+    assert len(mother.dragons) == 1
+    assert mother.dragons[host].host == host
 
-    Manager._schedule_scanner.assert_called_once_with(manager)
-    Manager._schedule_scanner.assert_called_with(manager)
-    Manager._schedule_scanner.assert_called_with(manager)
+    Mother._schedule_scanner.assert_called_once_with(mother)
+    Mother._schedule_scanner.assert_called_with(mother)
+    Mother._schedule_scanner.assert_called_with(mother)
 
 
 # @vcr.use_cassette()
-# def test_manager_scan_alt(host):
-#     manager = Manager(network='10.1.0.0/28',
+# def test_mother_scan_alt(host):
+#     mother = Mother(network='10.1.0.0/28',
 #                       scan_timeout=1,
 #                       scan_interval=2,
 #                       dragon_timeout=1,
@@ -135,13 +135,13 @@ def test_manager_workers_started(manager, host, mocker):
 #                       dragon_autotune_mode='balanced',
 #                       dragon_auto_upgrade=True,
 #                       pools=pool_json_alternate)
-#     manager.scan(schedule=False)
+#     mother.scan(schedule=False)
 #     gevent.sleep(5)
 #
-#     assert len(manager.dragons) == 2
-#     assert manager.dragons[host].host == host
-#     assert manager.dragons[host].pools[0]['password'] == 'lol'
-#     assert manager.dragons[host].pools[1]['password'] == 'lol'
+#     assert len(mother.dragons) == 2
+#     assert mother.dragons[host].host == host
+#     assert mother.dragons[host].pools[0]['password'] == 'lol'
+#     assert mother.dragons[host].pools[1]['password'] == 'lol'
 
 @vcr.use_cassette()
 def test_fetch_stats(host):
