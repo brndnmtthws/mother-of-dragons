@@ -103,20 +103,26 @@ class Dragon:
                   'updating pool configuration'.format(self.worker))
 
             # ugly but necessary
-            p1 = self._get_pool_for(1)
+            p1 = self._get_pool_for(0)
             pool1 = p1['url']
             username1 = '{}.{}'.format(p1['username'], self.worker)
             password1 = p1['password']
 
-            p2 = self._get_pool_for(2)
-            pool2 = p2['url']
-            username2 = '{}.{}'.format(p2['username'], self.worker)
-            password2 = p2['password']
+            p2 = self._get_pool_for(1)
+            if p2:
+                pool2 = p2['url']
+                username2 = '{}.{}'.format(p2['username'], self.worker)
+                password2 = p2['password']
+            else:
+                pool2 = username2 = password2 = None
 
-            p3 = self._get_pool_for(3)
-            pool3 = p3['url']
-            username3 = '{}.{}'.format(p3['username'], self.worker)
-            password3 = p3['password']
+            p3 = self._get_pool_for(2)
+            if p3:
+                pool3 = p3['url']
+                username3 = '{}.{}'.format(p3['username'], self.worker)
+                password3 = p3['password']
+            else:
+                pool3 = username3 = password3 = None
 
             self.dragon.updatePools(pool1=pool1,
                                     username1=username1,

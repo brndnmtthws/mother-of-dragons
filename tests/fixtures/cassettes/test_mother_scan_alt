@@ -153,7 +153,7 @@ interactions:
     method: POST
     uri: http://10.1.0.8/api/pools
   response:
-    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-0e3ab","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","pass":"x"}]}'}
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-4500e3ab","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","pass":"x"}]}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
@@ -278,7 +278,7 @@ interactions:
     method: POST
     uri: http://10.1.0.10/api/pools
   response:
-    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-172dd","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","pass":"x"}]}'}
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-450172dd","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","pass":"x"}]}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]

@@ -151,7 +151,7 @@ interactions:
     method: POST
     uri: http://10.1.0.8/api/pools
   response:
-    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-0e3ab","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","pass":"x"}]}'}
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-4500e3ab","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","pass":"x"}]}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
@@ -171,7 +171,7 @@ interactions:
     method: POST
     uri: http://10.1.0.10/api/pools
   response:
-    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-172dd","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","pass":"x"}]}'}
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-450172dd","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","pass":"x"}]}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
@@ -398,15 +398,15 @@ interactions:
         Valid Work":1529002167,"Device Hardware%":0.6559,"Device Rejected%":1.2905,"Device
         Elapsed":2913,"Hash Rate":4710554.78}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
         Poll":"N","Getworks":112,"Accepted":591,"Rejected":9,"Works":21753,"Discarded":1664,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-172dd","Last Share
-        Time":1529002161,"Diff1 Shares":3642573,"Proxy Type":"","Proxy":"","Difficulty
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-450172dd","Last
+        Share Time":1529002161,"Diff1 Shares":3642573,"Proxy Type":"","Proxy":"","Difficulty
         Accepted":3162294,"Difficulty Rejected":52939,"Difficulty Stale":0,"Last Share
         Difficulty":4491,"Work Difficulty":4491,"Has Stratum":true,"Stratum Active":true,"Stratum
         URL":"us-east.stratum.slushpool.com","Stratum Difficulty":4491,"Has Vmask":true,"Has
         GBT":false,"Best Share":1647603,"Pool Rejected%":1.6465,"Pool Stale%":0,"Bad
         Work":7,"Current Block Height":527475,"Current Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
         Poll":"N","Getworks":2,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","Last
+        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd","Last
         Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
         Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
         Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
@@ -449,15 +449,15 @@ interactions:
         Share Difficulty":1638,"Last Valid Work":1528999273,"Device Hardware%":1.215,"Device
         Rejected%":0,"Device Elapsed":2915,"Hash Rate":25.26}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
         Poll":"N","Getworks":112,"Accepted":46,"Rejected":0,"Works":555,"Discarded":1576,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-0e3ab","Last Share
-        Time":1528999371,"Diff1 Shares":89784,"Proxy Type":"","Proxy":"","Difficulty
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
+        Share Time":1528999371,"Diff1 Shares":89784,"Proxy Type":"","Proxy":"","Difficulty
         Accepted":75348,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":1638,"Work
         Difficulty":512,"Has Stratum":true,"Stratum Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum
         Difficulty":512,"Has Vmask":true,"Has GBT":false,"Best Share":32000,"Pool
         Rejected%":0,"Pool Stale%":0,"Bad Work":7,"Current Block Height":527475,"Current
         Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
         Poll":"N","Getworks":1,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","Last
+        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab","Last
         Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
         Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
         Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
@@ -501,15 +501,15 @@ interactions:
         Valid Work":1529004567,"Device Hardware%":0.6538,"Device Rejected%":0.708,"Device
         Elapsed":5312,"Hash Rate":4631785.52}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
         Poll":"N","Getworks":199,"Accepted":1103,"Rejected":9,"Works":37067,"Discarded":3026,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-172dd","Last Share
-        Time":1529004564,"Diff1 Shares":6245664,"Proxy Type":"","Proxy":"","Difficulty
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-450172dd","Last
+        Share Time":1529004564,"Diff1 Shares":6245664,"Proxy Type":"","Proxy":"","Difficulty
         Accepted":5461686,"Difficulty Rejected":52939,"Difficulty Stale":0,"Last Share
         Difficulty":4491,"Work Difficulty":4491,"Has Stratum":true,"Stratum Active":true,"Stratum
         URL":"us-east.stratum.slushpool.com","Stratum Difficulty":4491,"Has Vmask":true,"Has
         GBT":false,"Best Share":6404792,"Pool Rejected%":0.96,"Pool Stale%":0,"Bad
         Work":11,"Current Block Height":527479,"Current Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
         Poll":"N","Getworks":2,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","Last
+        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd","Last
         Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
         Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
         Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
@@ -572,15 +572,15 @@ interactions:
         Share Difficulty":1638,"Last Valid Work":1528999273,"Device Hardware%":1.215,"Device
         Rejected%":0,"Device Elapsed":5319,"Hash Rate":314.52}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
         Poll":"N","Getworks":199,"Accepted":46,"Rejected":0,"Works":555,"Discarded":2869,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-0e3ab","Last Share
-        Time":1528999371,"Diff1 Shares":89784,"Proxy Type":"","Proxy":"","Difficulty
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
+        Share Time":1528999371,"Diff1 Shares":89784,"Proxy Type":"","Proxy":"","Difficulty
         Accepted":75348,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":1638,"Work
         Difficulty":512,"Has Stratum":true,"Stratum Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum
         Difficulty":512,"Has Vmask":true,"Has GBT":false,"Best Share":32000,"Pool
         Rejected%":0,"Pool Stale%":0,"Bad Work":11,"Current Block Height":527479,"Current
         Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
         Poll":"N","Getworks":1,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","Last
+        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab","Last
         Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
         Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
         Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
@@ -611,6 +611,48 @@ interactions:
       Connection: [keep-alive]
       Content-Type: [application/json]
       Date: ['Thu, 14 Jun 2018 19:29:36 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: Pool1=stratum%2Btcp%3A%2F%2Fpool.ckpool.org%3A3333&UserName1=3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd&Password1=x&UserName2=None.dragon-450172dd&UserName3=None.dragon-450172dd
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
+      Connection: [keep-alive]
+      Content-Length: ['185']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/pools
+  response:
+    body: {string: '{"success":false,"token":"expired"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 21:45:32 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: Pool1=stratum%2Btcp%3A%2F%2Fpool.ckpool.org%3A3333&UserName1=3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab&Password1=x&UserName2=None.dragon-4500e3ab&UserName3=None.dragon-4500e3ab
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
+      Connection: [keep-alive]
+      Content-Length: ['185']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/pools
+  response:
+    body: {string: '{"success":false,"token":"expired"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 21:45:32 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}

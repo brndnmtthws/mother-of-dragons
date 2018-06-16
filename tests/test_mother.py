@@ -98,14 +98,29 @@ def host():
     # default host
     return '10.1.0.8'
 
-
 @vcr.use_cassette()
 def test_mother_scan(mother, host):
     mother.scan(schedule=False)
     gevent.sleep(2)
 
-    assert len(mother.dragons) == 1
+    assert len(mother.dragons) == 2
     assert mother.dragons[host].host == host
+
+
+@vcr.use_cassette()
+def test_mother_scan_updates_pools(mother, host):
+    mother.scan(schedule=False)
+    gevent.sleep(2)
+
+    assert len(mother.dragons) == 0
+
+@vcr.use_cassette()
+def test_mother_scan_updates_autotune(mother, host):
+    mother.scan(schedule=False)
+    gevent.sleep(2)
+
+    assert len(mother.dragons) == 0
+
 
 @vcr.use_cassette()
 def test_mother_workers_started(mother, host, mocker):
@@ -115,8 +130,7 @@ def test_mother_workers_started(mother, host, mocker):
     mother.start()
     gevent.sleep(2)
 
-    assert len(mother.dragons) == 1
-    assert mother.dragons[host].host == host
+    assert len(mother.dragons) == 0
 
     Mother._schedule_scanner.assert_called_once_with(mother)
     Mother._schedule_scanner.assert_called_with(mother)

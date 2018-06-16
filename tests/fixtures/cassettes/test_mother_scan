@@ -32,7 +32,7 @@ interactions:
     headers:
       Accept-Ranges: [none]
       Connection: [close]
-      Date: ['Sun, 07 Mar 1993 17:20:57 GMT']
+      Date: ['Tue, 09 Mar 1993 23:54:22 GMT']
       Server: [cisco-IOS]
     status: {code: 404, message: Not Found}
 - request:
@@ -49,7 +49,7 @@ interactions:
     headers:
       Accept-Ranges: [none]
       Connection: [close]
-      Date: ['Sun, 07 Mar 1993 17:20:57 GMT']
+      Date: ['Tue, 09 Mar 1993 23:54:22 GMT']
       Server: [cisco-IOS]
       WWW-Authenticate: [Basic realm="level_15_access"]
     status: {code: 401, message: Unauthorized}
@@ -70,7 +70,7 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['11506']
       Content-Type: [image/png]
-      Date: ['Thu, 14 Jun 2018 15:52:56 GMT']
+      Date: ['Sat, 16 Jun 2018 22:26:25 GMT']
       ETag: ['"5abc0f0e-2cf2"']
       Expires: ['Thu, 31 Dec 2037 23:55:55 GMT']
       Last-Modified: ['Wed, 28 Mar 2018 21:54:22 GMT']
@@ -93,7 +93,7 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['11506']
       Content-Type: [image/png]
-      Date: ['Thu, 14 Jun 2018 15:52:57 GMT']
+      Date: ['Sat, 16 Jun 2018 22:26:26 GMT']
       ETag: ['"5abc0f0e-2cf2"']
       Expires: ['Thu, 31 Dec 2037 23:55:55 GMT']
       Last-Modified: ['Wed, 28 Mar 2018 21:54:22 GMT']
@@ -109,13 +109,205 @@ interactions:
       Content-Type: [application/x-www-form-urlencoded]
       User-Agent: [python-requests/2.18.4]
     method: POST
-    uri: http://10.1.0.8/api/auth
+    uri: http://10.1.0.10/api/auth
   response:
-    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU"}'}
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTg5LCJleHAiOjE1MjkyMDk1ODksInVzZXIiOiJhZG1pbiJ9.t_VDMd0WzVINEvbMQDjM8EAmQh1qDi282e97z84NglQ"}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 15:52:59 GMT']
+      Date: ['Sat, 16 Jun 2018 22:26:29 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTg5LCJleHAiOjE1MjkyMDk1ODksInVzZXIiOiJhZG1pbiJ9.t_VDMd0WzVINEvbMQDjM8EAmQh1qDi282e97z84NglQ]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/overview
+  response:
+    body: {string: '{"success":true,"type":"T1","hardware":{"status":"22:26:29 up
+        2 days,  2:56,  load average: 0.06, 0.11, 0.08","memUsed":74944,"memFree":175620,"memTotal":250564,"cacheUsed":43024,"cacheFree":196760,"cacheTotal":239784},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.10","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:01:72:dd","build_date":"15th
+        of May 2018 06:08 AM","platform_v":"t1_20180515_060842"}}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 22:26:30 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTg5LCJleHAiOjE1MjkyMDk1ODksInVzZXIiOiJhZG1pbiJ9.t_VDMd0WzVINEvbMQDjM8EAmQh1qDi282e97z84NglQ]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/pools
+  response:
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-450172dd","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd","pass":"x"}]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 22:26:30 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTg5LCJleHAiOjE1MjkyMDk1ODksInVzZXIiOiJhZG1pbiJ9.t_VDMd0WzVINEvbMQDjM8EAmQh1qDi282e97z84NglQ]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/getAutoTune
+  response:
+    body: {string: '{"success":true,"autoTuneMode":"balanced"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 22:26:31 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTg5LCJleHAiOjE1MjkyMDk1ODksInVzZXIiOiJhZG1pbiJ9.t_VDMd0WzVINEvbMQDjM8EAmQh1qDi282e97z84NglQ]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/getLatestFirmwareVersion
+  response:
+    body: {string: '{"success":true,"version":"t1_20180515_060842","versionDate":"15th
+        of May 2018 06:08 AM","url":"https:\/\/download.halongmining.com\/files\/t1\/t1_20180515_060842.swu","info":"important","currentVersion":"t1_20180515_060842","currentVersionDate":"15th
+        of May 2018 06:08 AM","isUpdated":true}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 22:26:33 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTg5LCJleHAiOjE1MjkyMDk1ODksInVzZXIiOiJhZG1pbiJ9.t_VDMd0WzVINEvbMQDjM8EAmQh1qDi282e97z84NglQ]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/summary
+  response:
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":83,"MHS
+        av":5270344.96,"MHS 5s":5440314.63,"MHS 1m":1167097.45,"MHS 5m":256090.37,"MHS
+        15m":86724.64,"Accepted":7,"Rejected":0,"Hardware Errors":121,"Utility":28.14,"Last
+        Share Pool":0,"Last Share Time":1529187991,"Total MH":78675172,"Diff1 Work":18447,"Difficulty
+        Accepted":11466,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529187994,"Device Hardware%":0.6517,"Device Rejected%":0,"Device
+        Elapsed":15,"Hash Rate":5440314.63},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5789967.24,"MHS 5s":4677663.6,"MHS 1m":1256001.54,"MHS 5m":280188.66,"MHS
+        15m":95145.11,"Accepted":8,"Rejected":0,"Hardware Errors":31,"Utility":32.15,"Last
+        Share Pool":0,"Last Share Time":1529187989,"Total MH":86431884,"Diff1 Work":20253,"Difficulty
+        Accepted":13104,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529187994,"Device Hardware%":0.1528,"Device Rejected%":0,"Device
+        Elapsed":15,"Hash Rate":4677663.6},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":71,"MHS
+        av":5047660.96,"MHS 5s":5182487.18,"MHS 1m":1120203.19,"MHS 5m":245389.56,"MHS
+        15m":83074.01,"Accepted":12,"Rejected":0,"Hardware Errors":133,"Utility":48.23,"Last
+        Share Pool":0,"Last Share Time":1529187993,"Total MH":75350867,"Diff1 Work":17931,"Difficulty
+        Accepted":19656,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529187994,"Device Hardware%":0.7363,"Device Rejected%":0,"Device
+        Elapsed":15,"Hash Rate":5182487.18}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":3,"Accepted":27,"Rejected":0,"Works":332,"Discarded":7,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-450172dd","Last
+        Share Time":1529187993,"Diff1 Shares":56631,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":44226,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":1638,"Work
+        Difficulty":1638,"Has Stratum":true,"Stratum Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum
+        Difficulty":1638,"Has Vmask":true,"Has GBT":false,"Best Share":13467,"Pool
+        Rejected%":0,"Pool Stale%":0,"Bad Work":0,"Current Block Height":527798,"Current
+        Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
+        Poll":"N","Getworks":2,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd","Last
+        Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
+        Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
+        Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
+        Vmask":true,"Has GBT":false,"Best Share":0,"Pool Rejected%":0,"Pool Stale%":0,"Bad
+        Work":0,"Current Block Height":0,"Current Block Version":536870912}],"HARDWARE":{"Fan
+        duty":100},"tuning":true,"hashrates":[]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 22:26:34 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTg5LCJleHAiOjE1MjkyMDk1ODksInVzZXIiOiJhZG1pbiJ9.t_VDMd0WzVINEvbMQDjM8EAmQh1qDi282e97z84NglQ]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/summary
+  response:
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":83,"MHS
+        av":5186185.24,"MHS 5s":5284438.89,"MHS 1m":1221387.24,"MHS 5m":270001.09,"MHS
+        15m":91551.92,"Accepted":8,"Rejected":0,"Hardware Errors":128,"Utility":29.95,"Last
+        Share Pool":0,"Last Share Time":1529187994,"Total MH":83107576,"Diff1 Work":19350,"Difficulty
+        Accepted":13104,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529187994,"Device Hardware%":0.6572,"Device Rejected%":0,"Device
+        Elapsed":16,"Hash Rate":5284438.89},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5877639.25,"MHS 5s":5199516.51,"MHS 1m":1362546.68,"MHS 5m":305027.31,"MHS
+        15m":103648.5,"Accepted":8,"Rejected":0,"Hardware Errors":35,"Utility":29.95,"Last
+        Share Pool":0,"Last Share Time":1529187989,"Total MH":94188593,"Diff1 Work":22059,"Difficulty
+        Accepted":13104,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529187995,"Device Hardware%":0.1584,"Device Rejected%":0,"Device
+        Elapsed":16,"Hash Rate":5199516.51},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":71,"MHS
+        av":5220704.06,"MHS 5s":5509968.82,"MHS 1m":1234034.08,"MHS 5m":272006.07,"MHS
+        15m":92185.54,"Accepted":13,"Rejected":0,"Hardware Errors":143,"Utility":48.67,"Last
+        Share Pool":0,"Last Share Time":1529187994,"Total MH":83661626,"Diff1 Work":19479,"Difficulty
+        Accepted":21294,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529187995,"Device Hardware%":0.7288,"Device Rejected%":0,"Device
+        Elapsed":16,"Hash Rate":5509968.82}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":3,"Accepted":29,"Rejected":0,"Works":358,"Discarded":8,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-450172dd","Last
+        Share Time":1529187994,"Diff1 Shares":60888,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":47502,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":1638,"Work
+        Difficulty":1638,"Has Stratum":true,"Stratum Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum
+        Difficulty":1638,"Has Vmask":true,"Has GBT":false,"Best Share":13467,"Pool
+        Rejected%":0,"Pool Stale%":0,"Bad Work":0,"Current Block Height":527798,"Current
+        Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
+        Poll":"N","Getworks":2,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd","Last
+        Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
+        Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
+        Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
+        Vmask":true,"Has GBT":false,"Best Share":0,"Pool Rejected%":0,"Pool Stale%":0,"Bad
+        Work":0,"Current Block Height":0,"Current Block Version":536870912}],"HARDWARE":{"Fan
+        duty":100},"tuning":true,"hashrates":[]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 22:26:35 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -129,13 +321,13 @@ interactions:
       Content-Type: [application/x-www-form-urlencoded]
       User-Agent: [python-requests/2.18.4]
     method: POST
-    uri: http://10.1.0.10/api/auth
+    uri: http://10.1.0.8/api/auth
   response:
-    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8"}'}
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTk1LCJleHAiOjE1MjkyMDk1OTUsInVzZXIiOiJhZG1pbiJ9.hw6sIPxlNrPKFBXb39mRFJVwQ3fo2KaXA6Orp6QpWjE"}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 15:54:37 GMT']
+      Date: ['Sat, 16 Jun 2018 22:26:35 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -144,60 +336,20 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.8/api/pools
-  response:
-    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-0e3ab","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","pass":"x"}]}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:01:57 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/pools
-  response:
-    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-172dd","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","pass":"x"}]}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:01:57 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTk1LCJleHAiOjE1MjkyMDk1OTUsInVzZXIiOiJhZG1pbiJ9.hw6sIPxlNrPKFBXb39mRFJVwQ3fo2KaXA6Orp6QpWjE]
       Connection: [keep-alive]
       Content-Length: ['0']
       User-Agent: [python-requests/2.18.4]
     method: POST
     uri: http://10.1.0.8/api/overview
   response:
-    body: {string: '{"success":true,"type":"T1","hardware":{"status":"16:08:43 up
-        1 day,  2:33,  load average: 0.14, 0.14, 0.09","memUsed":70316,"memFree":180248,"memTotal":250564,"cacheUsed":42940,"cacheFree":201296,"cacheTotal":244236},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.8","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:00:e3:ab","build_date":"15th
+    body: {string: '{"success":true,"type":"T1","hardware":{"status":"22:26:36 up
+        2 days,  2:56,  load average: 0.05, 0.05, 0.06","memUsed":76280,"memFree":174284,"memTotal":250564,"cacheUsed":43092,"cacheFree":195500,"cacheTotal":238592},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.8","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:00:e3:ab","build_date":"15th
         of May 2018 06:08 AM","platform_v":"t1_20180515_060842"}}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:08:43 GMT']
+      Date: ['Sat, 16 Jun 2018 22:26:36 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -206,7 +358,47 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTk1LCJleHAiOjE1MjkyMDk1OTUsInVzZXIiOiJhZG1pbiJ9.hw6sIPxlNrPKFBXb39mRFJVwQ3fo2KaXA6Orp6QpWjE]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/pools
+  response:
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-4500e3ab","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab","pass":"x"}]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 22:26:37 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTk1LCJleHAiOjE1MjkyMDk1OTUsInVzZXIiOiJhZG1pbiJ9.hw6sIPxlNrPKFBXb39mRFJVwQ3fo2KaXA6Orp6QpWjE]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/getAutoTune
+  response:
+    body: {string: '{"success":true,"autoTuneMode":"balanced"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sat, 16 Jun 2018 22:26:38 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTk1LCJleHAiOjE1MjkyMDk1OTUsInVzZXIiOiJhZG1pbiJ9.hw6sIPxlNrPKFBXb39mRFJVwQ3fo2KaXA6Orp6QpWjE]
       Connection: [keep-alive]
       Content-Length: ['0']
       User-Agent: [python-requests/2.18.4]
@@ -219,7 +411,7 @@ interactions:
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:08:45 GMT']
+      Date: ['Sat, 16 Jun 2018 22:26:40 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -228,288 +420,42 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/overview
-  response:
-    body: {string: '{"success":true,"type":"T1","hardware":{"status":"16:08:45 up
-        19:07,  load average: 0.04, 0.05, 0.04","memUsed":67456,"memFree":183108,"memTotal":250564,"cacheUsed":42188,"cacheFree":203408,"cacheTotal":245596},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.10","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:01:72:dd","build_date":"15th
-        of May 2018 06:08 AM","platform_v":"t1_20180515_060842"}}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:08:45 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/getLatestFirmwareVersion
-  response:
-    body: {string: '{"success":true,"version":"t1_20180515_060842","versionDate":"15th
-        of May 2018 06:08 AM","url":"https:\/\/download.halongmining.com\/files\/t1\/t1_20180515_060842.swu","info":"important","currentVersion":"t1_20180515_060842","currentVersionDate":"15th
-        of May 2018 06:08 AM","isUpdated":true}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:08:46 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/network
-  response:
-    body: {string: '{"dhcp":"dhcp","ipaddress":"10.1.0.10","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":"","success":true}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:13:08 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.8/api/network
-  response:
-    body: {string: '{"dhcp":"dhcp","ipaddress":"10.1.0.8","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":"","success":true}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:13:08 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/getAutoTune
-  response:
-    body: {string: '{"success":true,"autoTuneMode":"efficient"}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:54:41 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.8/api/getAutoTune
-  response:
-    body: {string: '{"success":true,"autoTuneMode":"balanced"}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:54:41 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: autotune=balanced
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['17']
-      Content-Type: [application/x-www-form-urlencoded]
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/setAutoTune
-  response:
-    body: {string: '{"success":true}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 16:58:32 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/summary
-  response:
-    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Dead","Temperature":110,"MHS
-        av":705534.34,"MHS 5s":0,"MHS 1m":4911272.28,"MHS 5m":3672469.15,"MHS 15m":1820836.02,"Accepted":87,"Rejected":2,"Hardware
-        Errors":6494,"Utility":1.79,"Last Share Pool":0,"Last Share Time":1528999682,"Total
-        MH":2054973292,"Diff1 Work":478977,"Difficulty Accepted":420840,"Difficulty
-        Rejected":12112,"Last Share Difficulty":6056,"Last Valid Work":1528999684,"Device
-        Hardware%":1.3377,"Device Rejected%":2.5287,"Device Elapsed":2913,"Hash Rate":3672469.15},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Dead","Temperature":99,"MHS
-        av":0,"MHS 5s":0,"MHS 1m":0,"MHS 5m":0,"MHS 15m":0,"Accepted":0,"Rejected":0,"Hardware
-        Errors":0,"Utility":0,"Last Share Pool":-1,"Last Share Time":0,"Total MH":0,"Diff1
-        Work":0,"Difficulty Accepted":0,"Difficulty Rejected":0,"Last Share Difficulty":0,"Last
-        Valid Work":1528999254,"Device Hardware%":0,"Device Rejected%":0,"Device Elapsed":2913,"Hash
-        Rate":0},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":91,"MHS
-        av":4665010.69,"MHS 5s":4134285.9,"MHS 1m":4641022.12,"MHS 5m":4710554.78,"MHS
-        15m":4491001.67,"Accepted":504,"Rejected":7,"Hardware Errors":20888,"Utility":10.38,"Last
-        Share Pool":0,"Last Share Time":1529002161,"Total MH":13587534041,"Diff1 Work":3163596,"Difficulty
-        Accepted":2741454,"Difficulty Rejected":40827,"Last Share Difficulty":4491,"Last
-        Valid Work":1529002167,"Device Hardware%":0.6559,"Device Rejected%":1.2905,"Device
-        Elapsed":2913,"Hash Rate":4710554.78}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
-        Poll":"N","Getworks":112,"Accepted":591,"Rejected":9,"Works":21753,"Discarded":1664,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-172dd","Last Share
-        Time":1529002161,"Diff1 Shares":3642573,"Proxy Type":"","Proxy":"","Difficulty
-        Accepted":3162294,"Difficulty Rejected":52939,"Difficulty Stale":0,"Last Share
-        Difficulty":4491,"Work Difficulty":4491,"Has Stratum":true,"Stratum Active":true,"Stratum
-        URL":"us-east.stratum.slushpool.com","Stratum Difficulty":4491,"Has Vmask":true,"Has
-        GBT":false,"Best Share":1647603,"Pool Rejected%":1.6465,"Pool Stale%":0,"Bad
-        Work":7,"Current Block Height":527475,"Current Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
-        Poll":"N","Getworks":2,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","Last
-        Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
-        Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
-        Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
-        Vmask":true,"Has GBT":false,"Best Share":0,"Pool Rejected%":0,"Pool Stale%":0,"Bad
-        Work":0,"Current Block Height":0,"Current Block Version":536870912}],"HARDWARE":{"Fan
-        duty":100},"tuning":true,"hashrates":[]}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 18:49:27 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTk1LCJleHAiOjE1MjkyMDk1OTUsInVzZXIiOiJhZG1pbiJ9.hw6sIPxlNrPKFBXb39mRFJVwQ3fo2KaXA6Orp6QpWjE]
       Connection: [keep-alive]
       Content-Length: ['0']
       User-Agent: [python-requests/2.18.4]
     method: POST
     uri: http://10.1.0.8/api/summary
   response:
-    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Dead","Temperature":111,"MHS
-        av":0,"MHS 5s":0,"MHS 1m":0,"MHS 5m":0,"MHS 15m":0,"Accepted":0,"Rejected":0,"Hardware
-        Errors":0,"Utility":0,"Last Share Pool":-1,"Last Share Time":0,"Total MH":0,"Diff1
-        Work":0,"Difficulty Accepted":0,"Difficulty Rejected":0,"Last Share Difficulty":0,"Last
-        Valid Work":1528999252,"Device Hardware%":0,"Device Rejected%":0,"Device Elapsed":2915,"Hash
-        Rate":0},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Dead","Temperature":111,"MHS
-        av":98260.28,"MHS 5s":0,"MHS 1m":0,"MHS 5m":80.33,"MHS 15m":13366.81,"Accepted":32,"Rejected":0,"Hardware
-        Errors":916,"Utility":0.66,"Last Share Pool":0,"Last Share Time":1528999371,"Total
-        MH":286444125,"Diff1 Work":66693,"Difficulty Accepted":52416,"Difficulty Rejected":0,"Last
-        Share Difficulty":1638,"Last Valid Work":1528999373,"Device Hardware%":1.3548,"Device
-        Rejected%":0,"Device Elapsed":2915,"Hash Rate":80.33},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Dead","Temperature":103,"MHS
-        av":34020.48,"MHS 5s":0,"MHS 1m":0,"MHS 5m":25.26,"MHS 15m":4477.95,"Accepted":14,"Rejected":0,"Hardware
-        Errors":284,"Utility":0.29,"Last Share Pool":0,"Last Share Time":1528999271,"Total
-        MH":99175039,"Diff1 Work":23091,"Difficulty Accepted":22932,"Difficulty Rejected":0,"Last
-        Share Difficulty":1638,"Last Valid Work":1528999273,"Device Hardware%":1.215,"Device
-        Rejected%":0,"Device Elapsed":2915,"Hash Rate":25.26}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
-        Poll":"N","Getworks":112,"Accepted":46,"Rejected":0,"Works":555,"Discarded":1576,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-0e3ab","Last Share
-        Time":1528999371,"Diff1 Shares":89784,"Proxy Type":"","Proxy":"","Difficulty
-        Accepted":75348,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":1638,"Work
-        Difficulty":512,"Has Stratum":true,"Stratum Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum
-        Difficulty":512,"Has Vmask":true,"Has GBT":false,"Best Share":32000,"Pool
-        Rejected%":0,"Pool Stale%":0,"Bad Work":7,"Current Block Height":527475,"Current
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5133131.39,"MHS 5s":4756263.17,"MHS 1m":1289470.96,"MHS 5m":290244.59,"MHS
+        15m":98721.85,"Accepted":11,"Rejected":0,"Hardware Errors":1,"Utility":37.75,"Last
+        Share Pool":0,"Last Share Time":1529187993,"Total MH":89756180,"Diff1 Work":21156,"Difficulty
+        Accepted":18018,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529188001,"Device Hardware%":0.0047,"Device Rejected%":0,"Device
+        Elapsed":17,"Hash Rate":4756263.17},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":73,"MHS
+        av":4847978.19,"MHS 5s":4382043.17,"MHS 1m":1217580.09,"MHS 5m":274117.37,"MHS
+        15m":93237.18,"Accepted":8,"Rejected":0,"Hardware Errors":1,"Utility":27.45,"Last
+        Share Pool":0,"Last Share Time":1529187999,"Total MH":84769725,"Diff1 Work":19995,"Difficulty
+        Accepted":13104,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529188001,"Device Hardware%":0.005,"Device Rejected%":0,"Device
+        Elapsed":17,"Hash Rate":4382043.17},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":68,"MHS
+        av":5671802.58,"MHS 5s":5377734.51,"MHS 1m":1431618.55,"MHS 5m":321028.25,"MHS
+        15m":109118.85,"Accepted":17,"Rejected":0,"Hardware Errors":0,"Utility":58.33,"Last
+        Share Pool":0,"Last Share Time":1529188000,"Total MH":99175047,"Diff1 Work":23349,"Difficulty
+        Accepted":27846,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529188001,"Device Hardware%":0,"Device Rejected%":0,"Device Elapsed":17,"Hash
+        Rate":5377734.51}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":4,"Accepted":36,"Rejected":0,"Works":391,"Discarded":10,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
+        Share Time":1529188000,"Diff1 Shares":64500,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":58968,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":1638,"Work
+        Difficulty":9923,"Has Stratum":true,"Stratum Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum
+        Difficulty":9923,"Has Vmask":true,"Has GBT":false,"Best Share":771166,"Pool
+        Rejected%":0,"Pool Stale%":0,"Bad Work":0,"Current Block Height":527798,"Current
         Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
-        Poll":"N","Getworks":1,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","Last
-        Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
-        Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
-        Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
-        Vmask":true,"Has GBT":false,"Best Share":0,"Pool Rejected%":0,"Pool Stale%":0,"Bad
-        Work":0,"Current Block Height":0,"Current Block Version":536870912}],"HARDWARE":{"Fan
-        duty":100},"tuning":true,"hashrates":[]}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 18:49:28 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/summary
-  response:
-    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Dead","Temperature":110,"MHS
-        av":386845.2,"MHS 5s":0,"MHS 1m":4911272.28,"MHS 5m":3672469.15,"MHS 15m":1820836.02,"Accepted":87,"Rejected":2,"Hardware
-        Errors":6494,"Utility":0.98,"Last Share Pool":0,"Last Share Time":1528999682,"Total
-        MH":2054973292,"Diff1 Work":478977,"Difficulty Accepted":420840,"Difficulty
-        Rejected":12112,"Last Share Difficulty":6056,"Last Valid Work":1528999684,"Device
-        Hardware%":1.3377,"Device Rejected%":2.5287,"Device Elapsed":5312,"Hash Rate":1820836.02},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Dead","Temperature":99,"MHS
-        av":0,"MHS 5s":0,"MHS 1m":0,"MHS 5m":0,"MHS 15m":0,"Accepted":0,"Rejected":0,"Hardware
-        Errors":0,"Utility":0,"Last Share Pool":-1,"Last Share Time":0,"Total MH":0,"Diff1
-        Work":0,"Difficulty Accepted":0,"Difficulty Rejected":0,"Last Share Difficulty":0,"Last
-        Valid Work":1528999254,"Device Hardware%":0,"Device Rejected%":0,"Device Elapsed":5312,"Hash
-        Rate":0},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":92,"MHS
-        av":4662480.81,"MHS 5s":3922887.6,"MHS 1m":4563609.98,"MHS 5m":4593661.13,"MHS
-        15m":4631785.52,"Accepted":1016,"Rejected":7,"Hardware Errors":37948,"Utility":11.48,"Last
-        Share Pool":0,"Last Share Time":1529004564,"Total MH":24767718753,"Diff1 Work":5766687,"Difficulty
-        Accepted":5040846,"Difficulty Rejected":40827,"Last Share Difficulty":4491,"Last
-        Valid Work":1529004567,"Device Hardware%":0.6538,"Device Rejected%":0.708,"Device
-        Elapsed":5312,"Hash Rate":4631785.52}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
-        Poll":"N","Getworks":199,"Accepted":1103,"Rejected":9,"Works":37067,"Discarded":3026,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-172dd","Last Share
-        Time":1529004564,"Diff1 Shares":6245664,"Proxy Type":"","Proxy":"","Difficulty
-        Accepted":5461686,"Difficulty Rejected":52939,"Difficulty Stale":0,"Last Share
-        Difficulty":4491,"Work Difficulty":4491,"Has Stratum":true,"Stratum Active":true,"Stratum
-        URL":"us-east.stratum.slushpool.com","Stratum Difficulty":4491,"Has Vmask":true,"Has
-        GBT":false,"Best Share":6404792,"Pool Rejected%":0.96,"Pool Stale%":0,"Bad
-        Work":11,"Current Block Height":527479,"Current Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
         Poll":"N","Getworks":2,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","Last
+        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab","Last
         Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
         Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
         Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
@@ -519,7 +465,7 @@ interactions:
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 19:29:27 GMT']
+      Date: ['Sat, 16 Jun 2018 22:26:41 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -528,59 +474,42 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNjc3LCJleHAiOjE1MjkwMTMyNzcsInVzZXIiOiJhZG1pbiJ9.YpcyRQyoU1Qkv03j77lih2taEvMK8Pe3yF_HaMajsL8]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/reboot
-  response:
-    body: {string: '{"success":true}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 19:29:31 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MTg3OTk1LCJleHAiOjE1MjkyMDk1OTUsInVzZXIiOiJhZG1pbiJ9.hw6sIPxlNrPKFBXb39mRFJVwQ3fo2KaXA6Orp6QpWjE]
       Connection: [keep-alive]
       Content-Length: ['0']
       User-Agent: [python-requests/2.18.4]
     method: POST
     uri: http://10.1.0.8/api/summary
   response:
-    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Dead","Temperature":111,"MHS
-        av":0,"MHS 5s":0,"MHS 1m":0,"MHS 5m":0,"MHS 15m":0,"Accepted":0,"Rejected":0,"Hardware
-        Errors":0,"Utility":0,"Last Share Pool":-1,"Last Share Time":0,"Total MH":0,"Diff1
-        Work":0,"Difficulty Accepted":0,"Difficulty Rejected":0,"Last Share Difficulty":0,"Last
-        Valid Work":1528999252,"Device Hardware%":0,"Device Rejected%":0,"Device Elapsed":5319,"Hash
-        Rate":0},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Dead","Temperature":111,"MHS
-        av":53855.12,"MHS 5s":0,"MHS 1m":0,"MHS 5m":0.03,"MHS 15m":938.86,"Accepted":32,"Rejected":0,"Hardware
-        Errors":916,"Utility":0.36,"Last Share Pool":0,"Last Share Time":1528999371,"Total
-        MH":286444125,"Diff1 Work":66693,"Difficulty Accepted":52416,"Difficulty Rejected":0,"Last
-        Share Difficulty":1638,"Last Valid Work":1528999373,"Device Hardware%":1.3548,"Device
-        Rejected%":0,"Device Elapsed":5319,"Hash Rate":938.86},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Dead","Temperature":103,"MHS
-        av":18646.16,"MHS 5s":0,"MHS 1m":0,"MHS 5m":0.01,"MHS 15m":314.52,"Accepted":14,"Rejected":0,"Hardware
-        Errors":284,"Utility":0.16,"Last Share Pool":0,"Last Share Time":1528999271,"Total
-        MH":99175039,"Diff1 Work":23091,"Difficulty Accepted":22932,"Difficulty Rejected":0,"Last
-        Share Difficulty":1638,"Last Valid Work":1528999273,"Device Hardware%":1.215,"Device
-        Rejected%":0,"Device Elapsed":5319,"Hash Rate":314.52}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
-        Poll":"N","Getworks":199,"Accepted":46,"Rejected":0,"Works":555,"Discarded":2869,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-0e3ab","Last Share
-        Time":1528999371,"Diff1 Shares":89784,"Proxy Type":"","Proxy":"","Difficulty
-        Accepted":75348,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":1638,"Work
-        Difficulty":512,"Has Stratum":true,"Stratum Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum
-        Difficulty":512,"Has Vmask":true,"Has GBT":false,"Best Share":32000,"Pool
-        Rejected%":0,"Pool Stale%":0,"Bad Work":11,"Current Block Height":527479,"Current
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5202869.05,"MHS 5s":5067162.79,"MHS 1m":1363651.09,"MHS 5m":307892.84,"MHS
+        15m":104784.93,"Accepted":11,"Rejected":0,"Hardware Errors":1,"Utility":36.03,"Last
+        Share Pool":0,"Last Share Time":1529187993,"Total MH":95296686,"Diff1 Work":22446,"Difficulty
+        Accepted":18018,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529188002,"Device Hardware%":0.0045,"Device Rejected%":0,"Device
+        Elapsed":18,"Hash Rate":5067162.79},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":73,"MHS
+        av":5081893.73,"MHS 5s":5223225.34,"MHS 1m":1338193.65,"MHS 5m":301014.35,"MHS
+        15m":102380.03,"Accepted":8,"Rejected":0,"Hardware Errors":1,"Utility":26.21,"Last
+        Share Pool":0,"Last Share Time":1529187999,"Total MH":93080484,"Diff1 Work":21801,"Difficulty
+        Accepted":13104,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529188001,"Device Hardware%":0.0046,"Device Rejected%":0,"Device
+        Elapsed":18,"Hash Rate":5223225.34},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":68,"MHS
+        av":5747378.74,"MHS 5s":5674738.99,"MHS 1m":1512830.67,"MHS 5m":340428,"MHS
+        15m":115786.81,"Accepted":17,"Rejected":0,"Hardware Errors":0,"Utility":55.69,"Last
+        Share Pool":0,"Last Share Time":1529188000,"Total MH":105269604,"Diff1 Work":24510,"Difficulty
+        Accepted":27846,"Difficulty Rejected":0,"Last Share Difficulty":1638,"Last
+        Valid Work":1529188001,"Device Hardware%":0,"Device Rejected%":0,"Device Elapsed":18,"Hash
+        Rate":5674738.99}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":4,"Accepted":36,"Rejected":0,"Works":409,"Discarded":11,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
+        Share Time":1529188000,"Diff1 Shares":68757,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":58968,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":1638,"Work
+        Difficulty":9923,"Has Stratum":true,"Stratum Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum
+        Difficulty":9923,"Has Vmask":true,"Has GBT":false,"Best Share":771166,"Pool
+        Rejected%":0,"Pool Stale%":0,"Bad Work":0,"Current Block Height":527798,"Current
         Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
-        Poll":"N","Getworks":1,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","Last
+        Poll":"N","Getworks":2,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab","Last
         Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
         Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
         Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
@@ -590,27 +519,7 @@ interactions:
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 19:29:31 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTkxNTc5LCJleHAiOjE1MjkwMTMxNzksInVzZXIiOiJhZG1pbiJ9.ePd4ciJJ7u46bJb7UQKVDYpghB5KJXhZuX5JVIiz5BU]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.8/api/reboot
-  response:
-    body: {string: '{"success":true}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Thu, 14 Jun 2018 19:29:36 GMT']
+      Date: ['Sat, 16 Jun 2018 22:26:42 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
