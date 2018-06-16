@@ -29,7 +29,7 @@ class Dragon:
         self.dragon = DragonAPI(host, dragon_timeout)
         self.overview = self.dragon.overview()
         self.mac_address = self.overview['version']['ethaddr']
-        self.worker = 'dragon-' + ''.join(self.mac_address.split(':'))[-5:]
+        self.worker = 'dragon-' + ''.join(self.mac_address.split(':'))[-8:]
         self.pools = self._assign_pools(pools)
         self.statsd = statsd
         self.statsd.incr('worker.{}.action.added'.format(self.worker))
