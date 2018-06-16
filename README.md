@@ -136,7 +136,7 @@ The script is meant to be run continuously within the same local network as your
 dragons. The script can be installed with Python's pip by running a `pip install
 mother-of-dragons`.
 
-An example systemd unit might look like (assuming the user
+An example systemd unit might look like this (assuming the user
 `mother-of-dragons` exists):
 
 ```
