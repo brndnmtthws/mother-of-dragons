@@ -7,7 +7,7 @@ DragonMint T1 or B29 management tool based on
 
 ## Features
 
-Mother of Dragons can:
+**Mother of Dragons** can:
  * Auto-detect new dragons on your local network and configure them
  * Collect metrics from dragons and forward them to statsd
  * Automatically update to the latest firmware version when new miners are
