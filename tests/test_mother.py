@@ -108,21 +108,6 @@ def test_mother_scan(mother, host):
 
 
 @vcr.use_cassette()
-def test_mother_scan_updates_pools(mother, host):
-    mother.scan(schedule=False)
-    gevent.sleep(2)
-
-    assert len(mother.dragons) == 0
-
-@vcr.use_cassette()
-def test_mother_scan_updates_autotune(mother, host):
-    mother.scan(schedule=False)
-    gevent.sleep(2)
-
-    assert len(mother.dragons) == 0
-
-
-@vcr.use_cassette()
 def test_mother_workers_started(mother, host, mocker):
     mocker.patch.object(Mother, '_schedule_scanner', autospec=True)
     mocker.patch.object(Mother, '_schedule_check_health', autospec=True)
@@ -130,7 +115,7 @@ def test_mother_workers_started(mother, host, mocker):
     mother.start()
     gevent.sleep(2)
 
-    assert len(mother.dragons) == 0
+    assert len(mother.dragons) == 2
 
     Mother._schedule_scanner.assert_called_once_with(mother)
     Mother._schedule_scanner.assert_called_with(mother)
