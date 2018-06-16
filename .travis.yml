@@ -1,0 +1,27 @@
+sudo: false
+language: python
+python:
+- '3.6'
+deploy:
+  provider: pypi
+  user: brndnmtthws
+  password:
+    secure: COZ4YlPb513yCXJUGuNgD+H4t3bsbsBabRyzoTWqCvK9tzIDvI+CFhXvECyXzAqusVdN+ibQU4h63yHE9Wj275G/MzsCj3xlgHxhphPqgGTiNthEOq3VrkGbQAMyX1wC7++6L5ek/bUqiLedORxBhU1qdT6YytSt0XrKkH5GnrF8PGXH2xk9oyF2pnhAzV7y5g09ijn/Bqlqtx37l4aULDAZzfLrX0XAmoIlwKiEw15d3ApRDalF3/O2q3GiJbJ6pcHyAfox9ROEo6+5q7uaf8lo1/k9iGEZLp0UP6FWBUaooPwCaHsYxyOfQovsjP0tEUCeE2AIqVGpIpkWTL8x+J+q6BTyzay7cDv0DeMejk0bpU2zVSJxm9PqximmPDS4u7PzadmJBX1ve1VGlr9FlmboydkHljuBAb1SExkbBTYeMnuk0lbVFEEu/Jc608Sb61ZlaHgz420ACWVw5LrVNLmzgkB9zKaQ5QiWyKp7mBJsBhy+9BRcu2ysYTYS++bVwVs/j4z5ymPJz7o9llef0/o0daizt9lGQqGfbm3wppdKCMFmhSNWWxr9YME2X06cAD5gKcdbTjRmBB9BBxwwi4DFi73uB9RFEZmOO3ju+p464pS7t366KU6wckSMtIPyPkqlqc0XVp+l6IeNhKe6cR9kDGtLt8o+m0Cw5bD53kM=
+  on:
+    tags: true
+env:
+  global:
+  - CC_TEST_REPORTER_ID=7a942bdad333bfeba9b45ff8c2cee31fef4ea28e7bce30da2b393dc5852c2659
+install:
+- pip install -r requirements.txt
+- pip install -r test-requirements.txt
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
+script:
+- py.test --cov=mother_of_dragons --cov-report xml
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+cache: pip

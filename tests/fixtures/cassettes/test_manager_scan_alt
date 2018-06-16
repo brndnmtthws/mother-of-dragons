@@ -1,0 +1,352 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: HEAD
+    uri: http://10.1.0.1/static/media/logo-inverse.74ec0f24.png
+  response:
+    body: {string: ''}
+    headers:
+      Accept-Ranges: [bytes]
+      Content-Length: ['350']
+      Content-Type: [text/html]
+      Last-Modified: ['Mon, 26 Mar 2018 22:36:41 GMT']
+      Server: [lighttpd/1.4.39]
+      X-Frame-Options: [deny]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: HEAD
+    uri: http://10.1.0.2/static/media/logo-inverse.74ec0f24.png
+  response:
+    body: {string: ''}
+    headers:
+      Accept-Ranges: [none]
+      Connection: [close]
+      Date: ['Sun, 07 Mar 1993 19:26:01 GMT']
+      Server: [cisco-IOS]
+    status: {code: 404, message: Not Found}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://10.1.0.2/
+  response:
+    body: {string: "401 Unauthorized\r\n"}
+    headers:
+      Accept-Ranges: [none]
+      Connection: [close]
+      Date: ['Sun, 07 Mar 1993 19:26:01 GMT']
+      Server: [cisco-IOS]
+      WWW-Authenticate: [Basic realm="level_15_access"]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: HEAD
+    uri: http://10.1.0.8/static/media/logo-inverse.74ec0f24.png
+  response:
+    body: {string: ''}
+    headers:
+      Accept-Ranges: [bytes]
+      Cache-Control: [max-age=315360000]
+      Connection: [keep-alive]
+      Content-Length: ['11506']
+      Content-Type: [image/png]
+      Date: ['Thu, 14 Jun 2018 17:58:01 GMT']
+      ETag: ['"5abc0f0e-2cf2"']
+      Expires: ['Thu, 31 Dec 2037 23:55:55 GMT']
+      Last-Modified: ['Wed, 28 Mar 2018 21:54:22 GMT']
+      Server: [nginx/1.12.2]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: HEAD
+    uri: http://10.1.0.10/static/media/logo-inverse.74ec0f24.png
+  response:
+    body: {string: ''}
+    headers:
+      Accept-Ranges: [bytes]
+      Cache-Control: [max-age=315360000]
+      Connection: [keep-alive]
+      Content-Length: ['11506']
+      Content-Type: [image/png]
+      Date: ['Thu, 14 Jun 2018 17:58:01 GMT']
+      ETag: ['"5abc0f0e-2cf2"']
+      Expires: ['Thu, 31 Dec 2037 23:55:55 GMT']
+      Last-Modified: ['Wed, 28 Mar 2018 21:54:22 GMT']
+      Server: [nginx/1.12.2]
+    status: {code: 200, message: OK}
+- request:
+    body: username=admin&password=dragonadmin
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['35']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/auth
+  response:
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk1LCJleHAiOjE1MjkwMjA3OTUsInVzZXIiOiJhZG1pbiJ9.FaRrBYjaoHcJ-7L78cUPi_VpkfvOtHM3LnhC8AqNT90"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:55 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk1LCJleHAiOjE1MjkwMjA3OTUsInVzZXIiOiJhZG1pbiJ9.FaRrBYjaoHcJ-7L78cUPi_VpkfvOtHM3LnhC8AqNT90]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/overview
+  response:
+    body: {string: '{"success":true,"type":"T1","hardware":{"status":"17:59:55 up
+        1 day,  4:24,  load average: 0.14, 0.16, 0.10","memUsed":70092,"memFree":180472,"memTotal":250564,"cacheUsed":42972,"cacheFree":201552,"cacheTotal":244524},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.8","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:00:e3:ab","build_date":"15th
+        of May 2018 06:08 AM","platform_v":"t1_20180515_060842"}}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:56 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk1LCJleHAiOjE1MjkwMjA3OTUsInVzZXIiOiJhZG1pbiJ9.FaRrBYjaoHcJ-7L78cUPi_VpkfvOtHM3LnhC8AqNT90]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/pools
+  response:
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-0e3ab","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-0e3ab","pass":"x"}]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:56 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk1LCJleHAiOjE1MjkwMjA3OTUsInVzZXIiOiJhZG1pbiJ9.FaRrBYjaoHcJ-7L78cUPi_VpkfvOtHM3LnhC8AqNT90]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/getAutoTune
+  response:
+    body: {string: '{"success":true,"autoTuneMode":"efficient"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:56 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: autotune=balanced
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk1LCJleHAiOjE1MjkwMjA3OTUsInVzZXIiOiJhZG1pbiJ9.FaRrBYjaoHcJ-7L78cUPi_VpkfvOtHM3LnhC8AqNT90]
+      Connection: [keep-alive]
+      Content-Length: ['17']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/setAutoTune
+  response:
+    body: {string: '{"success":true}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:56 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk1LCJleHAiOjE1MjkwMjA3OTUsInVzZXIiOiJhZG1pbiJ9.FaRrBYjaoHcJ-7L78cUPi_VpkfvOtHM3LnhC8AqNT90]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.8/api/getLatestFirmwareVersion
+  response:
+    body: {string: '{"success":true,"version":"t1_20180515_060842","versionDate":"15th
+        of May 2018 06:08 AM","url":"https:\/\/download.halongmining.com\/files\/t1\/t1_20180515_060842.swu","info":"important","currentVersion":"t1_20180515_060842","currentVersionDate":"15th
+        of May 2018 06:08 AM","isUpdated":true}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:57 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: username=admin&password=dragonadmin
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['35']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/auth
+  response:
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk3LCJleHAiOjE1MjkwMjA3OTcsInVzZXIiOiJhZG1pbiJ9.leM1cNrsgNOM5CmZ9fw6lQTlernSWpwWqjW2TSakidE"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:57 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk3LCJleHAiOjE1MjkwMjA3OTcsInVzZXIiOiJhZG1pbiJ9.leM1cNrsgNOM5CmZ9fw6lQTlernSWpwWqjW2TSakidE]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/overview
+  response:
+    body: {string: '{"success":true,"type":"T1","hardware":{"status":"17:59:57 up
+        20:58,  load average: 0.29, 0.07, 0.01","memUsed":68504,"memFree":182060,"memTotal":250564,"cacheUsed":42972,"cacheFree":203148,"cacheTotal":246120},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.10","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:01:72:dd","build_date":"15th
+        of May 2018 06:08 AM","platform_v":"t1_20180515_060842"}}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:58 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk3LCJleHAiOjE1MjkwMjA3OTcsInVzZXIiOiJhZG1pbiJ9.leM1cNrsgNOM5CmZ9fw6lQTlernSWpwWqjW2TSakidE]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/pools
+  response:
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-172dd","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-172dd","pass":"x"}]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:58 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk3LCJleHAiOjE1MjkwMjA3OTcsInVzZXIiOiJhZG1pbiJ9.leM1cNrsgNOM5CmZ9fw6lQTlernSWpwWqjW2TSakidE]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/getAutoTune
+  response:
+    body: {string: '{"success":true,"autoTuneMode":"efficient"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:58 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: autotune=balanced
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk3LCJleHAiOjE1MjkwMjA3OTcsInVzZXIiOiJhZG1pbiJ9.leM1cNrsgNOM5CmZ9fw6lQTlernSWpwWqjW2TSakidE]
+      Connection: [keep-alive]
+      Content-Length: ['17']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/setAutoTune
+  response:
+    body: {string: '{"success":true}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:58 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI4OTk5MTk3LCJleHAiOjE1MjkwMjA3OTcsInVzZXIiOiJhZG1pbiJ9.leM1cNrsgNOM5CmZ9fw6lQTlernSWpwWqjW2TSakidE]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://10.1.0.10/api/getLatestFirmwareVersion
+  response:
+    body: {string: '{"success":true,"version":"t1_20180515_060842","versionDate":"15th
+        of May 2018 06:08 AM","url":"https:\/\/download.halongmining.com\/files\/t1\/t1_20180515_060842.swu","info":"important","currentVersion":"t1_20180515_060842","currentVersionDate":"15th
+        of May 2018 06:08 AM","isUpdated":true}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Thu, 14 Jun 2018 17:59:59 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+version: 1
