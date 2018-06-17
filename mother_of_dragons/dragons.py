@@ -57,7 +57,9 @@ class Dragon:
     def check_and_update_firmware(self):
         """Check firmware version and update to latest if necessary."""
         latest_firmware = self.dragon.getLatestFirmwareVersion()
-        if latest_firmware['version'] != latest_firmware['currentVersion']:
+        if 'version' in latest_firmware and \
+                latest_firmware['version'] != \
+                latest_firmware['currentVersion']:
             print('New firmware version available for worker={},'
                   ' currentVersion={}, version={}'.format(
                       latest_firmware['currentVersion'],
@@ -70,11 +72,13 @@ class Dragon:
             self.dragon.upgradeDownload(url)
             self.statsd.incr('worker.{}.action.upgraded'.format(self.worker))
             return True
+        return False
 
     def check_and_update_autotune(self):
         """Check current autotune setting and update if necessary."""
         autotune = self.dragon.getAutoTune()
-        if autotune['autoTuneMode'] != self.dragon_autotune_mode:
+        if 'autoTuneMode' in autotune and \
+                autotune['autoTuneMode'] != self.dragon_autotune_mode:
             print('Changing autotune setting for worker={} '
                   'from {} to {}'.format(self.worker,
                                          autotune['autoTuneMode'],
@@ -83,6 +87,7 @@ class Dragon:
             self.statsd.incr('worker.{}.action.autotuneChanged'
                              .format(self.worker))
             return True
+        return False
 
     def _get_pool_for(self, idx):
         p = [x for x in self.pools if x['id'] == idx]
@@ -136,6 +141,7 @@ class Dragon:
             self.statsd.incr(
                 'worker.{}.action.poolsChanged'.format(self.worker))
             return True
+        return False
 
     def _pools_same(self, configured_pools):
         for idx, pool in enumerate(configured_pools):
