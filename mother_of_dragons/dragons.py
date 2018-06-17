@@ -70,8 +70,9 @@ class Dragon:
                 url = latest_firmware['url']
                 print('Performing firmware upgrade for worker={} '
                       'with url={}'.format(self.worker, url))
-            self.dragon.upgradeDownload(url)
-            self.statsd.incr('worker.{}.action.upgraded'.format(self.worker))
+                self.dragon.upgradeDownload(url)
+                self.statsd.incr(
+                    'worker.{}.action.upgraded'.format(self.worker))
             return True
         return False
 
