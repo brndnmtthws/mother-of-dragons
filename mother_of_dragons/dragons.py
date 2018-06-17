@@ -62,6 +62,7 @@ class Dragon:
                 latest_firmware['currentVersion']:
             print('New firmware version available for worker={},'
                   ' currentVersion={}, version={}'.format(
+                      self.worker,
                       latest_firmware['currentVersion'],
                       latest_firmware['version'])
                   )
