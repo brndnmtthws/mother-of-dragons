@@ -1,4 +1,4 @@
 gevent==1.3.3
 requests==2.18.4
 statsd==3.2.2
-dragon-rest==0.0.8
+dragon-rest==0.0.9
