@@ -154,6 +154,7 @@ ExecStart=/usr/local/bin/mother-of-dragons \
   --dragon-autotune-mode=balanced \
   --dragon-health-reboot \
   --statsd-interval=60 \
+  --firmwares-path=/tmp/mod/firmwares \
   --pools='[{"mac_addresses":[],"pools":[{"id":0,"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","username":"brndnmtthws","password":"x"},{"id":1,"url":"stratum+tcp://pool.ckpool.org:3333","username":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt","password":"x"}]},{"mac_addresses":["a0:b0:45:00:e3:ab"],"pools":[{"id":0,"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","username":"brndnmtthws","password":"lol"},{"id":1,"url":"stratum+tcp://pool.ckpool.org:3333","username":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt","password":"lol"}]}]'
 Restart=always
 User=mother-of-dragons
