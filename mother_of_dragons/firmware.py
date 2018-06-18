@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 import requests
 from tempfile import NamedTemporaryFile
 
+
 class Firmware:
     """Class for handling firmware files."""
 
@@ -34,5 +35,7 @@ class Firmware:
             os.sync()
             path = os.path.join(self.firmwares_path, filename)
             shutil.copyfile(f.name, path)
+            print('Saved filename={} firmware to path={}'.format(filename,
+                                                                 path))
             self.firmwares[filename] = path
             return self.firmwares[filename]
