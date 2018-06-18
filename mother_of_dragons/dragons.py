@@ -182,6 +182,12 @@ class Dragon:
                 self.worker),
             summary['HARDWARE']['Fan duty'])
         for dev in summary['DEVS']:
+            self.statsd.gauge(
+                'worker.{}.dev.{}.Alive'.format(
+                    self.worker,
+                    dev['ID']
+                ),
+                int(dev['Status'] == 'Alive'))
             metrics = [
                 'Temperature',
                 'MHS av',
