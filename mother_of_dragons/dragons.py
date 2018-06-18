@@ -76,7 +76,7 @@ class Dragon:
                 self.dragon.upgradeUpload(local_file)
                 self.statsd.incr(
                     'worker.{}.action.upgraded'.format(self.worker))
-            return True
+                return True
         return False
 
     def check_and_update_autotune(self):
