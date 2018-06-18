@@ -54,7 +54,7 @@ class Dragon:
         # if no pool with this mac was found, use the default pool
         return default_pool['pools']
 
-    def check_and_update_firmware(self):
+    def check_and_update_firmware(self, firmware):
         """Check firmware version and update to latest if necessary."""
         latest_firmware = self.dragon.getLatestFirmwareVersion()
         if 'version' in latest_firmware and \
@@ -68,9 +68,12 @@ class Dragon:
                   )
             if self.dragon_auto_upgrade:
                 url = latest_firmware['url']
+                local_file = firmware.get_firmware_path(url)
                 print('Performing firmware upgrade for worker={} '
-                      'with url={}'.format(self.worker, url))
-                self.dragon.upgradeDownload(url)
+                      'with url={} using local_file={}'.format(self.worker,
+                                                               url,
+                                                               local_file))
+                self.dragon.upgradeUpload(local_file)
                 self.statsd.incr(
                     'worker.{}.action.upgraded'.format(self.worker))
             return True

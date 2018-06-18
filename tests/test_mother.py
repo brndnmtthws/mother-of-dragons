@@ -5,6 +5,8 @@ from mother_of_dragons.dragons import Dragon
 from dragon_rest.dragons import DragonAPI
 import gevent
 import json
+import tempfile
+import os
 from statsd import StatsClient
 
 vcr = vcr.VCR(
@@ -77,26 +79,29 @@ pool_json_alternate = """
 @fixture
 def mother():
     return Mother(network='10.1.0.0/28',
-                   scan_timeout=1,
-                   scan_interval=2,
-                   dragon_timeout=1,
-                   dragon_health_hashrate_min=1000,
-                   dragon_health_hashrate_duration=3600,
-                   dragon_health_reboot=True,
-                   dragon_health_check_interval=60,
-                   dragon_autotune_mode='balanced',
-                   dragon_auto_upgrade=True,
-                   pools=default_pool_json,
-                   statsd_host=None,
-                   statsd_port=8125,
-                   statsd_prefix='dragons',
-                   statsd_interval=60)
+                  scan_timeout=1,
+                  scan_interval=2,
+                  dragon_timeout=1,
+                  dragon_health_hashrate_min=1000,
+                  dragon_health_hashrate_duration=3600,
+                  dragon_health_reboot=True,
+                  dragon_health_check_interval=60,
+                  dragon_autotune_mode='balanced',
+                  dragon_auto_upgrade=True,
+                  pools=default_pool_json,
+                  statsd_host=None,
+                  statsd_port=8125,
+                  statsd_prefix='dragons',
+                  statsd_interval=60,
+                  firmwares_path=os.path.join(tempfile.gettempdir(),
+                                              'mod_test'))
 
 
 @fixture
 def host():
     # default host
     return '10.1.0.8'
+
 
 @vcr.use_cassette()
 def test_mother_scan(mother, host):
@@ -177,6 +182,7 @@ def test_check_health(host):
                     ))
     dragon.check_health()
 
+
 @vcr.use_cassette()
 def test_check_unhealthy_dead(host, mocker):
     mocker.patch.object(DragonAPI, 'reboot', autospec=True)
@@ -195,6 +201,7 @@ def test_check_unhealthy_dead(host, mocker):
     dragon.check_health()
 
     DragonAPI.reboot.assert_called_once_with(dragon.dragon)
+
 
 @vcr.use_cassette()
 def test_check_unhealthy_low_hashrate(host, mocker):

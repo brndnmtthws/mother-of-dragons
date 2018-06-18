@@ -7,6 +7,7 @@ import traceback
 import json
 import sys
 from .dragons import Dragon
+from .firmware import Firmware
 from .timer import Timer
 from .statsd_wrapper import StatsdWrapper
 
@@ -31,7 +32,8 @@ class Mother:
                  statsd_host,
                  statsd_port,
                  statsd_prefix,
-                 statsd_interval):
+                 statsd_interval,
+                 firmwares_path):
         """Construct a new dragon manager."""
         self.network = network
         self.scan_timeout = scan_timeout
@@ -50,6 +52,7 @@ class Mother:
             prefix=statsd_prefix,
         )
         self.statsd_interval = statsd_interval
+        self.firmware = Firmware(firmwares_path)
 
     def start(self):
         """Start the main loop of the dragon manager."""
@@ -110,7 +113,7 @@ class Mother:
                             self.statsd)
             if not dragon.check_and_update_pools():
                 if not dragon.check_and_update_autotune():
-                    if not dragon.check_and_update_firmware():
+                    if not dragon.check_and_update_firmware(self.firmware):
                         self.dragons[host] = dragon
                         self.fetch_stats_for_dragon(host)
                         self.check_health_of_dragon(host)

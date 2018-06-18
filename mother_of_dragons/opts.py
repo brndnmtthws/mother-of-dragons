@@ -95,5 +95,9 @@ class Opts:
                             help='Interval in seconds for fetching metrics '
                             'and forwarding them to statsd from each dragon',
                             type=int, default=60)
+        parser.add_argument('--firmwares-path',
+                            help='Local path for caching firmware files used '
+                            'during upgrades',
+                            type=str, default='firmwares/')
 
         self.args = parser.parse_args()
