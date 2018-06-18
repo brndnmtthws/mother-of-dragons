@@ -5,7 +5,7 @@
 DragonMint T1 or B29 management tool based on
 [dragon-rest](https://github.com/brndnmtthws/dragon-rest)
 
-![Mom with dragons](/mom.png?raw=true)
+![Mom with dragons](/mom.gif?raw=true)
 
 ## Features
 
