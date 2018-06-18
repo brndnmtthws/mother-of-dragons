@@ -106,7 +106,7 @@ def host():
 @vcr.use_cassette()
 def test_mother_scan(mother, host):
     mother.scan(schedule=False)
-    gevent.sleep(2)
+    gevent.sleep(5)
 
     assert len(mother.dragons) == 2
     assert mother.dragons[host].host == host
@@ -114,17 +114,20 @@ def test_mother_scan(mother, host):
 
 @vcr.use_cassette()
 def test_mother_workers_started(mother, host, mocker):
+    mother.dragons = {}
     mocker.patch.object(Mother, '_schedule_scanner', autospec=True)
     mocker.patch.object(Mother, '_schedule_check_health', autospec=True)
     mocker.patch.object(Mother, '_schedule_fetch_stats', autospec=True)
+    mocker.patch.object(Mother, '_schedule_next_firmware_check', autospec=True)
     mother.start()
-    gevent.sleep(2)
+    gevent.sleep(5)
 
     assert len(mother.dragons) == 2
 
     Mother._schedule_scanner.assert_called_once_with(mother)
-    Mother._schedule_scanner.assert_called_with(mother)
-    Mother._schedule_scanner.assert_called_with(mother)
+    Mother._schedule_check_health.assert_called()
+    Mother._schedule_fetch_stats.assert_called()
+    Mother._schedule_next_firmware_check.assert_called()
 
 
 # @vcr.use_cassette()

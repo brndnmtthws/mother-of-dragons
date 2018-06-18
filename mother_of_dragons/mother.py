@@ -6,6 +6,7 @@ import time
 import traceback
 import json
 import sys
+import random
 from .dragons import Dragon
 from .firmware import Firmware
 from .timer import Timer
@@ -113,10 +114,10 @@ class Mother:
                             self.statsd)
             if not dragon.check_and_update_pools():
                 if not dragon.check_and_update_autotune():
-                    if not dragon.check_and_update_firmware(self.firmware):
-                        self.dragons[host] = dragon
-                        self.fetch_stats_for_dragon(host)
-                        self.check_health_of_dragon(host)
+                    self.dragons[host] = dragon
+                    self.fetch_stats_for_dragon(host)
+                    self.check_health_of_dragon(host)
+                    self.check_firmware_version(host)
         except Exception as e:
             self.statsd.incr('manager.dragons.add_exception')
             print('Caught exception when adding new dragon:', e)
@@ -165,6 +166,30 @@ class Mother:
             except Exception as e:
                 self.statsd.incr('manager.dragons.health_exception')
                 print('caught exception checking health of host={}'
+                      ', removing dragon: {}'.format(host, str(e)))
+                traceback.print_exc()
+                self._remove_dragon(host)
+
+    def _schedule_next_firmware_check(self, host):
+        # check approx. every 24h, +/- 24h splay
+        timer = Timer(lambda: self.check_firmware_version(host),
+                      24 * 3600 + (random.randint(0, 24 * 3600)))
+        gevent.spawn(timer.start)
+
+    def check_firmware_version(self, host):
+        """Check the firmware of a dragon and schedule the next check."""
+        if host in self.dragons:
+            dragon = self.dragons[host]
+            try:
+                if dragon.check_and_update_firmware(self.firmware):
+                    # firmware being updated, remove the dragon
+                    # while it does its thing.
+                    self._remove_dragon(host)
+                else:
+                    self._schedule_next_firmware_check(host)
+            except Exception as e:
+                self.statsd.incr('manager.dragons.firmware_check_exception')
+                print('caught exception checking firmware of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
                 traceback.print_exc()
                 self._remove_dragon(host)
