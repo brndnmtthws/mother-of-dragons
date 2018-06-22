@@ -7,7 +7,7 @@ import traceback
 import json
 import sys
 import random
-from .dragons import Dragon
+from .dragons import Dragon, DragonSerializer
 from .firmware import Firmware
 from .timer import Timer
 from .statsd_wrapper import StatsdWrapper
@@ -34,7 +34,8 @@ class Mother:
                  statsd_port,
                  statsd_prefix,
                  statsd_interval,
-                 firmwares_path):
+                 firmwares_path,
+                 inventory_file):
         """Construct a new dragon manager."""
         self.network = network
         self.scan_timeout = scan_timeout
@@ -54,6 +55,7 @@ class Mother:
         )
         self.statsd_interval = statsd_interval
         self.firmware = Firmware(firmwares_path)
+        self.inventory_file = inventory_file
 
     def start(self):
         """Start the main loop of the dragon manager."""
@@ -118,6 +120,7 @@ class Mother:
                     self.fetch_stats_for_dragon(host)
                     self.check_health_of_dragon(host)
                     self.check_firmware_version(host)
+            self._update_inventory()
         except Exception as e:
             self.statsd.incr('manager.dragons.exception')
             self.statsd.incr('manager.dragons.add_exception')
@@ -130,9 +133,16 @@ class Mother:
     def _remove_dragon(self, host):
         print('Removing dragon, host={}'.format(host))
         del self.dragons[host]
+        self._update_inventory()
         self.statsd.gauge('manager.dragons.count', len(self.dragons))
         self.statsd.incr('manager.dragons.removed')
         sys.stdout.flush()
+
+    def _update_inventory(self):
+        data = [DragonSerializer(dragon).data
+                for dragon in self.dragons.values()]
+        with open(self.inventory_file, 'w') as outfile:
+            json.dump(data, outfile, sort_keys=True, indent=2)
 
     def _schedule_fetch_stats(self, host):
         timer = Timer(lambda: self.fetch_stats_for_dragon(host),

@@ -2,9 +2,10 @@
 from dragon_rest.dragons import DragonAPI
 import statsd
 import time
+import serpy
 
 
-class Dragon:
+class Dragon(object):
     """Dragon handler class."""
 
     def __init__(self,
@@ -18,7 +19,7 @@ class Dragon:
                  pools,
                  statsd):
         """Construct a dragon (not literally tho)."""
-        self.host = host
+        self.ip_address = self.host = host
         self.dragon_timeout = dragon_timeout
         self.dragon_health_hashrate_min = dragon_health_hashrate_min
         self.dragon_health_hashrate_duration = dragon_health_hashrate_duration
@@ -162,7 +163,7 @@ class Dragon:
 
     def fetch_stats(self):
         """Fetch the dragon stats and optionally forward them to statsd."""
-        summary = self.dragon.summary()
+        self.summary = summary = self.dragon.summary()
         print('worker={0} S0={1} T0={2}C MHs5m={3:.2f} S1={4} T1={5}C'
               ' MHs5m={6:.2f} S2={7} T2={8}C MHs5m={9:.2f}'
               .format(
@@ -293,3 +294,12 @@ class Dragon:
                 self.dragon.reboot()
                 self.statsd.incr(
                     'worker.{}.action.rebooted'.format(self.worker))
+
+
+class DragonSerializer(serpy.Serializer):
+    """Dragon serilizer."""
+
+    ip_address = serpy.Field()
+    worker = serpy.Field()
+    mac_address = serpy.Field()
+    overview = serpy.Field()

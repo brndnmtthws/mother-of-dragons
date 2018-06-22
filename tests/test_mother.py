@@ -94,7 +94,9 @@ def mother():
                   statsd_prefix='dragons',
                   statsd_interval=60,
                   firmwares_path=os.path.join(tempfile.gettempdir(),
-                                              'mod_test'))
+                                              'mod_test'),
+                  inventory_file=os.path.join(tempfile.gettempdir(),
+                                              'dragon-inventory.json'))
 
 
 @fixture
@@ -110,6 +112,14 @@ def test_mother_scan(mother, host):
 
     assert len(mother.dragons) == 2
     assert mother.dragons[host].host == host
+
+    with open(mother.inventory_file) as f:
+        data = json.load(f)
+
+    assert len(data) == 2
+    for dragon in data:
+        assert dragon['ip_address'] in mother.dragons
+
 
 
 @vcr.use_cassette()

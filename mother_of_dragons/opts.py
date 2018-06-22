@@ -99,5 +99,8 @@ class Opts:
                             help='Local path for caching firmware files used '
                             'during upgrades',
                             type=str, default='firmwares/')
+        parser.add_argument('--inventory-file',
+                            help='Local path for writing out inventory file.',
+                            type=str, default='dragon-inventory.json')
 
         self.args = parser.parse_args()

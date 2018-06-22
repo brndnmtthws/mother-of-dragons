@@ -32,7 +32,8 @@ def main():
                statsd_port=opts.args.statsd_port,
                statsd_prefix=opts.args.statsd_prefix,
                statsd_interval=opts.args.statsd_interval,
-               firmwares_path=opts.args.firmwares_path)
+               firmwares_path=opts.args.firmwares_path,
+               inventory_file=opts.args.inventory_file)
 
     m.start()
     thread.join()
