@@ -119,6 +119,7 @@ class Mother:
                     self.check_health_of_dragon(host)
                     self.check_firmware_version(host)
         except Exception as e:
+            self.statsd.incr('manager.dragons.exception')
             self.statsd.incr('manager.dragons.add_exception')
             print('Caught exception when adding new dragon:', e)
             traceback.print_exc()
@@ -145,6 +146,7 @@ class Mother:
                 self.dragons[host].fetch_stats()
                 self._schedule_fetch_stats(host)
             except Exception as e:
+                self.statsd.incr('manager.dragons.exception')
                 self.statsd.incr('manager.dragons.stats_exception')
                 print('caught exception fetching stats of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
@@ -164,6 +166,7 @@ class Mother:
                 dragon.check_health()
                 self._schedule_check_health(host)
             except Exception as e:
+                self.statsd.incr('manager.dragons.exception')
                 self.statsd.incr('manager.dragons.health_exception')
                 print('caught exception checking health of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
@@ -188,6 +191,7 @@ class Mother:
                 else:
                     self._schedule_next_firmware_check(host)
             except Exception as e:
+                self.statsd.incr('manager.dragons.exception')
                 self.statsd.incr('manager.dragons.firmware_check_exception')
                 print('caught exception checking firmware of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
