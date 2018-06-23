@@ -126,6 +126,7 @@ class Mother:
             self.statsd.incr('manager.dragons.add_exception')
             print('Caught exception when adding new dragon:', e)
             traceback.print_exc()
+            sys.stderr.flush()
         self.statsd.gauge('manager.dragons.count', len(self.dragons))
         self.statsd.incr('manager.dragons.added')
         sys.stdout.flush()
@@ -161,6 +162,7 @@ class Mother:
                 print('Caught exception fetching stats of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
                 traceback.print_exc()
+                sys.stderr.flush()
                 self._remove_dragon(host)
 
     def _schedule_check_health(self, host):
@@ -181,6 +183,7 @@ class Mother:
                 print('Caught exception checking health of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
                 traceback.print_exc()
+                sys.stderr.flush()
                 self._remove_dragon(host)
 
     def _schedule_next_firmware_check(self, host):
@@ -206,4 +209,5 @@ class Mother:
                 print('Caught exception checking firmware of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
                 traceback.print_exc()
+                sys.stderr.flush()
                 self._remove_dragon(host)
