@@ -164,20 +164,25 @@ class Dragon(object):
     def fetch_stats(self):
         """Fetch the dragon stats and optionally forward them to statsd."""
         self.summary = summary = self.dragon.summary()
-        print('worker={0} S0={1} T0={2}C MHs5m={3:.2f} S1={4} T1={5}C'
-              ' MHs5m={6:.2f} S2={7} T2={8}C MHs5m={9:.2f}'
-              .format(
-                  self.worker,
-                  summary['DEVS'][0]['Status'],
-                  summary['DEVS'][0]['Temperature'],
-                  summary['DEVS'][0]['MHS 5m'],
-                  summary['DEVS'][1]['Status'],
-                  summary['DEVS'][1]['Temperature'],
-                  summary['DEVS'][1]['MHS 5m'],
-                  summary['DEVS'][2]['Status'],
-                  summary['DEVS'][2]['Temperature'],
-                  summary['DEVS'][2]['MHS 5m'],
-              ))
+        if 'DEVS' in summary and \
+                len(summary['DEVS']) == 3:
+            print('worker={0} S0={1} T0={2}C MHs5m={3:.2f} S1={4} T1={5}C'
+                  ' MHs5m={6:.2f} S2={7} T2={8}C MHs5m={9:.2f}'
+                  .format(
+                      self.worker,
+                      summary['DEVS'][0]['Status'],
+                      summary['DEVS'][0]['Temperature'],
+                      summary['DEVS'][0]['MHS 5m'],
+                      summary['DEVS'][1]['Status'],
+                      summary['DEVS'][1]['Temperature'],
+                      summary['DEVS'][1]['MHS 5m'],
+                      summary['DEVS'][2]['Status'],
+                      summary['DEVS'][2]['Temperature'],
+                      summary['DEVS'][2]['MHS 5m'],
+                  ))
+        else:
+            print('Unexpected length of device summary from worker={}, length={} expected 3'
+                  .format(self.worker, len(summary['DEVS'])))
         self.statsd.gauge(
             'worker.{}.hardware.fan_duty'.format(
                 self.worker),

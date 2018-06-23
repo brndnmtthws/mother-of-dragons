@@ -158,7 +158,7 @@ class Mother:
             except Exception as e:
                 self.statsd.incr('manager.dragons.exception')
                 self.statsd.incr('manager.dragons.stats_exception')
-                print('caught exception fetching stats of host={}'
+                print('Caught exception fetching stats of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
                 traceback.print_exc()
                 self._remove_dragon(host)
@@ -178,7 +178,7 @@ class Mother:
             except Exception as e:
                 self.statsd.incr('manager.dragons.exception')
                 self.statsd.incr('manager.dragons.health_exception')
-                print('caught exception checking health of host={}'
+                print('Caught exception checking health of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
                 traceback.print_exc()
                 self._remove_dragon(host)
@@ -203,7 +203,7 @@ class Mother:
             except Exception as e:
                 self.statsd.incr('manager.dragons.exception')
                 self.statsd.incr('manager.dragons.firmware_check_exception')
-                print('caught exception checking firmware of host={}'
+                print('Caught exception checking firmware of host={}'
                       ', removing dragon: {}'.format(host, str(e)))
                 traceback.print_exc()
                 self._remove_dragon(host)
