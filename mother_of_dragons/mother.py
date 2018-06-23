@@ -98,7 +98,7 @@ class Mother:
         for host in scan_result:
             if host not in self.dragons:
                 gevent.spawn(self._add_dragon, host)
-        for host, dragon in self.dragons.items():
+        for host in self.dragons:
             if host not in scan_result:
                 gevent.spawn(self._remove_dragon, host)
 

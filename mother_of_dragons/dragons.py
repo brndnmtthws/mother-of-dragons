@@ -285,6 +285,10 @@ class Dragon(object):
                           dev['MHS 15m']
                       ))
                 below_threshhold = True
+        if len(summary['DEVS']) != 3:
+            print('worker={} only has {} devices'.format(
+                self.worker, len(summary['DEVS'])))
+            healthy = False
 
         if not below_threshhold:
             self.healthy_since = time.time()
