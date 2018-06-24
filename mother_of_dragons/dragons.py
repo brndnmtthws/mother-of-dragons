@@ -281,6 +281,7 @@ class Dragon(object):
                           self.dragon_health_hashrate_min,
                           dev['MHS 15m']
                       ))
+                below_threshhold = True
         if len(summary['DEVS']) != 3:
             print('worker={} only has {} devices'.format(
                 self.worker, len(summary['DEVS'])))
