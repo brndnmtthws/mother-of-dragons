@@ -34,6 +34,7 @@ class Dragon(object):
         self.pools = self._assign_pools(pools)
         self.statsd = statsd
         self.statsd.incr('worker.{}.action.added'.format(self.worker))
+        self.rebooted = False
 
         # Assume a dragon is initially healthy
         self.healthy_since = time.time()
@@ -300,6 +301,7 @@ class Dragon(object):
             print('worker={} is NOT healthy'.format(self.worker))
             if self.dragon_health_reboot:
                 print('Rebooting dragon worker={}'.format(self.worker))
+                self.rebooted = True
                 self.dragon.reboot()
                 self.statsd.incr(
                     'worker.{}.action.rebooted'.format(self.worker))

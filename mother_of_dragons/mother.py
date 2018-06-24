@@ -154,16 +154,20 @@ class Mother:
         """Fetch stats for a dragon and schedule the next fetch."""
         if host in self.dragons:
             try:
-                self.dragons[host].fetch_stats()
+                dragon = self.dragons[host]
+                dragon.fetch_stats()
                 self._schedule_fetch_stats(host)
             except Exception as e:
-                self.statsd.incr('manager.dragons.exception')
-                self.statsd.incr('manager.dragons.stats_exception')
-                print('Caught exception fetching stats of host={}'
-                      ', removing dragon: {}'.format(host, str(e)))
-                traceback.print_exc()
-                sys.stderr.flush()
-                self._remove_dragon(host)
+                if dragon.rebooted:
+                    pass
+                else:
+                    self.statsd.incr('manager.dragons.exception')
+                    self.statsd.incr('manager.dragons.stats_exception')
+                    print('Caught exception fetching stats of host={}'
+                          ', removing dragon: {}'.format(host, str(e)))
+                    traceback.print_exc()
+                    sys.stderr.flush()
+                    self._remove_dragon(host)
 
     def _schedule_check_health(self, host):
         timer = Timer(lambda: self.check_health_of_dragon(host),
@@ -204,10 +208,14 @@ class Mother:
                 else:
                     self._schedule_next_firmware_check(host)
             except Exception as e:
-                self.statsd.incr('manager.dragons.exception')
-                self.statsd.incr('manager.dragons.firmware_check_exception')
-                print('Caught exception checking firmware of host={}'
-                      ', removing dragon: {}'.format(host, str(e)))
-                traceback.print_exc()
-                sys.stderr.flush()
-                self._remove_dragon(host)
+                if dragon.rebooted:
+                    pass
+                else:
+                    self.statsd.incr('manager.dragons.exception')
+                    self.statsd.incr(
+                        'manager.dragons.firmware_check_exception')
+                    print('Caught exception checking firmware of host={}'
+                          ', removing dragon: {}'.format(host, str(e)))
+                    traceback.print_exc()
+                    sys.stderr.flush()
+                    self._remove_dragon(host)
