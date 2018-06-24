@@ -165,28 +165,21 @@ class Dragon(object):
     def fetch_stats(self):
         """Fetch the dragon stats and optionally forward them to statsd."""
         self.summary = summary = self.dragon.summary()
-        if 'DEVS' in summary and \
-                len(summary['DEVS']) == 3:
-            print('worker={0} S0={1} T0={2}C MHs5m={3:.2f} S1={4} T1={5}C'
-                  ' MHs5m={6:.2f} S2={7} T2={8}C MHs5m={9:.2f}'
-                  .format(
-                      self.worker,
-                      summary['DEVS'][0]['Status'],
-                      summary['DEVS'][0]['Temperature'],
-                      summary['DEVS'][0]['MHS 5m'],
-                      summary['DEVS'][1]['Status'],
-                      summary['DEVS'][1]['Temperature'],
-                      summary['DEVS'][1]['MHS 5m'],
-                      summary['DEVS'][2]['Status'],
-                      summary['DEVS'][2]['Temperature'],
-                      summary['DEVS'][2]['MHS 5m'],
-                  ))
+        if 'DEVS' in summary:
+            summary_out = 'worker={0}'.format(self.worker)
+            for idx, stats in enumerate(summary['DEVS']):
+                summary_out += ' S{0}={1} T{0}={2}C MHs5m={3:.2f}'\
+                    .format(idx,
+                            stats['Status'],
+                            stats['Temperature'],
+                            stats['MHS 5m'])
+            print(summary_out)
+            if len(summary['DEVS']) != 3:
+                print('Unexpected length of device summary from worker={}, length={} expected 3'
+                      .format(self.worker, len(summary['DEVS'])))
         elif 'DEVS' not in summary:
             print('Device summary from worker={} not present (did it just start up?)'
                   .format(self.worker))
-        else:
-            print('Unexpected length of device summary from worker={}, length={} expected 3'
-                  .format(self.worker, len(summary['DEVS'])))
         self.statsd.gauge(
             'worker.{}.hardware.fan_duty'.format(
                 self.worker),
@@ -288,11 +281,10 @@ class Dragon(object):
                           self.dragon_health_hashrate_min,
                           dev['MHS 15m']
                       ))
-                below_threshhold = True
         if len(summary['DEVS']) != 3:
             print('worker={} only has {} devices'.format(
                 self.worker, len(summary['DEVS'])))
-            healthy = False
+            below_threshhold = True
 
         if not below_threshhold:
             self.healthy_since = time.time()
