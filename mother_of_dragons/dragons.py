@@ -181,6 +181,9 @@ class Dragon(object):
                       summary['DEVS'][2]['Temperature'],
                       summary['DEVS'][2]['MHS 5m'],
                   ))
+        elif 'DEVS' not in summary:
+            print('Device summary from worker={} not present (did it just start up?)'
+                  .format(self.worker))
         else:
             print('Unexpected length of device summary from worker={}, length={} expected 3'
                   .format(self.worker, len(summary['DEVS'])))
