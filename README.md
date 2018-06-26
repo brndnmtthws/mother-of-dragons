@@ -2,7 +2,7 @@
 # 🐲👸🔥🐉 Mother of Dragons 🐲👸🔥🐉
 *Be smart. Be mother. Be Mother of Dragons.*
 
-DragonMint T1 or B29 management tool based on
+DragonMint T1/B29/B52 management tool based on
 [dragon-rest](https://github.com/brndnmtthws/dragon-rest)
 
 ![Mom with dragons](/mom.gif?raw=true)
