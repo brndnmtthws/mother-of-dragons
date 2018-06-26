@@ -19,8 +19,9 @@ DragonMint T1 or B29 management tool based on
    MAC address
  * Free you up from having to manually manage your dragons so you can go
    vacation like a movie star 😎
- * Should work with both T1 and B29 (although I have not
-   confirmed it works with the B29, feel free to send me one to test)
+ * Should work with both T1, B29, and B52 (although I have not
+   confirmed it works with the B29/B52, feel free to send me a few to
+   test with :D)
 
 ## How it works
 
