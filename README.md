@@ -169,3 +169,10 @@ WantedBy=multi-user.target
 
 In the example above, the dragon with the MAC address `a0:b0:45:00:e3:ab` will
 use a different pool setting than all other dragons.
+
+## Tip Jar
+
+You won't, but just in case:
+
+* BTC: 3EEAE1oKEMnmHGU5Qxibv9mBQyNnes8j8N
+* LTC: 3MxmLzTf4sPsFBGYUnX9MMMbTMeaUSox46
