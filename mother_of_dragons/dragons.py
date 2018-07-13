@@ -264,6 +264,7 @@ class Dragon(object):
         summary = self.dragon.summary()
         healthy = True
         below_threshhold = False
+        temperature_wtf = False
 
         # check each ASIC device
         for dev in summary['DEVS']:
@@ -282,12 +283,20 @@ class Dragon(object):
                           dev['MHS 15m']
                       ))
                 below_threshhold = True
+            if dev['Temperature'] > 200:
+                temperature_wtf = True
+                print('worker={} showing temp of {} for dev ID={}, '
+                      'may be unhealthy'.format(
+                          self.worker,
+                          dev['Temperature'],
+                          dev['ID']
+                      ))
         if len(summary['DEVS']) != 3:
             print('worker={} only has {} devices'.format(
                 self.worker, len(summary['DEVS'])))
             below_threshhold = True
 
-        if not below_threshhold:
+        if not below_threshhold and not temperature_wtf:
             self.healthy_since = time.time()
         elif time.time() - self.healthy_since >= \
                 self.dragon_health_hashrate_duration:
