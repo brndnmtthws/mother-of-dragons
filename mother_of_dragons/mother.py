@@ -157,6 +157,7 @@ class Mother:
                 dragon = self.dragons[host]
                 dragon.fetch_stats()
                 self._schedule_fetch_stats(host)
+                sys.stdout.flush()
             except Exception as e:
                 if dragon.rebooted:
                     pass
