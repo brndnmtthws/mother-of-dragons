@@ -75,28 +75,56 @@ pool_json_alternate = """
 ]
 """
 
+test_config = {
+    'main': {
+        'inventory_file': os.path.join(tempfile.gettempdir(),
+                                       'dragon-inventory.json'),
+        'firmwares_path': os.path.join(tempfile.gettempdir(),
+                                       'mod_test'),
+        'api_timeout': 3,
+        'local_network': {
+            'network': '10.1.0.0/28',
+            'scan_interval': 2,
+            'scan_timeout': 1
+        },
+        'statsd': {
+            'host': 'localhost',
+            'port': 8125,
+            'prefix': 'dragons',
+            'interval': 60
+        },
+        'credentials': [
+            {'username': 'admin', 'password': 'dragonadmin'},
+            {'username': 'admin', 'password': 'admin'}
+        ]},
+    'configs': [
+        {
+            'health_reboot': True,
+            'health_check_interval': 300,
+            'health_hashrate_duration': 3600,
+            'health_hashrate_minimum': 10000,
+            'auto_upgrade': True,
+            'autotune_mode': 'balanced',
+            'autotune_level': 2,
+            'apply_to': {
+                'models': [],
+                'mac_addresses': []
+            },
+            'pools': [
+                {
+                    'url': 'stratum+tcp://us-east.stratum.slushpool.com:3333',
+                    'username': 'brndnmtthws',
+                    'password': 'x'
+                }
+            ]
+        }
+    ]
+}
+
 
 @fixture
 def mother():
-    return Mother(network='10.1.0.0/28',
-                  scan_timeout=1,
-                  scan_interval=2,
-                  dragon_timeout=1,
-                  dragon_health_hashrate_min=1000,
-                  dragon_health_hashrate_duration=3600,
-                  dragon_health_reboot=True,
-                  dragon_health_check_interval=60,
-                  dragon_autotune_mode='balanced',
-                  dragon_auto_upgrade=True,
-                  pools=default_pool_json,
-                  statsd_host=None,
-                  statsd_port=8125,
-                  statsd_prefix='dragons',
-                  statsd_interval=60,
-                  firmwares_path=os.path.join(tempfile.gettempdir(),
-                                              'mod_test'),
-                  inventory_file=os.path.join(tempfile.gettempdir(),
-                                              'dragon-inventory.json'))
+    return Mother(test_config)
 
 
 @fixture
@@ -121,14 +149,14 @@ def test_mother_scan(mother, host):
         assert dragon['ip_address'] in mother.dragons
 
 
-
 @vcr.use_cassette()
 def test_mother_workers_started(mother, host, mocker):
     mother.dragons = {}
     mocker.patch.object(Mother, '_schedule_scanner', autospec=True)
     mocker.patch.object(Mother, '_schedule_check_health', autospec=True)
     mocker.patch.object(Mother, '_schedule_fetch_stats', autospec=True)
-    mocker.patch.object(Mother, '_schedule_next_firmware_check', autospec=True)
+    mocker.patch.object(
+        Mother, '_schedule_next_firmware_check', autospec=True)
     mother.start()
     gevent.sleep(5)
 
@@ -163,13 +191,9 @@ def test_mother_workers_started(mother, host, mocker):
 @vcr.use_cassette()
 def test_fetch_stats(host):
     dragon = Dragon(host,
-                    dragon_timeout=1,
-                    dragon_health_hashrate_min=1000,
-                    dragon_health_hashrate_duration=3600,
-                    dragon_health_reboot=True,
-                    dragon_autotune_mode='balanced',
-                    dragon_auto_upgrade=True,
-                    pools=json.loads(default_pool_json),
+                    api_timeout=1,
+                    credentials=test_config['main']['credentials'],
+                    configs=test_config['configs'],
                     statsd=StatsClient(
                         host='127.0.0.1',
                         prefix='dragon'
@@ -182,13 +206,9 @@ def test_fetch_stats(host):
 @vcr.use_cassette()
 def test_check_health(host):
     dragon = Dragon(host,
-                    dragon_timeout=1,
-                    dragon_health_hashrate_min=1000,
-                    dragon_health_hashrate_duration=3600,
-                    dragon_health_reboot=True,
-                    dragon_autotune_mode='balanced',
-                    dragon_auto_upgrade=True,
-                    pools=json.loads(default_pool_json),
+                    api_timeout=1,
+                    credentials=test_config['main']['credentials'],
+                    configs=test_config['configs'],
                     statsd=StatsClient(
                         host='127.0.0.1',
                         prefix='dragon'
@@ -200,13 +220,9 @@ def test_check_health(host):
 def test_check_unhealthy_dead(host, mocker):
     mocker.patch.object(DragonAPI, 'reboot', autospec=True)
     dragon = Dragon(host,
-                    dragon_timeout=1,
-                    dragon_health_hashrate_min=1000,
-                    dragon_health_hashrate_duration=3600,
-                    dragon_health_reboot=True,
-                    dragon_autotune_mode='balanced',
-                    dragon_auto_upgrade=True,
-                    pools=json.loads(default_pool_json),
+                    api_timeout=1,
+                    credentials=test_config['main']['credentials'],
+                    configs=test_config['configs'],
                     statsd=StatsClient(
                         host='127.0.0.1',
                         prefix='dragon'
@@ -219,14 +235,14 @@ def test_check_unhealthy_dead(host, mocker):
 @vcr.use_cassette()
 def test_check_unhealthy_low_hashrate(host, mocker):
     mocker.patch.object(DragonAPI, 'reboot', autospec=True)
+    configs = test_config['configs']
+    configs[0]['health_hashrate_minimum'] = 100000000
+    configs[0]['health_hashrate_duration'] = 0
+    configs[0]['health_check_interval'] = 1
     dragon = Dragon(host,
-                    dragon_timeout=1,
-                    dragon_health_hashrate_min=1000,
-                    dragon_health_hashrate_duration=0,
-                    dragon_health_reboot=True,
-                    dragon_autotune_mode='balanced',
-                    dragon_auto_upgrade=True,
-                    pools=json.loads(default_pool_json),
+                    api_timeout=1,
+                    credentials=test_config['main']['credentials'],
+                    configs=configs,
                     statsd=StatsClient(
                         host='127.0.0.1',
                         prefix='dragon'

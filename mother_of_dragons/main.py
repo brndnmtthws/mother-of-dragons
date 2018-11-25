@@ -2,7 +2,10 @@ from gevent import monkey
 monkey.patch_all()
 import gevent
 import signal
+import toml
+import json
 from .opts import Opts
+from .opts import default_config_toml
 
 
 def run_forever():
@@ -15,25 +18,18 @@ def main():
     gevent.signal(signal.SIGQUIT, gevent.kill)
     thread = gevent.spawn(run_forever)
     from .mother import Mother
-    m = Mother(opts.args.network,
-               scan_timeout=opts.args.scan_timeout,
-               scan_interval=opts.args.scan_interval,
-               dragon_timeout=opts.args.dragon_timeout,
-               dragon_health_hashrate_min=opts.args.dragon_health_hashrate_min,
-               dragon_health_hashrate_duration=
-               opts.args.dragon_health_hashrate_duration,
-               dragon_health_reboot=opts.args.dragon_health_reboot,
-               dragon_health_check_interval=
-               opts.args.dragon_health_check_interval,
-               dragon_autotune_mode=opts.args.dragon_autotune_mode,
-               dragon_auto_upgrade=opts.args.dragon_auto_upgrade,
-               pools=opts.args.pools,
-               statsd_host=opts.args.statsd_host,
-               statsd_port=opts.args.statsd_port,
-               statsd_prefix=opts.args.statsd_prefix,
-               statsd_interval=opts.args.statsd_interval,
-               firmwares_path=opts.args.firmwares_path,
-               inventory_file=opts.args.inventory_file)
+
+    config = toml.loads(default_config_toml)
+    if opts.args.config.endswith('json'):
+        with open(opts.args.config, 'r') as f:
+            config.update(json.load(f))
+        print('Loaded JSON config from {}'.format(opts.args.config))
+    elif opts.args.config.endswith('toml'):
+        with open(opts.args.config, 'r') as f:
+            config.update(toml.load(f))
+        print('Loaded TOML config from {}'.format(opts.args.config))
+
+    m = Mother(config)
 
     m.start()
     thread.join()

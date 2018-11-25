@@ -1,0 +1,82 @@
+# Main configuration parameters.
+[main]
+# Path to a file where the dragon inventory should be written out.
+inventory_file = 'dragon-inventory.json'
+
+# Local path for caching of firmware files used during upgrades.
+firmwares_path = 'firmwares/'
+
+# Timeout for individual API calls.
+api_timeout = 300
+
+  [main.local_network]
+    # Local network in CIDR notation. This is the IP range which will be scanned
+    # for dragons.
+    network = "10.1.0.0/22"
+
+    # Local networking scanning interval in seconds.
+    scan_interval = 300
+
+    # Local networking scam timeout in seconds, on a per-host basis.
+    scan_timeout = 10
+
+  # Optional statsd configuration.
+  [main.statsd]
+    host = "localhost"
+    port = 8125
+    prefix = "dragons"
+    interval = 60
+
+  # A list of username/password combinations to try connecting with. This
+  # is necessary because different vendors may use different defaults, depending
+  # on how the miners are branded.
+  [[main.credentials]]
+    # Default for DragonMint branded miners.
+    username = "admin"
+    password = "dragonadmin"
+  [[main.credentials]]
+    # Default for Innosilicon branded miners.
+    username = "admin"
+    password = "admin"
+
+# A list of configurations for miners. You may filter by model or MAC address.
+# For a particular config to be applied, both the model and at least one MAC
+# address must match. If no matching configuration is found, a default is used.
+#
+# Repeat the block below for each model/MAC address set you want to configure.
+# Unset values will fall back to defaults.
+[[configs]]
+  # Enable automatic rebooting of unhealthy dragons. A dragon is considered
+  # unhealthy if a device is marked as dead or the hashrate has been below the
+  # minimum healthy threshhold for more than the duration specified.
+  health_reboot = true
+
+  # Health checking interval in seconds.
+  health_check_interval = 300
+  
+  # Amount of time (in seconds) that the hashrate (per device) must be below
+  # the minimum threshhold for it to be considered unhealthy.
+  health_hashrate_duration = 3600
+
+  # Minimum hashrate per device for the device to be considered healthy.
+  health_hashrate_minimum = 1000
+
+  # Enable automatic firmware upgrades.
+  auto_upgrade = true
+
+  # Specify the autotune setting.
+  autotune_mode = "balanced"
+  autotune_level = 2
+
+  [configs.apply_to]
+    # List of models to apply this config to. Leave empty to apply to all.
+    models = []
+    
+    # List of MAC addresses to apply this config to. Leave empty to apply to all.
+    mac_addresses = []
+  
+  # Specify up to 3 pools.
+  [[configs.pools]]
+    url = "stratum+tcp://us-east.stratum.slushpool.com:3333"
+    username = "brndnmtthws"
+    password = "x"

@@ -19,43 +19,20 @@ class Mother:
     dragons = {}
 
     def __init__(self,
-                 network,
-                 scan_timeout,
-                 scan_interval,
-                 dragon_timeout,
-                 dragon_health_hashrate_min,
-                 dragon_health_hashrate_duration,
-                 dragon_health_reboot,
-                 dragon_health_check_interval,
-                 dragon_autotune_mode,
-                 dragon_auto_upgrade,
-                 pools,
-                 statsd_host,
-                 statsd_port,
-                 statsd_prefix,
-                 statsd_interval,
-                 firmwares_path,
-                 inventory_file):
+                 config):
         """Construct a new dragon manager."""
-        self.network = network
-        self.scan_timeout = scan_timeout
-        self.scan_interval = scan_interval
-        self.dragon_timeout = dragon_timeout
-        self.dragon_health_hashrate_min = dragon_health_hashrate_min
-        self.dragon_health_hashrate_duration = dragon_health_hashrate_duration
-        self.dragon_health_reboot = dragon_health_reboot
-        self.dragon_health_check_interval = dragon_health_check_interval
-        self.dragon_autotune_mode = dragon_autotune_mode
-        self.dragon_auto_upgrade = dragon_auto_upgrade
-        self.pools = json.loads(pools)
+        self.config = config
+        self.network = config['main']['local_network']['network']
+        self.scan_timeout = config['main']['local_network']['scan_timeout']
+        self.scan_interval = config['main']['local_network']['scan_interval']
         self.statsd = StatsdWrapper(
-            host=statsd_host,
-            port=statsd_port,
-            prefix=statsd_prefix,
+            host=config['main']['statsd'].get('host', None),
+            port=config['main']['statsd'].get('port', None),
+            prefix=config['main']['statsd'].get('prefix', None),
         )
-        self.statsd_interval = statsd_interval
-        self.firmware = Firmware(firmwares_path)
-        self.inventory_file = inventory_file
+        self.statsd_interval = config['main']['statsd'].get('interval', 60)
+        self.firmware = Firmware(config['main']['firmwares_path'])
+        self.inventory_file = config['main']['inventory_file']
 
     def start(self):
         """Start the main loop of the dragon manager."""
@@ -106,13 +83,9 @@ class Mother:
         print('Adding new dragon, host={}'.format(host))
         try:
             dragon = Dragon(host,
-                            self.dragon_timeout,
-                            self.dragon_health_hashrate_min,
-                            self.dragon_health_hashrate_duration,
-                            self.dragon_health_reboot,
-                            self.dragon_autotune_mode,
-                            self.dragon_auto_upgrade,
-                            self.pools,
+                            self.config['main']['api_timeout'],
+                            self.config['main']['credentials'],
+                            self.config['configs'],
                             self.statsd)
             if not dragon.check_and_update_pools():
                 if not dragon.check_and_update_autotune():
@@ -170,9 +143,9 @@ class Mother:
                     sys.stderr.flush()
                     self._remove_dragon(host)
 
-    def _schedule_check_health(self, host):
+    def _schedule_check_health(self, host, health_check_interval):
         timer = Timer(lambda: self.check_health_of_dragon(host),
-                      self.dragon_health_check_interval)
+                      health_check_interval)
         gevent.spawn(timer.start)
 
     def check_health_of_dragon(self, host):
@@ -181,7 +154,7 @@ class Mother:
             dragon = self.dragons[host]
             try:
                 dragon.check_health()
-                self._schedule_check_health(host)
+                self._schedule_check_health(host, dragon.health_check_interval)
             except Exception as e:
                 self.statsd.incr('manager.dragons.exception')
                 self.statsd.incr('manager.dragons.health_exception')

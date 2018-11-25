@@ -10,30 +10,47 @@ class Dragon(object):
 
     def __init__(self,
                  host,
-                 dragon_timeout,
-                 dragon_health_hashrate_min,
-                 dragon_health_hashrate_duration,
-                 dragon_health_reboot,
-                 dragon_autotune_mode,
-                 dragon_auto_upgrade,
-                 pools,
+                 api_timeout,
+                 credentials,
+                 configs,
                  statsd):
         """Construct a dragon (not literally tho)."""
         self.ip_address = self.host = host
-        self.dragon_timeout = dragon_timeout
-        self.dragon_health_hashrate_min = dragon_health_hashrate_min
-        self.dragon_health_hashrate_duration = dragon_health_hashrate_duration
-        self.dragon_health_reboot = dragon_health_reboot
-        self.dragon_autotune_mode = dragon_autotune_mode
-        self.dragon_auto_upgrade = dragon_auto_upgrade
 
-        self.dragon = DragonAPI(host, dragon_timeout)
-        self.overview = self.dragon.overview()
+        self.dragon = None
+        for cred in credentials:
+            try:
+                self.dragon = DragonAPI(host,
+                                        username=cred['username'],
+                                        password=cred['password'],
+                                        timeout=api_timeout)
+                self.overview = self.dragon.overview()
+                break
+            except:
+                pass
+
+        if self.dragon is None:
+            raise Exception("Exhausted all credentials, unable to add dragon"
+                            "with host={}".format(host))
+
+        self.type = self.overview['type']
         self.mac_address = self.overview['version']['ethaddr']
+
+        self.config = self.get_config_for_this_dragon(configs)
+
+        self.api_timeout = api_timeout
+        self.health_hashrate_duration = self.config['health_hashrate_duration']
+        self.health_hashrate_min = self.config['health_hashrate_minimum']
+        self.health_check_interval = self.config['health_check_interval']
+        self.health_reboot = self.config['health_reboot']
+        self.autotune_mode = self.config['autotune_mode']
+        self.autotune_level = self.config['autotune_level']
+        self.auto_upgrade = self.config['auto_upgrade']
+
         self.worker = 'dragon-' + ''.join(self.mac_address.split(':'))[-8:]
-        self.pools = self._assign_pools(pools)
         self.statsd = statsd
-        self.statsd.incr('worker.{}.action.added'.format(self.worker))
+        self.statsd.incr('worker.{}.{}.action.added'.format(
+            self.type, self.worker))
         self.rebooted = False
 
         # Assume a dragon is initially healthy
@@ -44,17 +61,41 @@ class Dragon(object):
                       host,
                       self.mac_address))
 
-    def _assign_pools(self, pools):
-        default_pool = []
-        # look for a pool that has this mac address defined
-        for pool in pools:
-            if self.mac_address in pool['mac_addresses']:
-                return pool['pools']
-            if pool['mac_addresses'] is None \
-                    or len(pool['mac_addresses']) == 0:
-                default_pool = pool
-        # if no pool with this mac was found, use the default pool
-        return default_pool['pools']
+    def get_config_for_this_dragon(self, configs):
+        # Condition 1: find config where both model and MAC matches
+        for c in configs:
+            if 'apply_to' in c and \
+                'models' in c['apply_to'] and \
+                self.type in c['apply_to']['models'] and \
+                'mac_addresses' in c and \
+                    self.mac_address in c['apply_to']['mac_addresses']:
+                return c
+
+        # Condition 2: model is specified, but MAC is not
+        for c in configs:
+            if 'apply_to' in c and \
+                'models' in c['apply_to'] and \
+                self.type in c['apply_to']['models'] and \
+                    ('mac_addresses' not in c or len(c['apply_to']['mac_addresses']) == 0):
+                return c
+
+        # Condition 3: MAC is specified, but model is not
+        for c in configs:
+            if 'apply_to' in c and \
+                'mac_addresses' in c['apply_to'] and \
+                self.mac_address in c['apply_to']['mac_addresses'] and \
+                    ('models' not in c or len(c['apply_to']['models']) == 0):
+                return c
+
+        # Condition 4: fallback to first default config
+        for c in configs:
+            if 'apply_to' not in c or \
+                    (
+                        ('models' not in c or len(c['apply_to']['models']) == 0) and
+                        ('mac_addresses' not in c or len(
+                            c['apply_to']['mac_addresses']) == 0)
+                    ):
+                return c
 
     def check_and_update_firmware(self, firmware):
         """Check firmware version and update to latest if necessary."""
@@ -68,7 +109,7 @@ class Dragon(object):
                       latest_firmware['currentVersion'],
                       latest_firmware['version'])
                   )
-            if self.dragon_auto_upgrade:
+            if self.auto_upgrade:
                 url = latest_firmware['url']
                 local_file = firmware.get_firmware_path(url)
                 print('Performing firmware upgrade for worker={} '
@@ -77,35 +118,46 @@ class Dragon(object):
                                                                local_file))
                 self.dragon.upgradeUpload(local_file)
                 self.statsd.incr(
-                    'worker.{}.action.upgraded'.format(self.worker))
+                    'worker.{}.{}.action.upgraded'.format(self.type, self.worker))
                 return True
         return False
 
     def check_and_update_autotune(self):
         """Check current autotune setting and update if necessary."""
         autotune = self.dragon.getAutoTune()
-        if 'autoTuneMode' in autotune and \
-                autotune['autoTuneMode'] != self.dragon_autotune_mode:
-            print('Changing autotune setting for worker={} '
-                  'from {} to {}'.format(self.worker,
-                                         autotune['autoTuneMode'],
-                                         self.dragon_autotune_mode))
-            self.dragon.setAutoTune(self.dragon_autotune_mode)
-            self.statsd.incr('worker.{}.action.autotuneChanged'
-                             .format(self.worker))
-            return True
+        if 'autoTuneMode' in autotune:
+            if 'mode' in autotune['autoTuneMode'] and 'level' in autotune['autoTuneMode']:
+                if autotune['autoTuneMode']['mode'] != self.autotune_mode or autotune['autoTuneMode']['level'] != str(self.autotune_level):
+                    print('Changing autotune setting for worker={} '
+                          'from {} to mode={} level={}'.format(self.worker,
+                                                               autotune['autoTuneMode'],
+                                                               self.autotune_mode,
+                                                               self.autotune_level))
+                    self.dragon.setAutoTune(
+                        {'mode': self.autotune_mode, 'level': self.autotune_level})
+                    self.statsd.incr('worker.{}.{}.action.autotuneChanged'
+                                     .format(self.type, self.worker))
+                    return True
+            elif autotune['autoTuneMode'] != self.autotune_mode:
+                print('Changing autotune setting for worker={} '
+                      'from {} to {}'.format(self.worker,
+                                             autotune['autoTuneMode'],
+                                             self.autotune_mode))
+                self.dragon.setAutoTune(self.autotune_mode)
+                self.statsd.incr('worker.{}.{}.action.autotuneChanged'
+                                 .format(self.type, self.worker))
+                return True
         return False
 
     def _get_pool_for(self, idx):
-        p = [x for x in self.pools if x['id'] == idx]
-        if len(p) == 0:
+        if idx > len(self.config['pools']) - 1:
             return {
                 'url': None,
                 'username': None,
                 'password': None,
             }
         else:
-            return p[0]
+            return self.config['pools'][idx]
 
     def check_and_update_pools(self):
         """Check and update the dragon's pool configuration."""
@@ -146,13 +198,13 @@ class Dragon(object):
                                     username3=username3,
                                     password3=password3)
             self.statsd.incr(
-                'worker.{}.action.poolsChanged'.format(self.worker))
+                'worker.{}.{}.action.poolsChanged'.format(self.type, self.worker))
             return True
         return False
 
     def _pools_same(self, configured_pools):
         for idx, pool in enumerate(configured_pools):
-            p = [x for x in self.pools if x['id'] == idx][0]
+            p = self._get_pool_for(idx)
             if p['url'] != pool['url']:
                 return False
             username = p['username'] + '.' + self.worker
@@ -181,12 +233,14 @@ class Dragon(object):
             print('Device summary from worker={} not present (did it just start up?)'
                   .format(self.worker))
         self.statsd.gauge(
-            'worker.{}.hardware.fan_duty'.format(
+            'worker.{}.{}.hardware.fan_duty'.format(
+                self.type,
                 self.worker),
             summary['HARDWARE']['Fan duty'])
         for dev in summary['DEVS']:
             self.statsd.gauge(
-                'worker.{}.dev.{}.Alive'.format(
+                'worker.{}.{}.dev.{}.Alive'.format(
+                    self.type,
                     self.worker,
                     dev['ID']
                 ),
@@ -214,15 +268,18 @@ class Dragon(object):
                 'Device Rejected%',
                 'Device Elapsed',
                 'Hash Rate',
+                'Hash Rate H',
             ]
             for metric in metrics:
-                self.statsd.gauge(
-                    'worker.{}.dev.{}.{}'.format(
-                        self.worker,
-                        dev['ID'],
-                        metric.replace(' ', '-').replace('%', '')
-                    ),
-                    dev[metric])
+                if metric in dev:
+                    self.statsd.gauge(
+                        'worker.{}.{}.dev.{}.{}'.format(
+                            self.type,
+                            self.worker,
+                            dev['ID'],
+                            metric.replace(' ', '-').replace('%', '')
+                        ),
+                        dev[metric])
 
         for pool in summary['POOLS']:
             metrics = [
@@ -250,13 +307,15 @@ class Dragon(object):
                 'Current Block Version',
             ]
             for metric in metrics:
-                self.statsd.gauge(
-                    'worker.{}.pool.{}.{}'.format(
-                        self.worker,
-                        pool['POOL'],
-                        metric.replace(' ', '-').replace('%', '')
-                    ),
-                    pool[metric])
+                if metric in pool:
+                    self.statsd.gauge(
+                        'worker.{}.{}.pool.{}.{}'.format(
+                            self.type,
+                            self.worker,
+                            pool['POOL'],
+                            metric.replace(' ', '-').replace('%', '')
+                        ),
+                        pool[metric])
         return summary
 
     def check_health(self):
@@ -273,13 +332,13 @@ class Dragon(object):
                       .format(self.worker, dev['ID']))
                 healthy = False
             # check if 15m hashrate is below threshhold
-            if dev['MHS 15m'] / 1000.0 < self.dragon_health_hashrate_min:
+            if dev['MHS 15m'] < self.health_hashrate_min:
                 print('worker={} 15m hashrate for dev ID={} is below '
                       'minimum threshhold of {}, current MHS 15m={}'
                       .format(
                           self.worker,
                           dev['ID'],
-                          self.dragon_health_hashrate_min,
+                          self.health_hashrate_min,
                           dev['MHS 15m']
                       ))
                 below_threshhold = True
@@ -299,17 +358,17 @@ class Dragon(object):
         if not below_threshhold and not temperature_wtf:
             self.healthy_since = time.time()
         elif time.time() - self.healthy_since >= \
-                self.dragon_health_hashrate_duration:
+                self.health_hashrate_duration:
             healthy = False
 
         if not healthy:
             print('worker={} is NOT healthy'.format(self.worker))
-            if self.dragon_health_reboot:
+            if self.health_reboot:
                 print('Rebooting dragon worker={}'.format(self.worker))
                 self.rebooted = True
                 self.dragon.reboot()
                 self.statsd.incr(
-                    'worker.{}.action.rebooted'.format(self.worker))
+                    'worker.{}.{}.action.rebooted'.format(self.type, self.worker))
 
 
 class DragonSerializer(serpy.Serializer):

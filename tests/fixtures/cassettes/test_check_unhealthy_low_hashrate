@@ -73,8 +73,8 @@ interactions:
         Valid Work":1529004744,"Device Hardware%":0.7044,"Device Rejected%":0,"Device
         Elapsed":51,"Hash Rate":5685918.14}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
         Poll":"N","Getworks":5,"Accepted":55,"Rejected":0,"Works":1080,"Discarded":29,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last Share
-        Time":1529004740,"Diff1 Shares":176343,"Proxy Type":"","Proxy":"","Difficulty
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
+        Share Time":1529004740,"Diff1 Shares":176343,"Proxy Type":"","Proxy":"","Difficulty
         Accepted":164528,"Difficulty Rejected":0,"Difficulty Stale":0,"Last Share
         Difficulty":6955,"Work Difficulty":30296,"Has Stratum":true,"Stratum Active":true,"Stratum
         URL":"us-east.stratum.slushpool.com","Stratum Difficulty":30296,"Has Vmask":true,"Has
@@ -92,6 +92,93 @@ interactions:
       Connection: [keep-alive]
       Content-Type: [application/json]
       Date: ['Thu, 14 Jun 2018 19:32:24 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MDA0NzQzLCJleHAiOjE1MjkwMjYzNDMsInVzZXIiOiJhZG1pbiJ9.si3VJGAgTW-QvMUtmAqOfR9kOxtYALQdzeZh0Ku4oXE]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.8/api/summary
+  response:
+    body: {string: '{"success":false,"token":"expired"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:22:17 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: username=admin&password=dragonadmin
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['35']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.8/api/auth
+  response:
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc3MzM3LCJleHAiOjE1NDMxOTg5MzcsInVzZXIiOiJhZG1pbiJ9.RP68cj_qy1ABctFn376CEeQQ2dFrfT7BRHklj5lwQjU"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:22:17 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc3MzM3LCJleHAiOjE1NDMxOTg5MzcsInVzZXIiOiJhZG1pbiJ9.RP68cj_qy1ABctFn376CEeQQ2dFrfT7BRHklj5lwQjU]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.8/api/summary
+  response:
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":72,"MHS
+        av":5329616.46,"MHS 5s":4939506.67,"MHS 1m":5490051.77,"MHS 5m":5384528.43,"MHS
+        15m":5253131.92,"Accepted":455,"Rejected":0,"Hardware Errors":152,"Utility":7.72,"Last
+        Share Pool":0,"Last Share Time":1543177324,"Total MH":18840487496,"Diff1 Work":4386645,"Difficulty
+        Accepted":4633400,"Difficulty Rejected":0,"Last Share Difficulty":10498,"Last
+        Valid Work":1543177337,"Device Hardware%":0.0035,"Device Rejected%":0,"Device
+        Elapsed":3535,"Hash Rate":5384528.43},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5578818.07,"MHS 5s":5040672.81,"MHS 1m":5558982.06,"MHS 5m":5624032.68,"MHS
+        15m":5483003.82,"Accepted":442,"Rejected":1,"Hardware Errors":377,"Utility":7.5,"Last
+        Share Pool":0,"Last Share Time":1543177336,"Total MH":19721428462,"Diff1 Work":4591884,"Difficulty
+        Accepted":4526440,"Difficulty Rejected":10498,"Last Share Difficulty":10498,"Last
+        Valid Work":1543177337,"Device Hardware%":0.0082,"Device Rejected%":0.2286,"Device
+        Elapsed":3535,"Hash Rate":5624032.68},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5393719.08,"MHS 5s":5131912.15,"MHS 1m":5210623.33,"MHS 5m":5340860.15,"MHS
+        15m":5283000.08,"Accepted":390,"Rejected":1,"Hardware Errors":6214,"Utility":6.62,"Last
+        Share Pool":0,"Last Share Time":1543177328,"Total MH":19067094293,"Diff1 Work":4439406,"Difficulty
+        Accepted":3973626,"Difficulty Rejected":10498,"Last Share Difficulty":10498,"Last
+        Valid Work":1543177337,"Device Hardware%":0.1398,"Device Rejected%":0.2365,"Device
+        Elapsed":3535,"Hash Rate":5340860.15}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":128,"Accepted":1287,"Rejected":2,"Works":78202,"Discarded":2009,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
+        Share Time":1543177336,"Diff1 Shares":13417935,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":13133466,"Difficulty Rejected":20996,"Difficulty Stale":0,"Last
+        Share Difficulty":10498,"Work Difficulty":10498,"Has Stratum":true,"Stratum
+        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":10498,"Has
+        Vmask":true,"Has GBT":false,"Best Share":12718824,"Pool Rejected%":0.1596,"Pool
+        Stale%":0,"Bad Work":5,"Current Block Height":551492,"Current Block Version":536870912}],"HARDWARE":{"Fan
+        duty":75},"tuning":false,"hashrates":[]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:22:17 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
