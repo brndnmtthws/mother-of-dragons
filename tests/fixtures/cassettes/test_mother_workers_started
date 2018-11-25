@@ -5,14 +5,559 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: HEAD
-    uri: http://10.1.0.1/static/media/logo-inverse.74ec0f24.png
+      User-Agent: [python-requests/2.20.1]
+    method: GET
+    uri: http://10.1.0.1/
   response:
-    body: {string: ''}
+    body: {string: "<!DOCTYPE html>\n<!--[if lt IE 7]>      <html class=\"no-js lt-ie9
+        lt-ie8 lt-ie7\"> <![endif]-->\n<!--[if IE 7]>         <html class=\"no-js
+        lt-ie9 lt-ie8\"> <![endif]-->\n<!--[if IE 8]>         <html class=\"no-js
+        lt-ie9\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\"> <!--<![endif]-->\n
+        \   <head>\n        <meta charset=\"utf-8\">\n        <meta http-equiv=\"X-UA-Compatible\"
+        content=\"IE=edge,chrome=1\">\n        <title></title>\n        <meta name=\"description\"
+        content=\"\">\n        <meta name=\"viewport\" content=\"width=device-width\">\n
+        \       <link rel=\"stylesheet\" href=\"css/normalize.css\">\n        <link
+        rel=\"stylesheet\" href=\"css/main.css\">\n        <script src=\"third_party/modernizr/modernizr-2.6.2-respond-1.1.0.min.js\"></script>\n
+        \       <link rel=\"shortcut icon\" href=\"/images/favicon.ico\" type=\"image/x-icon\"
+        />\n    </head>\n    <body class=\"clearfix\">\n    <div id=\"top\" class=\"clearfix\">\n
+        \       <div id=\"head\">\n        <img src=\"images/cisco-meraki.png\" width=\"120\">\n
+        \       </div>\n        <header id=\"status\">\n        <i class=\"icon-check-circled
+        green\" id=\"healthy_check\" style=\"display: none;\"></i>\n        <h1 id=\"healthy_status\"
+        style=\"display: none;\">Healthy</h1>\n        <h2 id=\"healthy_message\"
+        style=\"display: none;\">This <a class='device_noun'></a>&nbsp;is functioning
+        normally</h2>\n        <i class=\"icon-alert\" id=\"alert_x\"style=\"display:
+        none; color: #FFD700;\"></i>\n        <h1 id=\"alert_status\" style=\"display:
+        none\">Something's not right</h1>\n        <div id=\"status-text\">\n            <h2
+        id=\"lan_check_text_scan_status\" style=\"display: none;\">\n                This
+        <a class='device_noun'></a>&nbsp;is trying to join a network or find a working
+        ethernet connection.\n            </h2>\n            <h2 id=\"lan_check_text_ipconflict_status\"
+        style=\"display: none;\">\n                This <a class='device_noun'></a>&nbsp;has
+        detected an IP conflict on its uplink connection with another machine.\n            </h2>\n
+        \           <h2 id=\"internet_check_text_bad_status\" style=\"display: none;\">\n
+        \               This <a class='device_noun'></a>&nbsp;is not connected to
+        the Internet.\n            </h2>\n            <h2 id=\"internet_check_text_nodns_status\"
+        style=\"display: none;\">\n                This <a class='device_noun'></a>&nbsp;does
+        not have a working DNS server.\n            </h2>\n            <h2 id=\"config_check_text_bad_status\"
+        style=\"display: none;\">\n                This <a class='device_noun'></a>&nbsp;is
+        not connected to the Cisco Meraki cloud.\n            </h2>\n            <h2
+        id=\"config_check_text_mtunnel_bad_status\" style=\"display: none;\">\n                Make
+        sure you can send outgoing traffic to UDP port 7351 through your firewall.\n
+        \           </h2>\n            <h2 id=\"config_check_text_config_bad_status\"
+        style=\"display: none;\">\n                Make sure you can send outgoing
+        traffic to TCP port 7734 through your firewall.\n            </h2>\n                </div>\n
+        \               <i class=\"icon-alert green\" id=\"site_survey_alert\" style=\"display:
+        none;\"></i>\n                <h1 id=\"site_survey_status\" style=\"display:
+        none;\">Site Survey</h1>\n                <h2 id=\"site_survey_message\" style=\"display:
+        none;\">This <a class='device_noun'></a>&nbsp;is in site survey mode. You
+        can disable site survey mode on the Configure tab.</h2>\n            </header>\n
+        \       </div>\n        <div id=\"margin-clear\">.</div>\n        <div id=\"details\"
+        data-spy=\"affix\" data-offset-top=\"333\" style=\"display:none;\">\n        <div
+        class=\"simple-tabs-container\">\n            <ul class=\"simple-tabs container\"
+        style=\"white-space:nowrap;\"><li class=\"connection_tab\" style=\"display:
+        none;\">Connection</li><li class=\"neighbors_tab\" style=\"display: none;\">Neighbors</li><li
+        class=\"configure_tab\">Configure</li><li class=\"ethernet_tab\" style=\"display:
+        none;\">Ethernet</li><li class=\"swports_status_tab\" style=\"display: none;\">Switch
+        ports status</li><li class=\"swports_conf_tab\" style=\"display: none;\">Switch
+        ports configuration</li></ul>\n            <ul class=\"simple-tabs-content
+        container\">\n                <!-- Connection -->\n                <li>\n
+        \                   <section id=\"connection\">\n                        <div
+        class=\"sub-section\">\n                            <h1>Your client connection</h1>\n
+        \                           <table>\n                                <tr id=\"your_ip_line\"
+        class=\"your_hideable_connection_info\" style=\"display: none;\">\n                                    <th
+        scope=\"row\">Client IP</th><td id=\"your_ip\"></td>\n                                </tr>\n
+        \                               <tr id=\"your_mac_line\" class=\"your_hideable_connection_info\"
+        style=\"display: none;\">\n                                    <th scope=\"row\">Client
+        MAC</th><td id=\"your_mac\"></td>\n                                </tr>\n
+        \                               <tr id=\"your_vlan_line\" class=\"your_hideable_connection_info\"
+        style=\"display: none;\">\n                                    <th scope=\"row\">VLAN</th><td
+        id=\"your_vlan\"></td>\n                                </tr>\n                                    <tr
+        id=\"your_port_line\" class=\"your_hideable_connection_info\" style=\"display:
+        none;\">\n                                    <th scope=\"row\">Port</th><td
+        id=\"your_port\"></td>\n                                </tr>\n                                    <tr
+        id=\"your_radio_line\" style=\"display: none;\">\n                                    <th
+        scope=\"row\">AP radio</th><td id=\"your_radio\"></td>\n                                </tr>\n
+        \                                   <tr id=\"your_channel_line\" style=\"display:
+        none;\">\n                                    <th scope=\"row\">Channel</th><td
+        id=\"your_channel\"></td>\n                                </tr>\n                                    <tr
+        id=\"your_mode_line\" style=\"display: none;\">\n                                    <th
+        scope=\"row\">Mode</th><td id=\"wireless_mode\"></td>\n                                </tr>\n
+        \                                   <tr id=\"your_max_bitrate_line\" style=\"display:
+        none;\">\n                                    <th scope=\"row\">Max bitrate</th><td
+        id=\"max_device_bitrate\"></td>\n                                </tr>\n                                    <tr
+        id=\"your_signal_line\" style=\"display: none;\">\n                                    <th
+        scope=\"row\">Signal</th>\n                                    <td><span id=\"signal_strength\"></span>\n
+        \                                       <div class=\"meter\" id=\"rssi_graph\">\n
+        \                                           <div class=\"meter-bar\" id=\"rssi_graph_bar\"></div>\n
+        \                                       </div>\n                                    </td>\n
+        \                               </tr>\n                            </table>\n
+        \                       </div>\n                        <div id=\"speed-test\"
+        class=\"sub-section\" style=\"display: none;\">\n                            <h1>Speed
+        test</h1>\n                            <p>Run a browser-based speed test to
+        check your connection to this <a class='device_noun'></a>.</p>\n                            <div
+        id=\"toggle_speed_test\" class=\"button button_speed_test\" style=\"margin-right:
+        1%;\"><span id=\"speed_test_button_text\">Run speed test</span></div>\n                            <div
+        id=\"speed_test_spinner\" style=\"height: 7px; width: 25px; display: none;\"></div>\n
+        \                           <div id='speed_test_out'></div>\n                        </div>\n
+        \                       <div class=\"sub-section\">\n                            <h1><a
+        class='device_noun_camel'></a> details</h1>\n                                <table>\n
+        \                               <tr id=\"device_name_row_container\" style=\"display:
+        none;\">\n                                    <th>Name</th><td id='device_name'></td>\n
+        \                               </tr>\n                                <tr>\n
+        \                                   <th>Network name</th><td id='device_network_name'></td>\n
+        \                               </tr>\n                                <tr>\n
+        \                                   <th>Hardware address</th><td class='device_mac'></td>\n
+        \                               </tr>\n                                <tr
+        id=\"product_model_details\" style=\"display: none;\">\n                                    <th>Product
+        model</th><td id='product_model_text'></td>\n                                </tr>\n
+        \                               <tr id=\"radio_1_util\" style=\"display: none;\">\n
+        \                                   <th id=\"radio_1_text\"></th>\n                                    <td>\n
+        \                                       <span>\n                                            <div
+        id=\"radio_1_wifi_text\"></div>\n                                        </span>\n
+        \                                       <div class=\"meter\">\n                                            <div
+        class=\"meter-bar\" id=\"radio_1_wifi_bar\" style=\"background:#880000; float:left;\"></div>\n
+        \                                           <div class=\"meter-bar\" id=\"radio_1_non_wifi_bar\"
+        style=\"float:left;\"></div>\n                                        </div>\n
+        \                                       <div id=\"radio_1_non_wifi_text\"></div>\n
+        \                                   </td>\n                                </tr>\n
+        \                               <tr id=\"radio_2_util\" style=\"display: none;\">\n
+        \                                   <th id=\"radio_2_text\"></th>\n                                    <td>\n
+        \                                       <span>\n                                            <div
+        id=\"radio_2_wifi_text\"></div>\n                                        </span>\n
+        \                                       <div class=\"meter\">\n                                            <div
+        class=\"meter-bar\" id=\"radio_2_wifi_bar\" style=\"background:#880000; float:left;\"></div>\n
+        \                                           <div class=\"meter-bar\" id=\"radio_2_non_wifi_bar\"
+        style=\"float:left;\"></div>\n                                        </div>\n
+        \                                       <div id=\"radio_2_non_wifi_text\"></div>\n
+        \                                   </td>\n                                </tr>\n
+        \                               <tr id=\"tr_ethernet_connectivity\" style=\"display:
+        none;\">\n                                    <th>Ethernet</th>\n                                        <td>\n
+        \                                           <div id=\"lan_check_text_gateway\"
+        style=\"display: none;\">\n                                                This
+        <a class='device_noun'></a>&nbsp;is directly connected to a local network.\n
+        \                                               <div><span class=\"wired_nat_details\">Primary&nbsp;</span>IP
+        address: <span class=\"wired_ip\"></span>&nbsp;</div>\n                                            </div>\n
+        \                                           <div id=\"lan_check_text_node\"
+        style=\"display: none;\">\n                                                <div><span
+        class=\"wired_nat_details\">Primary&nbsp;</span>IP address: <span class=\"wired_ip\"></span>&nbsp;</div>\n
+        \                                               This <a class='device_noun'></a>&nbsp;is
+        acting as a repeater and has not detected a uplink connection on an Ethernet
+        port.\n                                            </div>\n                                            <div
+        id=\"lan_check_text_scan\" style=\"display: none;\">\n                                                This
+        <a class='device_noun'></a>&nbsp;is trying to join a network or find a working
+        Ethernet connection.\n                                            </div>\n
+        \                                           <div id=\"lan_check_text_ipconflict\"
+        style=\"display: none;\">\n                                                <div><span
+        class=\"wired_nat_details\">Primary&nbsp;</span>IP address: <span class=\"wired_ip\"></span>&nbsp;</div>\n
+        \                                               This <a class='device_noun'></a>&nbsp;has
+        detected an IP conflict on its uplink connection with another machine.\n                                            </div>\n
+        \                                           <div class=\"details wired_nat_details\"
+        id=\"ip_details\"></div>\n                                        </td>\n
+        \                               </tr>\n                                <tr
+        id=\"tr_internet_check\" style=\"display: none;\">\n                                    <th>Internet</th>\n
+        \                                   <td>\n                                        <div
+        id=\"internet_check_text_good\" style=\"display: none;\">\n                                            This
+        <a class='device_noun'></a>&nbsp;is connected to the Internet.\n                                        </div>\n
+        \                                       <div id=\"internet_check_text_bad\"
+        style=\"display: none;\">\n                                            This
+        <a class='device_noun'></a>&nbsp;is not connected to the Internet.\n                                        </div>\n
+        \                                       <div id=\"internet_check_text_nodns\"
+        style=\"display: none;\">\n                                            This
+        <a class='device_noun'></a>&nbsp;does not have a working DNS server.\n                                        </div>\n
+        \                                   </td>\n                                </tr>\n
+        \                               <tr>\n                                    <th>Cisco
+        Meraki cloud</th>\n                                    <td>\n                                        <div
+        id=\"config_check_text_bad\" style=\"display: none;\">\n                                            This
+        <a class='device_noun'></a>&nbsp;is not connected to the Cisco Meraki cloud.\n
+        \                                       </div>\n                                        <div
+        id=\"config_check_text_mtunnel_bad\" style=\"display: none;\">\n                                            Make
+        sure you can send outgoing traffic to UDP port 7351 through your firewall.\n
+        \                                       </div>\n                                        <div
+        id=\"config_check_text_config_bad\" style=\"display: none;\">\n                                            Make
+        sure you can send outgoing traffic to TCP port 7734 through your firewall.\n
+        \                                       </div>\n                                        <div
+        id=\"config_check_text_good\" style=\"display: none;\">\n                                            This
+        <a class='device_noun'></a>&nbsp;is successfully connected to the <a id=\"node_link\"
+        href=\"http://dashboard.meraki.com\">Cisco Meraki cloud</a>.\n                                        </div>\n
+        \                                   </td>\n                                </tr>\n
+        \                               <tr id=\"firmware_check_text\" style=\"display:none;\">\n
+        \                                   <th>Firmware</th>\n                                    <td>\n
+        \                                       <div id=\"firmware_check_text_updating\"
+        style=\"display:none;\"></div>\n                                    </td>\n
+        \                               </tr>\n                            </table>\n
+        \                       </div>\n                        <div id=\"stacking_status\"
+        class=\"sub-section\" style=\"display:none;\">\n                          <h1>Stacking
+        Status</h1>\n                          <table id=\"stack_info\" class=\"flip-table\">\n
+        \                           <thead>\n                              <tr>\n
+        \                               <th> Hardware Addresss </th>\n                                <th>
+        Product Model </th>\n                                <th> Current </th>\n
+        \                             </tr>\n                            </thead>\n
+        \                           <tbody></tbody>\n                          </table>\n
+        \                       </div>\n                    </section>\n                </li>\n\n
+        \               <!-- Neighbors -->\n                <li>\n                    <section
+        id=\"meraki_peers\" style=\"display:none;\">\n                        <h1>Meraki
+        peers</h1>\n                        <table class=\"flip-table sortable\">\n
+        \                           <thead>\n                                <tr>\n
+        \                                   <th class=\"ssid_m\" scope=\"col\"><span
+        style=\"cursor:pointer\">SSID</span></th>\n                                    <th
+        class=\"bssid_m\" scope=\"col\"><span style=\"cursor:pointer\">BSSID</span></th>\n
+        \                                   <th class=\"channel_m\" scope=\"col\"><span
+        style=\"cursor:pointer\">Channel</span></th>\n                                    <th
+        class=\"signal_m\" scope=\"col\" data-defaultsort='dsc'><span style=\"cursor:pointer\">Signal
+        (dB)</span></th>\n                                    <th class=\"mode_m\"
+        scope=\"col\"><span style=\"cursor:pointer\">Mode</span></th>\n                                    <th
+        class=\"encryption_m\" scope=\"col\"><span style=\"cursor:pointer\">Encryption</span></th>\n
+        \                               </tr>\n                            </thead>\n
+        \                           <tbody></tbody>\n                        </table>\n
+        \                   </section>\n                    <section id=\"neighbors\">\n
+        \                       <h1>Neighbors</h1>\n                        <table
+        class=\"flip-table sortable\">\n                            <thead>\n                                <tr>\n
+        \                                   <th class=\"ssid\" scope=\"col\"><span
+        style=\"cursor:pointer\">SSID</span></th>\n                                    <th
+        class=\"bssid\" scope=\"col\"><span style=\"cursor:pointer\">BSSID</span></th>\n
+        \                                   <th class=\"channel\" scope=\"col\"><span
+        style=\"cursor:pointer\">Channel</span></th>\n                                    <th
+        class=\"signal\" scope=\"col\" data-defaultsort='dsc'><span style=\"cursor:pointer\">Signal
+        (dB)</span></th>\n                                    <th class=\"mode\" scope=\"col\"><span
+        style=\"cursor:pointer\">Mode</span></th>\n                                    <th
+        class=\"encryption\" scope=\"col\"><span style=\"cursor:pointer\">Encryption</span></th>\n
+        \                               </tr>\n                            </thead>\n
+        \                           <tbody></tbody>\n                        </table>\n
+        \                   </section>\n                </li>\n\n                <!--
+        Configure -->\n                <li>\n\n                <form class=\"clearfix\"
+        id=\"configure_form\">\n\n                <section id=\"wired-uplink-config\">\n
+        \                 <h1>Uplink configuration</h1>\n                  <p>Configure
+        the uplink Internet connection on this <a class='device_noun'></a>.</p>\n
+        \                   <fieldset id=\"ip_config\" class=\"ip_config\" style='height:100%'>\n
+        \                     <h2>Internet 1</h2>\n                      <ul>\n                        <li>\n
+        \                         <label for='vlan_tagging_enabled'>VLAN tagging</label>\n
+        \                         <select class='vlan_tagging_enabled' name='vlan_tagging_enabled'>\n
+        \                           <option value='disabled'>Don't use VLAN tagging</option>\n
+        \                           <option value='enabled'>Use VLAN tagging</option>\n
+        \                         </select>\n                        </li>\n\n                        <li
+        class='vlan_id_config'>\n                          <label for='vlan_tag'>VLAN
+        ID</label>\n                          <input id='vlan_tag' name='vlan_tag'
+        type='text' size='5' />\n                        </li>\n\n                        <li
+        class='connection_type_select_row' class='ip_config_group'>\n                          <label
+        for='connection_type_select'>Connection type</label>\n                          <select
+        class='connection_type_select' name='connection_type'>\n                            <option
+        id='connection_type_direct' value='direct'>Direct</option>\n                            <option
+        id='connection_type_pppoe' value='pppoe'>PPPoE</option>\n                          </select>\n
+        \                       </li>\n\n\n                        <li class=\"direct_op
+        direct_connection_options\">\n                          <label for='direct_ip_assignment_select'>IP
+        assignment</label>\n                          <select class='direct_ip_assignment_select'
+        name='direct_ip_assignment'>\n                            <option value='dhcp'>DHCP</option>\n
+        \                           <option value='static'>Static</option>\n                          </select>\n
+        \                       </li>\n\n                        <li class=\"direct_op
+        direct_static_op\">\n                          <label for='static_wired_ip'>Address</label>\n
+        \                         <input type='text' class='direct_op' name='static_wired_ip'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"direct_op direct_static_op\">\n                          <label for='static_wired_netmask'>Netmask</label>\n
+        \                         <input type='text' class='direct_op' name='static_wired_netmask'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"direct_op direct_static_op\">\n                          <label for='static_wired_gateway'>Gateway</label>\n
+        \                         <input type='text' class='direct_op' name='static_wired_gateway'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"direct_op direct_static_op\">\n                          <label for='static_wired_dns1'>DNS
+        server 1</label>\n                          <input type='text' class='direct_op'
+        name='static_wired_dns1' size=15 value=''>\n                        </li>\n\n
+        \                       <li class=\"direct_op direct_static_op\">\n                          <label
+        for='static_wired_dns2'>DNS server 2</label>\n                          <input
+        type='text' class='direct_op' name='static_wired_dns2' size=15 value=''>\n
+        \                       </li>\n\n                        <li class=\"pppoe_op\">\n
+        \                         <label for=\"pppoe_authentication_enabled_select\">Authentication</label>\n
+        \                         <select class=\"pppoe_authentication_enabled_select\"
+        name='pppoe_authentication_enabled'>\n                            <option
+        value='false'>No authentication</option>\n                            <option
+        value='true'>Use authentication</option>\n                          </select>\n
+        \                       </li>\n\n                        <li class=\"pppoe_op
+        pppoe_auth_op\">\n                          <label for='pppoe_authentication_username'>Username</label>\n
+        \                         <input type='text' name='pppoe_authentication_username'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"pppoe_op pppoe_auth_op\">\n                          <label for='pppoe_authentication_password'>Password</label>\n
+        \                         <input type='password' name='pppoe_authentication_password'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"pppoe_op\">\n                          <label for=\"pppoe_ip_assignment_select\">IP
+        assignment</label>\n                          <select class=\"pppoe_ip_assignment_select\"
+        name='pppoe_ip_assignment'>\n                            <option value='dynamic'>Dynamic</option>\n
+        \                           <option value='static'>Static</option>\n                          </select>\n
+        \                       </li>\n\n                        <li class=\"pppoe_op
+        pppoe_ip_op\">\n                          <label for='pppoe_static_ip'>Address</label>\n
+        \                         <input type='text' id='pppoe_static_ip' name='pppoe_static_ip'
+        size=15 value=''>\n                        </li>\n                      </ul>\n\n
+        \                   </fieldset>\n\n                    <fieldset id=\"ip_config_1\"
+        class=\"ip_config\" style='height:100%'>\n                      <h2>Internet
+        2</h2>\n\n\n                      <ul>\n                        <li id=\"wan1_role_op\"
+        class=\"wan1_enabled_op\">\n                          <label for='wired_wan1_enabled'>Role</label>\n
+        \                         <select class='wired_wan1_enabled' name='wired_wan1_enabled'>\n
+        \                           <option value='enabled'>Internet</option>\n                            <option
+        value='disabled'>LAN</option>\n                          </select>\n                        </li>\n\n
+        \                       <li>\n                          <label for='vlan_tagging_enabled'>VLAN
+        tagging</label>\n                          <select class='vlan_tagging_enabled'
+        name='vlan_tagging_enabled_1'>\n                            <option value='disabled'>Don't
+        use VLAN tagging</option>\n                            <option value='enabled'>Use
+        VLAN tagging</option>\n                          </select>\n                        </li>\n\n
+        \                       <li class='vlan_id_config'>\n                          <label
+        for='vlan_tag'>VLAN ID</label>\n                          <input id='vlan_tag'
+        name='vlan_tag_1' type='text' size='5' />\n                        </li>\n\n
+        \                       <li class='connection_type_select_row' class='ip_config_group'>\n
+        \                         <label for='connection_type_select'>Connection Type</label>\n
+        \                         <select class='connection_type_select' name='connection_type_1'>\n
+        \                           <option id='connection_type_direct' value='direct'>Direct</option>\n
+        \                           <option id='connection_type_pppoe' value='pppoe'>PPPoE</option>\n
+        \                         </select>\n                        </li>\n\n                        <li
+        class=\"direct_op direct_connection_options\">\n                          <label
+        for='direct_ip_assignment_select'>IP assignment</label>\n                          <select
+        class='direct_ip_assignment_select' name='direct_ip_assignment_1'>\n                            <option
+        value='dhcp'>DHCP</option>\n                            <option value='static'>Static</option>\n
+        \                         </select>\n                        </li>\n\n                        <li
+        class=\"direct_op direct_static_op\">\n                          <label for='static_wired_ip'>Address</label>\n
+        \                         <input type='text' name='static_wired_ip_1' size=15
+        value=''>\n                        </li>\n\n                        <li class=\"direct_op
+        direct_static_op\">\n                          <label for='static_wired_netmask'>Netmask</label>\n
+        \                         <input type='text' name='static_wired_netmask_1'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"direct_op direct_static_op\">\n                          <label for='static_wired_gateway'>Gateway</label>\n
+        \                         <input type='text' name='static_wired_gateway_1'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"direct_op direct_static_op\">\n                          <label for='static_wired_dns1'>DNS
+        server 1</label>\n                          <input type='text' name='static_wired_dns1_1'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"direct_op direct_static_op\">\n                          <label for='static_wired_dns2'>DNS
+        server 2</label>\n                          <input type='text' name='static_wired_dns2_1'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"pppoe_op\">\n                          <label for=\"pppoe_authentication_enabled_select\">Authentication</label>\n
+        \                         <select class=\"pppoe_authentication_enabled_select\"
+        name='pppoe_authentication_enabled_1'>\n                            <option
+        value='false'>No authentication</option>\n                            <option
+        value='true'>Use authentication</option>\n                          </select>\n
+        \                       </li>\n\n                        <li class=\"pppoe_op
+        pppoe_auth_op\">\n                          <label for='pppoe_authentication_username'>Username</label>\n
+        \                         <input type='text' name='pppoe_authentication_username_1'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"pppoe_op pppoe_auth_op\">\n                          <label for='pppoe_authentication_password'>Password</label>\n
+        \                         <input type='password' name='pppoe_authentication_password_1'
+        size=15 value=''>\n                        </li>\n\n                        <li
+        class=\"pppoe_op\">\n                          <label for=\"pppoe_ip_assignment_select\">IP
+        assignment</label>\n                          <select class=\"pppoe_ip_assignment_select\"
+        name='pppoe_ip_assignment_1'>\n                            <option value='dynamic'>Dynamic</option>\n
+        \                           <option value='static'>Static</option>\n                          </select>\n
+        \                       </li>\n\n                        <li class=\"pppoe_op
+        pppoe_ip_op\">\n                          <label for='pppoe_static_ip'>Address</label>\n
+        \                         <input type='text' id='pppoe_static_ip' name='pppoe_static_ip_1'
+        size=15 value=''>\n                        </li>\n                      </ul>\n\n
+        \                 </section>\n\n                  <section id=\"uplink-config\">\n
+        \                       <h1>Uplink configuration</h1>\n                        <p>Configure
+        the uplink Internet connection on this <a class='device_noun'></a>.</p>\n
+        \                       <form class=\"clearfix\">\n                            <fieldset>\n
+        \                               <h2>IP configuration</h2>\n                                <ul>\n
+        \                                   <li>\n                                        <label
+        for=\"direct_ip_assignment_select\">IP assignment</label>\n                                        <select
+        class=\"direct_ip_assignment_select\" id=\"direct_ip_assignment_select\" name=\"direct_ip_assignment\">\n
+        \                                           <option value=\"dhcp\">DHCP</option>\n
+        \                                           <option value=\"static\">Static</option>\n
+        \                                       </select>\n                                    </li>\n
+        \                                   <li>\n                                        <label
+        for=\"static_wired_vid\">VLAN</label>\n                                        <input
+        type=\"text\" id=\"static_wired_vid\" name=\"static_wired_vid\" placeholder=\"vlan\">\n
+        \                                   </li>\n                                    <li
+        class=\"static_settings\" style=\"display:none;\">\n                                      <label
+        for=\"static_wired_ip\">Address</label>\n                                      <input
+        type=\"text\" id=\"static_wired_ip\" name=\"static_wired_ip\" placeholder=\"0.0.0.0\">\n
+        \                                   </li>\n                                    <li
+        class=\"static_settings\" style=\"display:none;\">\n                                      <label
+        for=\"static_wired_netmask\">Netmask</label>\n                                      <input
+        type=\"text\" id=\"static_wired_netmask\" name=\"static_wired_netmask\" placeholder=\"255.255.255.0\">\n
+        \                                   </li>\n                                    <li
+        class=\"static_settings\" style=\"display:none;\">\n                                      <label
+        for=\"static_wired_gateway\">Gateway</label>\n                                      <input
+        type=\"text\" id=\"static_wired_gateway\" name=\"static_wired_gateway\" placeholder=\"0.0.0.0\">\n
+        \                                   </li>\n                                    <li
+        class=\"static_settings\" style=\"display:none;\">\n                                      <label
+        for=\"static_wired_dns1\">DNS server 1</label>\n                                      <input
+        type=\"text\" id=\"static_wired_dns1\" name=\"static_wired_dns1\" placeholder=\"0.0.0.0\">\n
+        \                                   </li>\n                                    <li
+        class=\"static_settings\" style=\"display:none;\">\n                                      <label
+        for=\"static_wired_dns2\">DNS server 2</label>\n                                      <input
+        type=\"text\" id=\"static_wired_dns2\" name=\"static_wired_dns2\" placeholder=\"0.0.0.0\">\n
+        \                                   </li>\n                                    <div
+        id=\"ip6_settings\" style=\"display:none\">\n                                      <li>\n
+        \                                       <label for=\"direct_ip6_assignment_select\">IPv6
+        assignment</label>\n                                        <select class=\"direct_ip6_assignment_select\"
+        id=\"direct_ip6_assignment_select\" name=\"direct_ip6_assignment\">\n                                          <option
+        value=\"auto\">Auto</option>\n                                          <option
+        value=\"static\">Static</option>\n                                        </select>\n
+        \                                     </li>\n                                      <li
+        class=\"static6_settings\" style=\"display:none;\">\n                                        <label
+        for=\"static_wired_vid6\">IPv6 Static VLAN</label>\n                                        <input
+        type=\"text\" id=\"static_wired_vid6\" name=\"static_wired_vid6\" placeholder=\"vlan\">\n
+        \                                     </li>\n                                      <li
+        class=\"static6_settings\" style=\"display:none;\">\n                                        <label
+        for=\"static_wired_ip6\">Address/Prefix Len</label>\n                                        <input
+        type=\"text\" id=\"static_wired_ip6\" name=\"static_wired_ip6\" placeholder=\"::0\"
+        style=\"width:21em\"> / \n                                        <input type=\"text\"
+        id=\"static_wired_ip6_plen\" name=\"static_wired_ip6_plen\" placeholder=\"64\"
+        style=\"width:3em\">\n                                      </li>\n                                      <li
+        class=\"static6_settings\" style=\"display:none;\">\n                                        <label
+        for=\"static_wired_ip6_gateway\">Gateway</label>\n                                        <input
+        type=\"text\" id=\"static_wired_ip6_gateway\" name=\"static_wired_ip6_gateway\"
+        placeholder=\"::0\" style=\"width:21em\">\n                                      </li>\n
+        \                                     <li class=\"static6_settings\" style=\"display:none;\">\n
+        \                                       <label for=\"static_wired_dns6_1\">DNS
+        server 1</label>\n                                        <input type=\"text\"
+        id=\"static_wired_dns6_1\" name=\"static_wired_dns6_1\" placeholder=\"::0\"
+        style=\"width:21em\">\n                                      </li>\n                                      <li
+        class=\"static6_settings\" style=\"display:none;\">\n                                        <label
+        for=\"static_wired_dns6_2\">DNS server 2</label>\n                                        <input
+        type=\"text\" id=\"static_wired_dns6_2\" name=\"static_wired_dns6_2\" placeholder=\"::0\"
+        style=\"width:21em\">\n                                      </li>\n                                    </div>\n
+        \                               </ul>\n                            </fieldset>\n\n
+        \                           <fieldset id=\"site_survey_ctrl\" style=\"display:none;\">\n
+        \                             <h2>Site survey</h2>\n                              <p>In
+        site survey mode, the AP will always broadcast the open SSID site_survey-&lt;MAC
+        address&gt; and will not check for connectivity with the Cisco Meraki cloud.\n
+        \                               This mode should only be used to perform a
+        site survey, not for serving wireless clients.</p>\n                              <ul>\n
+        \                               <li>\n                                  <label
+        for=\"site_survey_select\">Survey mode?</label>\n                                  <select
+        id=\"site_survey_select\" name=\"site_survey\">\n                                    <option
+        value=\"false\">Disable</option>\n                                    <option
+        value=\"true\">Enable</option>\n                                  </select>\n
+        \                               </li>\n                              </ul>\n
+        \                           </fieldset>\n                            <div
+        id=\"power_adjust\" style=\"display:none;\"></div>\n                  </section>\n\n
+        \                 <section class=\"non-first-section\" id=\"shared-config\">\n
+        \                 <fieldset>\n                    <h2>Web proxy</h2>\n                    <p>HTTP
+        will be used for the device to communicate with the Cisco Meraki cloud if
+        UDP communication is blocked</p>\n                    <ul>\n                      <li>\n
+        \                       <label for=\"backend_access_proxy_enabled_select\">Use
+        a proxy?</label>\n                        <select id=\"backend_access_proxy_enabled_select\"
+        name=\"backend_access_proxy_enabled\">\n                          <option
+        value=\"false\">No</option>\n                          <option value=\"true\">Yes</option>\n
+        \                       </select>\n                      </li>\n                      <li
+        class=\"proxy_op\" style=\"display:none;\">\n                        <label
+        for=\"backend_access_proxy_server\">Hostname or IP</label>\n                        <input
+        type=\"text\" class=\"backend_access_proxy_server\" name=\"backend_access_proxy_server\"
+        placeholder=\"0.0.0.0\">\n                      </li>\n                      <li
+        class=\"proxy_op\" style=\"display:none;\">\n                        <label
+        for=\"backend_access_proxy_port\">Port</label>\n                        <input
+        type=\"text\" class=\"backend_access_proxy_port\" name=\"backend_access_proxy_port\"
+        onkeypress=\"return numbersonly(this, event)\" placeholder=\"Port #\">\n                      </li>\n
+        \                     <li class=\"proxy_op\" style=\"display:none;\">\n                        <label
+        for=\"backend_access_proxy_userpwd_enabled_select\">Authentication</label>\n
+        \                       <select id=\"backend_access_proxy_userpwd_enabled_select\"
+        name=\"backend_access_proxy_userpwd_enabled\">\n                          <option
+        value=\"false\">No authentication</option>\n                          <option
+        value=\"true\">Use authentication</option>\n                        </select>\n
+        \                     </li>\n                      <li class=\"proxy_op proxy_auth_op\"
+        style=\"display:none;\">\n                        <label for=\"backend_access_proxy_user\">Username</label>\n
+        \                       <input type=\"text\" name=\"backend_access_proxy_user\"
+        placeholder=\"Username\">\n                      </li>\n                      <li
+        class=\"proxy_op proxy_auth_op\" style=\"display:none;\">\n                        <label
+        for=\"backend_access_proxy_password\">Password</label>\n                        <input
+        type=\"password\" name=\"backend_access_proxy_password\" placeholder=\"Password\">\n
+        \                     </li>\n                    </ul>\n                  </fieldset>\n
+        \                 <div class=\"save_button button button_configure\">\n                    <span>Save</span>\n
+        \                 </div>\n                  <span class=\"save_config_text\"
+        style=\"display:none;\"></span>\n                  </section>\n\n                  </form>\n
+        \               </li>\n                <li>\n                  <section id='link_neg_section'>\n
+        \                   <h1>Ethernet configuration</h1>\n                    <p>Use
+        this page to configure physical link settings on the Ethernet ports.</p>\n
+        \                   <form action='/configure/set_link_neg.cgi' method='post'>\n
+        \                     <table id='link_neg_table' class='table table-bordered
+        table-striped'></table>\n                      <div class=\"save_button button
+        button_configure\">\n                        <span>Save</span>\n                      </div>\n
+        \                     <span class=\"save_config_text\" style=\"display:none;\"></span>\n
+        \                   </form>\n                  </section>\n                </li>\n
+        \              <!-- Switch port status -->\n                <li>\n                    <section
+        id=\"swports_status\" style=\"display:none;\">\n                        <h1>Switch
+        ports status</h1>\n                        <table class=\"flip-table sortable\"
+        >\n                            <thead>\n                                <tr>\n
+        \                                   <th class=\"port\" scope=\"col\" data-defaultsort='dsc'><span
+        style=\"cursor:pointer\">Port</span></th>\n                                    <th
+        class=\"native_vlan\" scope=\"col\"><span style=\"cursor:pointer\">Native
+        VLAN</span></th>\n                                    <th class=\"allowed_vlans\"
+        scope=\"col\"><span style=\"cursor:pointer\">Allowed VLANs</span></th>\n                                    <th
+        class=\"flags\" scope=\"col\"><span style=\"cursor:pointer\">Flags</span></th>\n
+        \                                   <th class=\"status\" scope=\"col\"><span
+        style=\"cursor:pointer\">Status</span></th>\n                                    <th
+        class=\"bytes_in\" scope=\"col\"><span style=\"cursor:pointer\">Bytes in</span></th>\n
+        \                                   <th class=\"bytes_out\" scope=\"col\"><span
+        style=\"cursor:pointer\">Bytes out</span></th>\n                                </tr>\n
+        \                           </thead>\n                            <tbody></tbody>\n
+        \                       </table>\n                    </section>\n                </li>\n\n
+        \              <!-- Switch port adjust -->\n                <li>\n                    <section
+        id=\"swports_adjust\" class = \"swports_adjust_section\" style=\"display:none;\">\n
+        \                       <form action='/configure/swports_adjust.cgi' method='post'>\n
+        \                       <h1>Switch ports configuration</h1>\n                          <div
+        style='margin:1em 0'>\n                            </div>\n\n                        <div
+        id=\"vlan_error\" class=\"error_message\">Invalid VLAN number. VLAN must be
+        a value between 1 and 4094, or \"none\" for trunk ports<br></div>\n                        <div
+        id=\"stkportcount_error\" class=\"error_message\">Invalid Stackport configuration.
+        No more than 2 stackports are supported<br></div>\n                        <table
+        class=\"flip-table sortable\">\n                            <thead>\n                                <tr>\n
+        \                                   <th class=\"port\" scope=\"col\">Port</th>\n
+        \                                   <th class=\"port_name\" scope=\"col\">Port&nbsp;Name</th>\n
+        \                                   <th class=\"port_availability\" scope=\"col\">Enabled</th>\n
+        \                                   <th class=\"stacking_enabled\" scope=\"col\">Stacking</th>\n
+        \                                   <th class=\"port_schedule\" scope=\"col\">Port&nbsp;Schedule</th>\n
+        \                                   <th class=\"access_policy\" scope=\"col\">Access&nbsp;Policy</th>\n
+        \                                   <th class=\"native_vlan\" scope=\"col\">Native&nbsp;VLAN</th>\n
+        \                                   <th class=\"allowed_vlans\" scope=\"col\">Allowed&nbsp;VLANs</th>\n
+        \                                   <th class=\"link_negotiation\" scope=\"col\">Link&nbsp;Negotiation</th>\n
+        \                               </tr>\n                            </thead>\n
+        \                           <tbody></tbody>\n                        </table>\n
+        \                       <br>\n                            <div  class=\"save_button
+        button button_configure\">\n                                <span>Save</span>\n
+        \                           </div>\n                            <span id='or_cancel'
+        class=\"changed_setting_swports_adjust\" style='display:none;'> or <a href=\"#swports_adjust\"
+        onclick=\"cancel_link()\">cancel</a></span>\n                            <span
+        class=\"save_config_text\" style=\"display:none;\"></span>\n                        </form>\n
+        \                   </section>\n                </li>\n\n                <li>\n
+        \                 <section id=\"error-401\">\n                    <h1>Incorrect
+        password</h1>\n                    <h2>You've entered incorrect login credentials.
+        The default login is the serial number (e.g. Qxxx-xxxx-xxxx), with no password.
+        The serial number is on the bottom or back of the device.</h2>\n                    <label></label>\n
+        \                   <div id=\"try_config_again\" class=\"button button_configure\">\n
+        \                     <span>Try again</span>\n                    </div>\n
+        \                 </section>\n                </li>\n\n            </ul>\n
+        \       </div>\n        <footer>\n            <div class=\"container\">\n
+        \               &copy; Cisco Systems, Inc.\n            </div>\n        </footer>\n
+        \       </div>\n\n        <script src=\"third_party/jquery/jquery-1.10.1.min.js\"></script>\n
+        \       <script src=\"my.min.js\"></script>\n        <script src=\"third_party/spin/spin.min.js\"
+        type=\"text/javascript\"></script>\n        <script src=\"third_party/bootstrap-sortable/bootstrap-sortable.js\"
+        type=\"text/javascript\"></script>\n        <script type=\"text/javascript\">\n
+        \           Mkilocal = window.Mkilocal || {};\n            Mkilocal.page_name
+        = \"/\";\n            Mkilocal.bootstrap = true;\n            Mkilocal.active_subtab
+        = \"nav-index\";\n            jQuery(index_js.init);\n            $(document).ready(function()
+        {\n                $('.save_button').click(function() {\n                    $('.save_config_text').hide();\n
+        \                   var form = $(this).parents('form:first');\n                    var
+        form_data = $(form).serialize();\n                    var url = form.attr('action')
+        ? form.attr('action') : '/set_new_config.cgi';\n                    $('.editable').removeClass('changed_setting_swports_adjust');\n
+        \                   $.ajax({type: 'post',\n                            data:
+        form_data,\n                            url: url,\n                            success:
+        function(data) {\n                                var message = \"&nbsp;&nbsp;&nbsp;\";\n
+        \                               if (!data.error_msg) {\n                                    $('#or_cancel').css('display',
+        'none');\n                                    message += \"Configure changes
+        saved\";\n                                }\n                                else
+        {\n                                    message += \"<font color='red'>\";\n
+        \                                   message += data.error_msg;\n                                    message
+        += \"</font>\";\n                                }\n                                $('.save_config_text').html(message);\n
+        \                               $('.save_config_text').fadeIn();\n                                setTimeout(function()
+        {\n                                    $('.save_config_text').fadeOut();\n
+        \                               }, 8000);\n                            }\n
+        \                         });\n                    });\n            });\n\n
+        \           $('.direct_ip_assignment_select').on('change', function() {\n
+        \               $(this).parents('section').find('.static_settings').toggle($(this).val()
+        != \"dhcp\");\n            });\n            $('.direct_ip6_assignment_select').on('change',
+        function() {\n                $(this).parents('section').find('.static6_settings').toggle($(this).val()
+        != \"auto\");\n            });\n        </script>\n        <script type=\"text/javascript\">\n
+        \           function cancel_link(){\n                $('.save_config_text').hide();\n
+        \               jQuery(swports_adjust_js.init);\n            }\n        </script>\n
+        \   </body>\n</html>\n"}
     headers:
       Accept-Ranges: [bytes]
-      Content-Length: ['350']
+      Cache-Control: ['no-store, no-cache, must-revalidate, post-check=0, pre-check=0']
+      Content-Length: ['46350']
       Content-Type: [text/html]
       Last-Modified: ['Mon, 26 Mar 2018 22:36:41 GMT']
       Server: [lighttpd/1.4.39]
@@ -24,24 +569,7 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: HEAD
-    uri: http://10.1.0.2/static/media/logo-inverse.74ec0f24.png
-  response:
-    body: {string: ''}
-    headers:
-      Accept-Ranges: [none]
-      Connection: [close]
-      Date: ['Thu, 11 Mar 1993 19:33:23 GMT']
-      Server: [cisco-IOS]
-    status: {code: 404, message: Not Found}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
+      User-Agent: [python-requests/2.20.1]
     method: GET
     uri: http://10.1.0.2/
   response:
@@ -49,7 +577,7 @@ interactions:
     headers:
       Accept-Ranges: [none]
       Connection: [close]
-      Date: ['Thu, 11 Mar 1993 19:33:23 GMT']
+      Date: ['Sat, 10 Jul 1993 22:48:14 GMT']
       Server: [cisco-IOS]
       WWW-Authenticate: [Basic realm="level_15_access"]
     status: {code: 401, message: Unauthorized}
@@ -59,21 +587,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: HEAD
-    uri: http://10.1.0.8/static/media/logo-inverse.74ec0f24.png
+      User-Agent: [python-requests/2.20.1]
+    method: GET
+    uri: http://10.1.0.8/
   response:
-    body: {string: ''}
+    body: {string: '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta
+        name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta
+        name="theme-color" content="#000000"><link rel="manifest" href="/manifest.json"><link
+        rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="css/bootstrap.min.css"><link
+        rel="stylesheet" href="css/fontawesome-all.min.css"><link rel="stylesheet"
+        href="google_fonts/font.css"><title>DragonMint</title><link href="/static/css/main.d5bf973c.css"
+        rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run
+        this app.</noscript><div id="root"></div><script src="js/jquery.min.js"></script><script
+        src="js/bootstrap.min.js"></script><script></script><script type="text/javascript"
+        src="/static/js/main.cfed636c.js"></script></body></html>'}
     headers:
       Accept-Ranges: [bytes]
       Cache-Control: [max-age=315360000]
       Connection: [keep-alive]
-      Content-Length: ['11506']
-      Content-Type: [image/png]
-      Date: ['Mon, 18 Jun 2018 18:05:28 GMT']
-      ETag: ['"5abc0f0e-2cf2"']
+      Content-Length: ['811']
+      Content-Type: [text/html]
+      Date: ['Sun, 25 Nov 2018 20:13:31 GMT']
+      ETag: ['"5aee4f16-32b"']
       Expires: ['Thu, 31 Dec 2037 23:55:55 GMT']
-      Last-Modified: ['Wed, 28 Mar 2018 21:54:22 GMT']
+      Last-Modified: ['Sun, 06 May 2018 00:40:54 GMT']
       Server: [nginx/1.12.2]
     status: {code: 200, message: OK}
 - request:
@@ -82,21 +619,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: HEAD
-    uri: http://10.1.0.10/static/media/logo-inverse.74ec0f24.png
+      User-Agent: [python-requests/2.20.1]
+    method: GET
+    uri: http://10.1.0.10/
   response:
-    body: {string: ''}
+    body: {string: '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta
+        name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta
+        name="theme-color" content="#000000"><link rel="manifest" href="/manifest.json"><link
+        rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="css/bootstrap.min.css"><link
+        rel="stylesheet" href="css/fontawesome-all.min.css"><link rel="stylesheet"
+        href="google_fonts/font.css"><title>DragonMint</title><link href="/static/css/main.d5bf973c.css"
+        rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run
+        this app.</noscript><div id="root"></div><script src="js/jquery.min.js"></script><script
+        src="js/bootstrap.min.js"></script><script></script><script type="text/javascript"
+        src="/static/js/main.cfed636c.js"></script></body></html>'}
     headers:
       Accept-Ranges: [bytes]
       Cache-Control: [max-age=315360000]
       Connection: [keep-alive]
-      Content-Length: ['11506']
-      Content-Type: [image/png]
-      Date: ['Mon, 18 Jun 2018 18:05:29 GMT']
-      ETag: ['"5abc0f0e-2cf2"']
+      Content-Length: ['811']
+      Content-Type: [text/html]
+      Date: ['Sun, 25 Nov 2018 20:13:32 GMT']
+      ETag: ['"5aee4f16-32b"']
       Expires: ['Thu, 31 Dec 2037 23:55:55 GMT']
-      Last-Modified: ['Wed, 28 Mar 2018 21:54:22 GMT']
+      Last-Modified: ['Sun, 06 May 2018 00:40:54 GMT']
       Server: [nginx/1.12.2]
     status: {code: 200, message: OK}
 - request:
@@ -107,173 +653,15 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['35']
       Content-Type: [application/x-www-form-urlencoded]
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/auth
-  response:
-    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM0LCJleHAiOjE1MjkzNjY5MzQsInVzZXIiOiJhZG1pbiJ9.ZYPhOMohoAgq7DG4EtjgLd7BZUBJ81kt9r2cHaaJq2c"}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:54 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM0LCJleHAiOjE1MjkzNjY5MzQsInVzZXIiOiJhZG1pbiJ9.ZYPhOMohoAgq7DG4EtjgLd7BZUBJ81kt9r2cHaaJq2c]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/overview
-  response:
-    body: {string: '{"success":true,"type":"T1","hardware":{"status":"18:08:55 up
-        1 day, 17:43,  load average: 0.10, 0.13, 0.09","memUsed":74864,"memFree":175700,"memTotal":250564,"cacheUsed":43028,"cacheFree":196844,"cacheTotal":239872},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.10","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:01:72:dd","build_date":"15th
-        of May 2018 06:08 AM","platform_v":"t1_20180515_060842"}}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:55 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM0LCJleHAiOjE1MjkzNjY5MzQsInVzZXIiOiJhZG1pbiJ9.ZYPhOMohoAgq7DG4EtjgLd7BZUBJ81kt9r2cHaaJq2c]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/pools
-  response:
-    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-450172dd","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd","pass":"x"}]}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:55 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM0LCJleHAiOjE1MjkzNjY5MzQsInVzZXIiOiJhZG1pbiJ9.ZYPhOMohoAgq7DG4EtjgLd7BZUBJ81kt9r2cHaaJq2c]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/getAutoTune
-  response:
-    body: {string: '{"success":true,"autoTuneMode":"balanced"}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:55 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM0LCJleHAiOjE1MjkzNjY5MzQsInVzZXIiOiJhZG1pbiJ9.ZYPhOMohoAgq7DG4EtjgLd7BZUBJ81kt9r2cHaaJq2c]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/summary
-  response:
-    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":76,"MHS
-        av":5402057.35,"MHS 5s":4782324.62,"MHS 1m":5316192.6,"MHS 5m":5426176.39,"MHS
-        15m":5425430.4,"Accepted":9634,"Rejected":82,"Hardware Errors":8259,"Utility":4.25,"Last
-        Share Pool":0,"Last Share Time":1529345308,"Total MH":735591258197,"Diff1
-        Work":171268269,"Difficulty Accepted":168085992,"Difficulty Rejected":1453810,"Last
-        Share Difficulty":17026,"Last Valid Work":1529345335,"Device Hardware%":0.0048,"Device
-        Rejected%":0.8488,"Device Elapsed":136169,"Hash Rate":5425430.4},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":70,"MHS
-        av":5436410.68,"MHS 5s":5636376.24,"MHS 1m":5148223.5,"MHS 5m":5220949.12,"MHS
-        15m":5300422.43,"Accepted":9688,"Rejected":79,"Hardware Errors":3762,"Utility":4.27,"Last
-        Share Pool":0,"Last Share Time":1529345319,"Total MH":740269108962,"Diff1
-        Work":172357287,"Difficulty Accepted":169284911,"Difficulty Rejected":1366314,"Last
-        Share Difficulty":17026,"Last Valid Work":1529345335,"Device Hardware%":0.0022,"Device
-        Rejected%":0.7927,"Device Elapsed":136169,"Hash Rate":5300422.43},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":72,"MHS
-        av":5391213.87,"MHS 5s":6307555.08,"MHS 1m":5383573.43,"MHS 5m":5409673.33,"MHS
-        15m":5385391.97,"Accepted":9107,"Rejected":68,"Hardware Errors":1148470,"Utility":4.01,"Last
-        Share Pool":0,"Last Share Time":1529345322,"Total MH":734114718292,"Diff1
-        Work":170924613,"Difficulty Accepted":159083831,"Difficulty Rejected":1193607,"Last
-        Share Difficulty":17026,"Last Valid Work":1529345335,"Device Hardware%":0.6674,"Device
-        Rejected%":0.6983,"Device Elapsed":136169,"Hash Rate":5385391.97}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
-        Poll":"N","Getworks":4914,"Accepted":28429,"Rejected":229,"Works":3020186,"Discarded":77617,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-450172dd","Last
-        Share Time":1529345322,"Diff1 Shares":514550169,"Proxy Type":"","Proxy":"","Difficulty
-        Accepted":496454734,"Difficulty Rejected":4013731,"Difficulty Stale":0,"Last
-        Share Difficulty":17026,"Work Difficulty":17026,"Has Stratum":true,"Stratum
-        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":17026,"Has
-        Vmask":true,"Has GBT":false,"Best Share":12063374227,"Pool Rejected%":0.802,"Pool
-        Stale%":0,"Bad Work":253,"Current Block Height":528090,"Current Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
-        Poll":"N","Getworks":0,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd","Last
-        Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
-        Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
-        Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
-        Vmask":true,"Has GBT":false,"Best Share":0,"Pool Rejected%":0,"Pool Stale%":0,"Bad
-        Work":0,"Current Block Height":0,"Current Block Version":536870912}],"HARDWARE":{"Fan
-        duty":100},"tuning":false,"hashrates":[]}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:55 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM0LCJleHAiOjE1MjkzNjY5MzQsInVzZXIiOiJhZG1pbiJ9.ZYPhOMohoAgq7DG4EtjgLd7BZUBJ81kt9r2cHaaJq2c]
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
-    method: POST
-    uri: http://10.1.0.10/api/getLatestFirmwareVersion
-  response:
-    body: {string: '{"success":true,"version":"t1_20180515_060842","versionDate":"15th
-        of May 2018 06:08 AM","url":"https:\/\/download.halongmining.com\/files\/t1\/t1_20180515_060842.swu","info":"important","currentVersion":"t1_20180515_060842","currentVersionDate":"15th
-        of May 2018 06:08 AM","isUpdated":true}'}
-    headers:
-      Connection: [keep-alive]
-      Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:57 GMT']
-      Server: [nginx/1.12.2]
-      X-Powered-By: [PHP/7.2.4]
-    status: {code: 200, message: OK}
-- request:
-    body: username=admin&password=dragonadmin
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Length: ['35']
-      Content-Type: [application/x-www-form-urlencoded]
-      User-Agent: [python-requests/2.18.4]
+      User-Agent: [python-requests/2.20.1]
     method: POST
     uri: http://10.1.0.8/api/auth
   response:
-    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM3LCJleHAiOjE1MjkzNjY5MzcsInVzZXIiOiJhZG1pbiJ9.kRJVS2Sfl6Kz96oaCI1h_RIOPD2IOjxEopuEgNirh4Y"}'}
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE0LCJleHAiOjE1NDMxOTg0MTQsInVzZXIiOiJhZG1pbiJ9.YewmjbRNbWs_F3UCJOlD83nWuC0OelN7fIxf3pvd8Yg"}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:57 GMT']
+      Date: ['Sun, 25 Nov 2018 20:13:34 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -282,20 +670,20 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM3LCJleHAiOjE1MjkzNjY5MzcsInVzZXIiOiJhZG1pbiJ9.kRJVS2Sfl6Kz96oaCI1h_RIOPD2IOjxEopuEgNirh4Y]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE0LCJleHAiOjE1NDMxOTg0MTQsInVzZXIiOiJhZG1pbiJ9.YewmjbRNbWs_F3UCJOlD83nWuC0OelN7fIxf3pvd8Yg]
       Connection: [keep-alive]
       Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
+      User-Agent: [python-requests/2.20.1]
     method: POST
     uri: http://10.1.0.8/api/overview
   response:
-    body: {string: '{"success":true,"type":"T1","hardware":{"status":"18:08:57 up
-        1 day, 17:44,  load average: 0.20, 0.17, 0.12","memUsed":76588,"memFree":173976,"memTotal":250564,"cacheUsed":43044,"cacheFree":195140,"cacheTotal":238184},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.8","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:00:e3:ab","build_date":"15th
+    body: {string: '{"success":true,"type":"T1","hardware":{"status":"20:13:34 up
+        16 days, 23:51,  load average: 0.14, 0.10, 0.09","memUsed":154508,"memFree":96056,"memTotal":250564,"cacheUsed":43000,"cacheFree":117164,"cacheTotal":160164},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.8","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:00:e3:ab","build_date":"15th
         of May 2018 06:08 AM","platform_v":"t1_20180515_060842"}}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:57 GMT']
+      Date: ['Sun, 25 Nov 2018 20:13:34 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -304,18 +692,18 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM3LCJleHAiOjE1MjkzNjY5MzcsInVzZXIiOiJhZG1pbiJ9.kRJVS2Sfl6Kz96oaCI1h_RIOPD2IOjxEopuEgNirh4Y]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE0LCJleHAiOjE1NDMxOTg0MTQsInVzZXIiOiJhZG1pbiJ9.YewmjbRNbWs_F3UCJOlD83nWuC0OelN7fIxf3pvd8Yg]
       Connection: [keep-alive]
       Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
+      User-Agent: [python-requests/2.20.1]
     method: POST
     uri: http://10.1.0.8/api/pools
   response:
-    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-4500e3ab","pass":"x"},{"url":"stratum+tcp://pool.ckpool.org:3333","user":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab","pass":"x"}]}'}
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-4500e3ab","pass":"x"}]}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:57 GMT']
+      Date: ['Sun, 25 Nov 2018 20:13:35 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -324,10 +712,10 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM3LCJleHAiOjE1MjkzNjY5MzcsInVzZXIiOiJhZG1pbiJ9.kRJVS2Sfl6Kz96oaCI1h_RIOPD2IOjxEopuEgNirh4Y]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE0LCJleHAiOjE1NDMxOTg0MTQsInVzZXIiOiJhZG1pbiJ9.YewmjbRNbWs_F3UCJOlD83nWuC0OelN7fIxf3pvd8Yg]
       Connection: [keep-alive]
       Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
+      User-Agent: [python-requests/2.20.1]
     method: POST
     uri: http://10.1.0.8/api/getAutoTune
   response:
@@ -335,7 +723,7 @@ interactions:
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:57 GMT']
+      Date: ['Sun, 25 Nov 2018 20:13:35 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -344,52 +732,45 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM3LCJleHAiOjE1MjkzNjY5MzcsInVzZXIiOiJhZG1pbiJ9.kRJVS2Sfl6Kz96oaCI1h_RIOPD2IOjxEopuEgNirh4Y]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE0LCJleHAiOjE1NDMxOTg0MTQsInVzZXIiOiJhZG1pbiJ9.YewmjbRNbWs_F3UCJOlD83nWuC0OelN7fIxf3pvd8Yg]
       Connection: [keep-alive]
       Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
+      User-Agent: [python-requests/2.20.1]
     method: POST
     uri: http://10.1.0.8/api/summary
   response:
-    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":73,"MHS
-        av":5373739.32,"MHS 5s":6037513.5,"MHS 1m":5483047.4,"MHS 5m":5302680.15,"MHS
-        15m":5313204.87,"Accepted":9264,"Rejected":24,"Hardware Errors":5108,"Utility":4.1,"Last
-        Share Pool":0,"Last Share Time":1529345337,"Total MH":728724906829,"Diff1
-        Work":169669572,"Difficulty Accepted":169754634,"Difficulty Rejected":438408,"Last
-        Share Difficulty":16749,"Last Valid Work":1529345337,"Device Hardware%":0.003,"Device
-        Rejected%":0.2584,"Device Elapsed":135609,"Hash Rate":5313204.87},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
-        av":5408696.24,"MHS 5s":4281259.78,"MHS 1m":5057620.42,"MHS 5m":5253006.7,"MHS
-        15m":5349824.83,"Accepted":9237,"Rejected":21,"Hardware Errors":6559,"Utility":4.09,"Last
-        Share Pool":0,"Last Share Time":1529345326,"Total MH":733465365002,"Diff1
-        Work":170773296,"Difficulty Accepted":169049141,"Difficulty Rejected":396773,"Last
-        Share Difficulty":16749,"Last Valid Work":1529345337,"Device Hardware%":0.0038,"Device
-        Rejected%":0.2323,"Device Elapsed":135609,"Hash Rate":5349824.83},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":73,"MHS
-        av":5401256.25,"MHS 5s":5419205.6,"MHS 1m":5373155.23,"MHS 5m":5313017.02,"MHS
-        15m":5358530.02,"Accepted":9159,"Rejected":23,"Hardware Errors":8291,"Utility":4.05,"Last
-        Share Pool":0,"Last Share Time":1529345298,"Total MH":732456440181,"Diff1
-        Work":170538903,"Difficulty Accepted":167710139,"Difficulty Rejected":414343,"Last
-        Share Difficulty":16749,"Last Valid Work":1529345337,"Device Hardware%":0.0049,"Device
-        Rejected%":0.243,"Device Elapsed":135609,"Hash Rate":5358530.02}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
-        Poll":"N","Getworks":4892,"Accepted":27660,"Rejected":68,"Works":3000911,"Discarded":77367,"Stale":0,"Get
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":72,"MHS
+        av":5330907.12,"MHS 5s":5331176.99,"MHS 1m":5472328.36,"MHS 5m":5422689.65,"MHS
+        15m":5185216.79,"Accepted":391,"Rejected":0,"Hardware Errors":127,"Utility":7.79,"Last
+        Share Pool":0,"Last Share Time":1543176799,"Total MH":16060262032,"Diff1 Work":3739323,"Difficulty
+        Accepted":3961528,"Difficulty Rejected":0,"Last Share Difficulty":10498,"Last
+        Valid Work":1543176814,"Device Hardware%":0.0034,"Device Rejected%":0,"Device
+        Elapsed":3013,"Hash Rate":5422689.65},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5563181.65,"MHS 5s":5553471.88,"MHS 1m":5345228.46,"MHS 5m":5522480.9,"MHS
+        15m":5343093.64,"Accepted":372,"Rejected":1,"Hardware Errors":316,"Utility":7.41,"Last
+        Share Pool":0,"Last Share Time":1543176812,"Total MH":16760028374,"Diff1 Work":3902379,"Difficulty
+        Accepted":3791580,"Difficulty Rejected":10498,"Last Share Difficulty":10498,"Last
+        Valid Work":1543176815,"Device Hardware%":0.0081,"Device Rejected%":0.269,"Device
+        Elapsed":3013,"Hash Rate":5522480.9},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5394906.81,"MHS 5s":5659724.08,"MHS 1m":5501818.26,"MHS 5m":5438217.1,"MHS
+        15m":5219566.7,"Accepted":333,"Rejected":1,"Hardware Errors":5245,"Utility":6.63,"Last
+        Share Pool":0,"Last Share Time":1543176815,"Total MH":16253071765,"Diff1 Work":3784215,"Difficulty
+        Accepted":3375240,"Difficulty Rejected":10498,"Last Share Difficulty":10498,"Last
+        Valid Work":1543176815,"Device Hardware%":0.1384,"Device Rejected%":0.2774,"Device
+        Elapsed":3013,"Hash Rate":5438217.1}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":108,"Accepted":1096,"Rejected":2,"Works":66636,"Discarded":1709,"Stale":0,"Get
         Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
-        Share Time":1529345337,"Diff1 Shares":510981771,"Proxy Type":"","Proxy":"","Difficulty
-        Accepted":506513914,"Difficulty Rejected":1249524,"Difficulty Stale":0,"Last
-        Share Difficulty":16749,"Work Difficulty":16749,"Has Stratum":true,"Stratum
-        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":16749,"Has
-        Vmask":true,"Has GBT":false,"Best Share":1053283515,"Pool Rejected%":0.2461,"Pool
-        Stale%":0,"Bad Work":251,"Current Block Height":528090,"Current Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
-        Poll":"N","Getworks":0,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab","Last
-        Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
-        Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
-        Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
-        Vmask":true,"Has GBT":false,"Best Share":0,"Pool Rejected%":0,"Pool Stale%":0,"Bad
-        Work":0,"Current Block Height":0,"Current Block Version":536870912}],"HARDWARE":{"Fan
-        duty":68},"tuning":false,"hashrates":[]}'}
+        Share Time":1543176815,"Diff1 Shares":11425917,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":11128348,"Difficulty Rejected":20996,"Difficulty Stale":0,"Last
+        Share Difficulty":10498,"Work Difficulty":10498,"Has Stratum":true,"Stratum
+        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":10498,"Has
+        Vmask":true,"Has GBT":false,"Best Share":12718824,"Pool Rejected%":0.1883,"Pool
+        Stale%":0,"Bad Work":4,"Current Block Height":551491,"Current Block Version":536870912}],"HARDWARE":{"Fan
+        duty":75},"tuning":false,"hashrates":[]}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:58 GMT']
+      Date: ['Sun, 25 Nov 2018 20:13:35 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -398,10 +779,57 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM3LCJleHAiOjE1MjkzNjY5MzcsInVzZXIiOiJhZG1pbiJ9.kRJVS2Sfl6Kz96oaCI1h_RIOPD2IOjxEopuEgNirh4Y]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE0LCJleHAiOjE1NDMxOTg0MTQsInVzZXIiOiJhZG1pbiJ9.YewmjbRNbWs_F3UCJOlD83nWuC0OelN7fIxf3pvd8Yg]
       Connection: [keep-alive]
       Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.8/api/summary
+  response:
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":72,"MHS
+        av":5330667.12,"MHS 5s":5183954.01,"MHS 1m":5457595.88,"MHS 5m":5419796.99,"MHS
+        15m":5184374.41,"Accepted":391,"Rejected":0,"Hardware Errors":127,"Utility":7.79,"Last
+        Share Pool":0,"Last Share Time":1543176799,"Total MH":16061924183,"Diff1 Work":3739839,"Difficulty
+        Accepted":3961528,"Difficulty Rejected":0,"Last Share Difficulty":10498,"Last
+        Valid Work":1543176815,"Device Hardware%":0.0034,"Device Rejected%":0,"Device
+        Elapsed":3013,"Hash Rate":5419796.99},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5562907.27,"MHS 5s":5243414.25,"MHS 1m":5319072.17,"MHS 5m":5516856.3,"MHS
+        15m":5341337.59,"Accepted":372,"Rejected":1,"Hardware Errors":316,"Utility":7.41,"Last
+        Share Pool":0,"Last Share Time":1543176812,"Total MH":16761690524,"Diff1 Work":3902637,"Difficulty
+        Accepted":3791580,"Difficulty Rejected":10498,"Last Share Difficulty":10498,"Last
+        Valid Work":1543176815,"Device Hardware%":0.0081,"Device Rejected%":0.269,"Device
+        Elapsed":3013,"Hash Rate":5516856.3},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
+        av":5394841.07,"MHS 5s":5648525.39,"MHS 1m":5501558.53,"MHS 5m":5438245.99,"MHS
+        15m":5219674.65,"Accepted":333,"Rejected":1,"Hardware Errors":5245,"Utility":6.63,"Last
+        Share Pool":0,"Last Share Time":1543176815,"Total MH":16255287967,"Diff1 Work":3784731,"Difficulty
+        Accepted":3375240,"Difficulty Rejected":10498,"Last Share Difficulty":10498,"Last
+        Valid Work":1543176815,"Device Hardware%":0.1384,"Device Rejected%":0.2774,"Device
+        Elapsed":3013,"Hash Rate":5438245.99}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":108,"Accepted":1096,"Rejected":2,"Works":66646,"Discarded":1709,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
+        Share Time":1543176815,"Diff1 Shares":11427207,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":11128348,"Difficulty Rejected":20996,"Difficulty Stale":0,"Last
+        Share Difficulty":10498,"Work Difficulty":10498,"Has Stratum":true,"Stratum
+        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":10498,"Has
+        Vmask":true,"Has GBT":false,"Best Share":12718824,"Pool Rejected%":0.1883,"Pool
+        Stale%":0,"Bad Work":4,"Current Block Height":551491,"Current Block Version":536870912}],"HARDWARE":{"Fan
+        duty":75},"tuning":false,"hashrates":[]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:13:35 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE0LCJleHAiOjE1NDMxOTg0MTQsInVzZXIiOiJhZG1pbiJ9.YewmjbRNbWs_F3UCJOlD83nWuC0OelN7fIxf3pvd8Yg]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
     method: POST
     uri: http://10.1.0.8/api/getLatestFirmwareVersion
   response:
@@ -411,61 +839,27 @@ interactions:
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:08:59 GMT']
+      Date: ['Sun, 25 Nov 2018 20:13:37 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
 - request:
-    body: null
+    body: username=admin&password=dragonadmin
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM3LCJleHAiOjE1MjkzNjY5MzcsInVzZXIiOiJhZG1pbiJ9.kRJVS2Sfl6Kz96oaCI1h_RIOPD2IOjxEopuEgNirh4Y]
       Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
+      Content-Length: ['35']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.20.1]
     method: POST
-    uri: http://10.1.0.8/api/summary
+    uri: http://10.1.0.10/api/auth
   response:
-    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":73,"MHS
-        av":5373814.94,"MHS 5s":5392246.06,"MHS 1m":5540189.05,"MHS 5m":5343722.99,"MHS
-        15m":5327179.78,"Accepted":9266,"Rejected":24,"Hardware Errors":5111,"Utility":4.1,"Last
-        Share Pool":0,"Last Share Time":1529345375,"Total MH":728967026904,"Diff1
-        Work":169725945,"Difficulty Accepted":169788132,"Difficulty Rejected":438408,"Last
-        Share Difficulty":16749,"Last Valid Work":1529345380,"Device Hardware%":0.003,"Device
-        Rejected%":0.2583,"Device Elapsed":135652,"Hash Rate":5327179.78},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":75,"MHS
-        av":5408638.21,"MHS 5s":5754561.76,"MHS 1m":5165952.38,"MHS 5m":5250695.21,"MHS
-        15m":5344281.72,"Accepted":9242,"Rejected":21,"Hardware Errors":6561,"Utility":4.09,"Last
-        Share Pool":0,"Last Share Time":1529345376,"Total MH":733690863561,"Diff1
-        Work":170825670,"Difficulty Accepted":169132886,"Difficulty Rejected":396773,"Last
-        Share Difficulty":16749,"Last Valid Work":1529345380,"Device Hardware%":0.0038,"Device
-        Rejected%":0.2323,"Device Elapsed":135652,"Hash Rate":5344281.72},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":73,"MHS
-        av":5401343.54,"MHS 5s":5904906.64,"MHS 1m":5558719,"MHS 5m":5361949.7,"MHS
-        15m":5373032,"Accepted":9163,"Rejected":23,"Hardware Errors":8291,"Utility":4.05,"Last
-        Share Pool":0,"Last Share Time":1529345372,"Total MH":732701330511,"Diff1
-        Work":170595534,"Difficulty Accepted":167777135,"Difficulty Rejected":414343,"Last
-        Share Difficulty":16749,"Last Valid Work":1529345380,"Device Hardware%":0.0049,"Device
-        Rejected%":0.2429,"Device Elapsed":135652,"Hash Rate":5373032}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
-        Poll":"N","Getworks":4894,"Accepted":27671,"Rejected":68,"Works":3001851,"Discarded":77393,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-4500e3ab","Last
-        Share Time":1529345376,"Diff1 Shares":511147149,"Proxy Type":"","Proxy":"","Difficulty
-        Accepted":506698153,"Difficulty Rejected":1249524,"Difficulty Stale":0,"Last
-        Share Difficulty":16749,"Work Difficulty":16749,"Has Stratum":true,"Stratum
-        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":16749,"Has
-        Vmask":true,"Has GBT":false,"Best Share":1053283515,"Pool Rejected%":0.246,"Pool
-        Stale%":0,"Bad Work":251,"Current Block Height":528090,"Current Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
-        Poll":"N","Getworks":0,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-4500e3ab","Last
-        Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
-        Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
-        Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
-        Vmask":true,"Has GBT":false,"Best Share":0,"Pool Rejected%":0,"Pool Stale%":0,"Bad
-        Work":0,"Current Block Height":0,"Current Block Version":536870912}],"HARDWARE":{"Fan
-        duty":68},"tuning":false,"hashrates":[]}'}
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE3LCJleHAiOjE1NDMxOTg0MTcsInVzZXIiOiJhZG1pbiJ9.4yQxgyxfo-vhyEO2YdkdV5eaD7nMnNZZWWj0L-uq6jg"}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:09:41 GMT']
+      Date: ['Sun, 25 Nov 2018 20:13:37 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
@@ -474,52 +868,176 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTI5MzQ1MzM0LCJleHAiOjE1MjkzNjY5MzQsInVzZXIiOiJhZG1pbiJ9.ZYPhOMohoAgq7DG4EtjgLd7BZUBJ81kt9r2cHaaJq2c]
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE3LCJleHAiOjE1NDMxOTg0MTcsInVzZXIiOiJhZG1pbiJ9.4yQxgyxfo-vhyEO2YdkdV5eaD7nMnNZZWWj0L-uq6jg]
       Connection: [keep-alive]
       Content-Length: ['0']
-      User-Agent: [python-requests/2.18.4]
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.10/api/overview
+  response:
+    body: {string: '{"success":true,"type":"T1","hardware":{"status":"20:13:37 up
+        16 days, 23:52,  load average: 0.06, 0.09, 0.13","memUsed":154640,"memFree":95924,"memTotal":250564,"cacheUsed":43040,"cacheFree":117076,"cacheTotal":160116},"network":{"dhcp":"dhcp","ipaddress":"10.1.0.10","netmask":"255.255.252.0","gateway":"10.1.0.1","dns1":"10.1.0.1","dns2":""},"version":{"hwver":"g19","ethaddr":"a0:b0:45:01:72:dd","build_date":"15th
+        of May 2018 06:08 AM","platform_v":"t1_20180515_060842"}}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:13:37 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE3LCJleHAiOjE1NDMxOTg0MTcsInVzZXIiOiJhZG1pbiJ9.4yQxgyxfo-vhyEO2YdkdV5eaD7nMnNZZWWj0L-uq6jg]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.10/api/pools
+  response:
+    body: {string: '{"success":true,"pools":[{"url":"stratum+tcp://us-east.stratum.slushpool.com:3333","user":"brndnmtthws.dragon-450172dd","pass":"x"}]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:13:37 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE3LCJleHAiOjE1NDMxOTg0MTcsInVzZXIiOiJhZG1pbiJ9.4yQxgyxfo-vhyEO2YdkdV5eaD7nMnNZZWWj0L-uq6jg]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.10/api/getAutoTune
+  response:
+    body: {string: '{"success":true,"autoTuneMode":"balanced"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:13:37 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE3LCJleHAiOjE1NDMxOTg0MTcsInVzZXIiOiJhZG1pbiJ9.4yQxgyxfo-vhyEO2YdkdV5eaD7nMnNZZWWj0L-uq6jg]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
     method: POST
     uri: http://10.1.0.10/api/summary
   response:
-    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":76,"MHS
-        av":5402040.69,"MHS 5s":5896103.6,"MHS 1m":5405503.05,"MHS 5m":5420321.28,"MHS
-        15m":5422552.14,"Accepted":9638,"Rejected":82,"Hardware Errors":8264,"Utility":4.25,"Last
-        Share Pool":0,"Last Share Time":1529345366,"Total MH":735837256614,"Diff1
-        Work":171325545,"Difficulty Accepted":168154096,"Difficulty Rejected":1453810,"Last
-        Share Difficulty":17026,"Last Valid Work":1529345381,"Device Hardware%":0.0048,"Device
-        Rejected%":0.8486,"Device Elapsed":136215,"Hash Rate":5422552.14},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":70,"MHS
-        av":5436333.63,"MHS 5s":5387577.29,"MHS 1m":5190202.5,"MHS 5m":5220432.66,"MHS
-        15m":5296216.08,"Accepted":9690,"Rejected":79,"Hardware Errors":3764,"Utility":4.27,"Last
-        Share Pool":0,"Last Share Time":1529345362,"Total MH":740508458777,"Diff1
-        Work":172413015,"Difficulty Accepted":169318963,"Difficulty Rejected":1366314,"Last
-        Share Difficulty":17026,"Last Valid Work":1529345381,"Device Hardware%":0.0022,"Device
-        Rejected%":0.7925,"Device Elapsed":136215,"Hash Rate":5296216.08},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":72,"MHS
-        av":5391204.95,"MHS 5s":5187530.26,"MHS 1m":5374412.49,"MHS 5m":5401808.07,"MHS
-        15m":5383730.95,"Accepted":9111,"Rejected":68,"Hardware Errors":1148877,"Utility":4.01,"Last
-        Share Pool":0,"Last Share Time":1529345378,"Total MH":734361270772,"Diff1
-        Work":170981760,"Difficulty Accepted":159151935,"Difficulty Rejected":1193607,"Last
-        Share Difficulty":17026,"Last Valid Work":1529345381,"Device Hardware%":0.6674,"Device
-        Rejected%":0.6981,"Device Elapsed":136215,"Hash Rate":5383730.95}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
-        Poll":"N","Getworks":4916,"Accepted":28439,"Rejected":229,"Works":3021196,"Discarded":77644,"Stale":0,"Get
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":78,"MHS
+        av":5208892.15,"MHS 5s":5591681.78,"MHS 1m":5309296.75,"MHS 5m":5216330.45,"MHS
+        15m":5028557.3,"Accepted":357,"Rejected":0,"Hardware Errors":25804,"Utility":7.1,"Last
+        Share Pool":0,"Last Share Time":1543176805,"Total MH":15708439924,"Diff1 Work":3657666,"Difficulty
+        Accepted":3681534,"Difficulty Rejected":0,"Last Share Difficulty":11841,"Last
+        Valid Work":1543176817,"Device Hardware%":0.7005,"Device Rejected%":0,"Device
+        Elapsed":3016,"Hash Rate":5216330.45},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":70,"MHS
+        av":5485026.87,"MHS 5s":4736582.29,"MHS 1m":5227526.17,"MHS 5m":5450780.16,"MHS
+        15m":5299020.32,"Accepted":335,"Rejected":5,"Hardware Errors":48,"Utility":6.67,"Last
+        Share Pool":0,"Last Share Time":1543176797,"Total MH":16541178150,"Diff1 Work":3851295,"Difficulty
+        Accepted":3549892,"Difficulty Rejected":59205,"Last Share Difficulty":11841,"Last
+        Valid Work":1543176817,"Device Hardware%":0.0012,"Device Rejected%":1.5373,"Device
+        Elapsed":3016,"Hash Rate":5450780.16},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":70,"MHS
+        av":5365791.18,"MHS 5s":5934283.28,"MHS 1m":5418157.77,"MHS 5m":5282986.22,"MHS
+        15m":5136811.34,"Accepted":363,"Rejected":3,"Hardware Errors":635,"Utility":7.22,"Last
+        Share Pool":0,"Last Share Time":1543176817,"Total MH":16181599299,"Diff1 Work":3767703,"Difficulty
+        Accepted":3766787,"Difficulty Rejected":35523,"Last Share Difficulty":11841,"Last
+        Valid Work":1543176817,"Device Hardware%":0.0169,"Device Rejected%":0.9428,"Device
+        Elapsed":3016,"Hash Rate":5282986.22}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":108,"Accepted":1055,"Rejected":8,"Works":65960,"Discarded":1715,"Stale":0,"Get
         Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-450172dd","Last
-        Share Time":1529345378,"Diff1 Shares":514720320,"Proxy Type":"","Proxy":"","Difficulty
-        Accepted":496624994,"Difficulty Rejected":4013731,"Difficulty Stale":0,"Last
-        Share Difficulty":17026,"Work Difficulty":17026,"Has Stratum":true,"Stratum
-        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":17026,"Has
-        Vmask":true,"Has GBT":false,"Best Share":12063374227,"Pool Rejected%":0.8017,"Pool
-        Stale%":0,"Bad Work":253,"Current Block Height":528090,"Current Block Version":536870912},{"POOL":1,"URL":"stratum+tcp:\/\/pool.ckpool.org:3333","Status":"Alive","Priority":1,"Quota":1,"Long
-        Poll":"N","Getworks":0,"Accepted":0,"Rejected":0,"Works":0,"Discarded":0,"Stale":0,"Get
-        Failures":0,"Remote Failures":0,"User":"3GWdXx9dfLPvSe7d8UnxjnDnSAJodTTbrt.dragon-450172dd","Last
-        Share Time":0,"Diff1 Shares":0,"Proxy Type":"","Proxy":"","Difficulty Accepted":0,"Difficulty
-        Rejected":0,"Difficulty Stale":0,"Last Share Difficulty":0,"Work Difficulty":0,"Has
-        Stratum":true,"Stratum Active":false,"Stratum URL":"","Stratum Difficulty":0,"Has
-        Vmask":true,"Has GBT":false,"Best Share":0,"Pool Rejected%":0,"Pool Stale%":0,"Bad
-        Work":0,"Current Block Height":0,"Current Block Version":536870912}],"HARDWARE":{"Fan
+        Share Time":1543176817,"Diff1 Shares":11276664,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":10998213,"Difficulty Rejected":94728,"Difficulty Stale":0,"Last
+        Share Difficulty":11841,"Work Difficulty":11841,"Has Stratum":true,"Stratum
+        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":11841,"Has
+        Vmask":true,"Has GBT":false,"Best Share":47095339,"Pool Rejected%":0.8539,"Pool
+        Stale%":0,"Bad Work":4,"Current Block Height":551491,"Current Block Version":536870912}],"HARDWARE":{"Fan
         duty":100},"tuning":false,"hashrates":[]}'}
     headers:
       Connection: [keep-alive]
       Content-Type: [application/json]
-      Date: ['Mon, 18 Jun 2018 18:09:41 GMT']
+      Date: ['Sun, 25 Nov 2018 20:13:38 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE3LCJleHAiOjE1NDMxOTg0MTcsInVzZXIiOiJhZG1pbiJ9.4yQxgyxfo-vhyEO2YdkdV5eaD7nMnNZZWWj0L-uq6jg]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.10/api/summary
+  response:
+    body: {string: '{"success":true,"DEVS":[{"ASC":0,"Name":"DT1","ID":0,"Enabled":"Y","Status":"Alive","Temperature":78,"MHS
+        av":5209762.78,"MHS 5s":6078928.29,"MHS 1m":5355421.59,"MHS 5m":5225742.03,"MHS
+        15m":5031784.1,"Accepted":358,"Rejected":0,"Hardware Errors":25806,"Utility":7.12,"Last
+        Share Pool":0,"Last Share Time":1543176818,"Total MH":15713426380,"Diff1 Work":3658569,"Difficulty
+        Accepted":3693375,"Difficulty Rejected":0,"Last Share Difficulty":11841,"Last
+        Valid Work":1543176818,"Device Hardware%":0.7004,"Device Rejected%":0,"Device
+        Elapsed":3016,"Hash Rate":5225742.03},{"ASC":1,"Name":"DT1","ID":1,"Enabled":"Y","Status":"Alive","Temperature":70,"MHS
+        av":5485121.23,"MHS 5s":4891009.54,"MHS 1m":5237861.85,"MHS 5m":5452550.9,"MHS
+        15m":5299680.19,"Accepted":335,"Rejected":5,"Hardware Errors":48,"Utility":6.66,"Last
+        Share Pool":0,"Last Share Time":1543176797,"Total MH":16543948403,"Diff1 Work":3852069,"Difficulty
+        Accepted":3549892,"Difficulty Rejected":59205,"Last Share Difficulty":11841,"Last
+        Valid Work":1543176818,"Device Hardware%":0.0012,"Device Rejected%":1.537,"Device
+        Elapsed":3016,"Hash Rate":5452550.9},{"ASC":2,"Name":"DT1","ID":2,"Enabled":"Y","Status":"Alive","Temperature":70,"MHS
+        av":5365903.29,"MHS 5s":5998870.38,"MHS 1m":5427004.12,"MHS 5m":5284943.93,"MHS
+        15m":5137531.17,"Accepted":363,"Rejected":3,"Hardware Errors":635,"Utility":7.22,"Last
+        Share Pool":0,"Last Share Time":1543176817,"Total MH":16184369552,"Diff1 Work":3768348,"Difficulty
+        Accepted":3766787,"Difficulty Rejected":35523,"Last Share Difficulty":11841,"Last
+        Valid Work":1543176818,"Device Hardware%":0.0168,"Device Rejected%":0.9427,"Device
+        Elapsed":3016,"Hash Rate":5284943.93}],"POOLS":[{"POOL":0,"URL":"stratum+tcp:\/\/us-east.stratum.slushpool.com:3333","Status":"Alive","Priority":0,"Quota":1,"Long
+        Poll":"N","Getworks":108,"Accepted":1056,"Rejected":8,"Works":65972,"Discarded":1715,"Stale":0,"Get
+        Failures":0,"Remote Failures":0,"User":"brndnmtthws.dragon-450172dd","Last
+        Share Time":1543176818,"Diff1 Shares":11278986,"Proxy Type":"","Proxy":"","Difficulty
+        Accepted":11010054,"Difficulty Rejected":94728,"Difficulty Stale":0,"Last
+        Share Difficulty":11841,"Work Difficulty":11841,"Has Stratum":true,"Stratum
+        Active":true,"Stratum URL":"us-east.stratum.slushpool.com","Stratum Difficulty":11841,"Has
+        Vmask":true,"Has GBT":false,"Best Share":47095339,"Pool Rejected%":0.853,"Pool
+        Stale%":0,"Bad Work":4,"Current Block Height":551491,"Current Block Version":536870912}],"HARDWARE":{"Fan
+        duty":100},"tuning":false,"hashrates":[]}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:13:38 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE3LCJleHAiOjE1NDMxOTg0MTcsInVzZXIiOiJhZG1pbiJ9.4yQxgyxfo-vhyEO2YdkdV5eaD7nMnNZZWWj0L-uq6jg]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.10/api/getLatestFirmwareVersion
+  response:
+    body: {string: '{"success":true,"version":"t1_20180515_060842","versionDate":"15th
+        of May 2018 06:08 AM","url":"https:\/\/download.halongmining.com\/files\/t1\/t1_20180515_060842.swu","info":"important","currentVersion":"t1_20180515_060842","currentVersionDate":"15th
+        of May 2018 06:08 AM","isUpdated":true}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 25 Nov 2018 20:13:40 GMT']
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}

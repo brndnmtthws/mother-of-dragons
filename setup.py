@@ -8,11 +8,12 @@ setuptools.setup(
     version="0.2.0",
     author="Brenden Matthews",
     author_email="brenden@diddyinc.com",
-    description="Python-based management tool for DragonMint T1",
+    description="Python-based management tool for DragonMint and Innosilicon miners",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/brndnmtthws/mother-of-dragons",
     packages=setuptools.find_packages(),
+    include_package_data=True,
     classifiers=(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",
