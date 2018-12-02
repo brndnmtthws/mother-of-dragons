@@ -2,6 +2,7 @@
 
 import os
 import shutil
+import gevent
 from urllib.parse import urlparse
 import requests
 from tempfile import NamedTemporaryFile
@@ -15,19 +16,21 @@ class Firmware:
         self.firmwares_path = firmwares_path
         if not os.path.exists(self.firmwares_path):
             os.makedirs(self.firmwares_path)
-        self.firmwares_to_fetch = set()
+        self.firmwares_being_fetched = set()
 
     def get_firmware_path(self, url):
         parsed_url = urlparse(url)
         filename = os.path.basename(parsed_url.path)
+        while filename in self.firmwares_being_fetched:
+            # wait forever
+            gevent.sleep(1)
         if filename in self.firmwares:
             return self.firmwares[filename]
-        elif url not in self.firmwares_to_fetch:
-            self.firmwares_to_fetch.add(url)
+        elif filename not in self.firmwares_to_fetch:
+            self.firmwares_being_fetched.add(filename)
             # file doesn't exist locally, fetch it
             result = self._fetch_firmware(url, filename)
-            if result:
-                self.firmwares_to_fetch.discard(url)
+            self.firmwares_being_fetched.discard(filename)
             return result
 
     def _fetch_firmware(self, url, filename):
