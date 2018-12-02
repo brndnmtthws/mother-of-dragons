@@ -134,7 +134,7 @@ class Dragon(object):
                                                                self.autotune_mode,
                                                                self.autotune_level))
                     self.dragon.setAutoTune(
-                        {'autotune': self.autotune_mode, 'level': self.autotune_level})
+                        self.autotune_mode, self.autotune_level)
                     self.statsd.incr('worker.{}.{}.action.autotuneChanged'
                                      .format(self.type, self.worker))
                     return True
