@@ -127,7 +127,7 @@ class Dragon(object):
         autotune = self.dragon.getAutoTune()
         if 'autoTuneMode' in autotune:
             if 'mode' in autotune['autoTuneMode'] and 'level' in autotune['autoTuneMode']:
-                if autotune['autoTuneMode']['mode'] != self.autotune_mode or autotune['autoTuneMode']['level'] != str(self.autotune_level):
+                if autotune['autoTuneMode']['mode'] != self.autotune_mode:
                     print('Changing autotune setting for worker={} '
                           'from {} to mode={} level={}'.format(self.worker,
                                                                autotune['autoTuneMode'],
