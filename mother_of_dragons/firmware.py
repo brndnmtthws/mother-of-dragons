@@ -3,6 +3,8 @@
 import os
 import shutil
 import gevent
+import datetime
+import time
 from urllib.parse import urlparse
 import requests
 from tempfile import NamedTemporaryFile
@@ -37,6 +39,7 @@ class Firmware:
 
     def _fetch_firmware(self, url, filename):
         print('Fetching firmware from {}'.format(url))
+        started_at = time.time()
         r = requests.get(url, stream=True)
         r.raise_for_status()
         with NamedTemporaryFile() as f:
@@ -44,6 +47,10 @@ class Firmware:
                 f.write(chunk)
             f.flush()
             os.sync()
+            print('Finished fetching firmware from {}, took {}'.format(
+                url,
+                str(datetime.timedelta(seconds=time.time() - started_at))
+            ))
             path = os.path.join(self.firmwares_path, filename)
             shutil.copyfile(f.name, path)
             print('Saved filename={} firmware to path={}'.format(filename,
