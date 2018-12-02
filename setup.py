@@ -20,7 +20,7 @@ test_requires = [
 
 setuptools.setup(
     name="mother-of-dragons",
-    version="0.2.6",
+    version="0.2.7",
     author="Brenden Matthews",
     author_email="brenden@diddyinc.com",
     description="Python-based management tool for DragonMint and Innosilicon miners",
