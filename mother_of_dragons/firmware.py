@@ -15,15 +15,20 @@ class Firmware:
         self.firmwares_path = firmwares_path
         if not os.path.exists(self.firmwares_path):
             os.makedirs(self.firmwares_path)
+        self.firmwares_to_fetch = set()
 
     def get_firmware_path(self, url):
         parsed_url = urlparse(url)
         filename = os.path.basename(parsed_url.path)
         if filename in self.firmwares:
             return self.firmwares[filename]
-        else:
+        elif url not in self.firmwares_to_fetch:
+            self.firmwares_to_fetch.add(url)
             # file doesn't exist locally, fetch it
-            return self._fetch_firmware(url, filename)
+            result = self._fetch_firmware(url, filename)
+            if result:
+                self.firmwares_to_fetch.discard(url)
+            return result
 
     def _fetch_firmware(self, url, filename):
         r = requests.get(url, stream=True)
