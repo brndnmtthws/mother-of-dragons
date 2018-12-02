@@ -26,11 +26,13 @@ class Firmware:
             gevent.sleep(1)
         if filename in self.firmwares:
             return self.firmwares[filename]
-        elif filename not in self.firmwares_to_fetch:
+        else:
             self.firmwares_being_fetched.add(filename)
             # file doesn't exist locally, fetch it
-            result = self._fetch_firmware(url, filename)
-            self.firmwares_being_fetched.discard(filename)
+            try:
+                result = self._fetch_firmware(url, filename)
+            finally:
+                self.firmwares_being_fetched.discard(filename)
             return result
 
     def _fetch_firmware(self, url, filename):
