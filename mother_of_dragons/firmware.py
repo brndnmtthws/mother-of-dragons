@@ -36,6 +36,7 @@ class Firmware:
             return result
 
     def _fetch_firmware(self, url, filename):
+        print('Fetching firmware from {}'.format(url))
         r = requests.get(url, stream=True)
         r.raise_for_status()
         with NamedTemporaryFile() as f:
