@@ -7,7 +7,7 @@ requires = [
     'gevent>=1.3.7',
     'requests>=2.20.1',
     'statsd>=3.2.2',
-    'dragon-rest>=0.2.2',
+    'dragon-rest>=0.2.3',
     'serpy>=0.3.1',
     'toml>=0.10.0',
 ]
