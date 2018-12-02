@@ -1041,4 +1041,128 @@ interactions:
       Server: [nginx/1.12.2]
       X-Powered-By: [PHP/7.2.4]
     status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE3LCJleHAiOjE1NDMxOTg0MTcsInVzZXIiOiJhZG1pbiJ9.4yQxgyxfo-vhyEO2YdkdV5eaD7nMnNZZWWj0L-uq6jg]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.10/api/getLatestFirmwareVersion
+  response:
+    body: {string: '{"success":false,"token":"expired"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 02 Dec 2018 17:16:14 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: username=admin&password=dragonadmin
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['35']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.10/api/auth
+  response:
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzNzcwOTc0LCJleHAiOjE1NDM3OTI1NzQsInVzZXIiOiJhZG1pbiJ9.Cjpo2tl6FnROfVlM-Uid5b7l9dPNCWPcJocRNW9Ko1U"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 02 Dec 2018 17:16:14 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzNzcwOTc0LCJleHAiOjE1NDM3OTI1NzQsInVzZXIiOiJhZG1pbiJ9.Cjpo2tl6FnROfVlM-Uid5b7l9dPNCWPcJocRNW9Ko1U]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.10/api/getLatestFirmwareVersion
+  response:
+    body: {string: '{"success":true,"version":"t1_20180515_060842","versionDate":"15th
+        of May 2018 06:08 AM","url":"https:\/\/download.halongmining.com\/files\/t1\/t1_20180515_060842.swu","info":"important","currentVersion":"t1_20180515_060842","currentVersionDate":"15th
+        of May 2018 06:08 AM","isUpdated":true}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 02 Dec 2018 17:16:16 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzMTc2ODE0LCJleHAiOjE1NDMxOTg0MTQsInVzZXIiOiJhZG1pbiJ9.YewmjbRNbWs_F3UCJOlD83nWuC0OelN7fIxf3pvd8Yg]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.8/api/getLatestFirmwareVersion
+  response:
+    body: {string: '{"success":false,"token":"expired"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 02 Dec 2018 17:16:16 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: username=admin&password=dragonadmin
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['35']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.8/api/auth
+  response:
+    body: {string: '{"success":true,"jwt":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzNzcwOTc2LCJleHAiOjE1NDM3OTI1NzYsInVzZXIiOiJhZG1pbiJ9.cRjDX5pTmWNMqbZVbnl5qwrSTpHkDP7Z2Vkfkt9tMPQ"}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 02 Dec 2018 17:16:16 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEcmFnb25NaW50IiwiaWF0IjoxNTQzNzcwOTc2LCJleHAiOjE1NDM3OTI1NzYsInVzZXIiOiJhZG1pbiJ9.cRjDX5pTmWNMqbZVbnl5qwrSTpHkDP7Z2Vkfkt9tMPQ]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.20.1]
+    method: POST
+    uri: http://10.1.0.8/api/getLatestFirmwareVersion
+  response:
+    body: {string: '{"success":true,"version":"t1_20180515_060842","versionDate":"15th
+        of May 2018 06:08 AM","url":"https:\/\/download.halongmining.com\/files\/t1\/t1_20180515_060842.swu","info":"important","currentVersion":"t1_20180515_060842","currentVersionDate":"15th
+        of May 2018 06:08 AM","isUpdated":true}'}
+    headers:
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Sun, 02 Dec 2018 17:16:17 GMT']
+      Server: [nginx/1.12.2]
+      X-Powered-By: [PHP/7.2.4]
+    status: {code: 200, message: OK}
 version: 1

@@ -87,12 +87,13 @@ class Mother:
                             self.config['main']['credentials'],
                             self.config['configs'],
                             self.statsd)
-            if not dragon.check_and_update_pools():
-                if not dragon.check_and_update_autotune():
-                    self.dragons[host] = dragon
-                    self.fetch_stats_for_dragon(host)
-                    self.check_health_of_dragon(host)
-                    self.check_firmware_version(host)
+            if not dragon.check_and_update_firmware(self.firmware):
+                if not dragon.check_and_update_pools():
+                    if not dragon.check_and_update_autotune():
+                        self.dragons[host] = dragon
+                        self.fetch_stats_for_dragon(host)
+                        self.check_health_of_dragon(host)
+                        self.check_firmware_version(host)
             self._update_inventory()
         except Exception as e:
             self.statsd.incr('manager.dragons.exception')
