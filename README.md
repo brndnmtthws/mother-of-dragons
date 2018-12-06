@@ -111,9 +111,14 @@ Group=users
 WantedBy=multi-user.target
 ```
 
+## Sample Dashboard
+
+One of the significant value-adds of this tool is the StatsD integration. It
+allows you to forward metrics to Prometheus/Grafana, DataDog, or another
+time series metrics and dashboarding tool.
+
+![Sample Grafana Dashboard](sample-grafana.png)
+
 ## Tip Jar
 
-You won't, but just in case:
-
 - BTC: 3EEAE1oKEMnmHGU5Qxibv9mBQyNnes8j8N
-- LTC: 3MxmLzTf4sPsFBGYUnX9MMMbTMeaUSox46
