@@ -57,9 +57,17 @@ When you run mother-of-dragons, it will start 3 separate closed loops:
     `health_hashrate_minimum` for at least
     `health_hashrate_duration`.
 
+The tool itself can be run on a low-cost server, such as a Raspberry Pi or
+Intel NUC. If you intend to set up a Prometheus/Grafana dashboard for
+metrics, it's probably worthwhile to use a more powerful machine such as an
+Intel NUC with adequate storage.
+
+It's recommended you use a mainline Linux distro, such as Debian, Ubuntu or
+CentOS.
+
 ## Super Quickstart
 
-```
+```ShellSession
 $ pip install mother-of-dragons
 $ mother-of-dragons --print-config-toml > config.toml
 ### Edit config.toml to your liking ###
