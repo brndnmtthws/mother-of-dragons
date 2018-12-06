@@ -13,7 +13,8 @@ DragonMint/Innosilicon T1/T2/B29/B52/A9 management tool based on
 
 **Mother of Dragons** can:
 
-- Auto-detect new dragons on your local network and configure them
+- Auto-detect new dragons on your local network and configure them:
+  just plug in your miners and they're ready to go!
 - Scale easily to 1000s of miners using the [gevent](http://www.gevent.org/)
   library
 - Collect metrics from dragons and forward them to statsd
