@@ -74,6 +74,13 @@ $ mother-of-dragons --print-config-toml > config.toml
 $ mother-of-dragons --config=config.toml
 ```
 
+Alternatively, using Docker:
+
+```ShellSession
+$ docker run -it mother-of-dragons --print-config-toml
+...
+```
+
 ## Configuration
 
 See the [default config.toml](mother_of_dragons/config.toml) for details on
