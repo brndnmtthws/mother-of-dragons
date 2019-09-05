@@ -134,6 +134,8 @@ time series metrics and dashboarding tool.
 
 ![Sample Grafana Dashboard](sample-grafana.png)
 
-## Tip Jar
+## Support
 
-- BTC: 3EEAE1oKEMnmHGU5Qxibv9mBQyNnes8j8N
+[![Contact Brenden 😎 on Umpyre](https://api.umpyre.com/badge/634c76f3513240a4bec1eda7fb5db7ea/badge.svg?width=211.275&height=68.04&name=Brenden%20%F0%9F%98%8E&font_size=18&style=light)](https://umpyre.com/u/634c76f3513240a4bec1eda7fb5db7ea)
+
+_Want to offer support? Add yourself above._
